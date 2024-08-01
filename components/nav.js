@@ -197,10 +197,10 @@ function NavLinks() {
   );
 }
 
-function Nav() {
+function Nav({}) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
-    <nav className="shadow-sm dark:shadow-purple-80 bg-white dark:bg-purple-90 relative z-40 sticky top-0">
+    <nav className={"shadow-sm dark:shadow-purple-80 bg-white dark:bg-purple-90 relative z-40 top-0 sticky"}>
       <div className="container mx-auto h-14 px-4 py-2 flex items-center text-sm text-gray-60 dark:text-gray-30">
         <Link href="/">
           <Image
