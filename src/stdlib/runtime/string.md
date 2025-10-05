@@ -14,23 +14,23 @@ No other changes yet.
 </details>
 
 ```grain
-concat : (str1: String, str2: String) => String
+concat: (str1: String, str2: String) => String
 ```
 
 Concatenate two strings.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`str1`|`String`|The beginning string|
-|`str2`|`String`|The ending string|
+| param  | type     | description          |
+| ------ | -------- | -------------------- |
+| `str1` | `String` | The beginning string |
+| `str2` | `String` | The ending string    |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`String`|The combined string|
+| type     | description         |
+| -------- | ------------------- |
+| `String` | The combined string |
 
 Examples:
 
@@ -46,7 +46,7 @@ No other changes yet.
 </details>
 
 ```grain
-toString : (value: a) => String
+toString: (value: a) => String
 ```
 
 Converts the given operand to a string.
@@ -54,15 +54,15 @@ Provides a better representation of data types if those types are provided from 
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`a`|The operand|
+| param   | type | description |
+| ------- | ---- | ----------- |
+| `value` | `a`  | The operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`String`|The operand, as a string|
+| type     | description              |
+| -------- | ------------------------ |
+| `String` | The operand, as a string |
 
 ### String.**print**
 
@@ -79,7 +79,7 @@ Returns:
 </details>
 
 ```grain
-print : (value: a, ?suffix: String) => Void
+print: (value: a, ?suffix: String) => Void
 ```
 
 Prints the given operand to the console. Works for any type. Internally, calls `toString`
@@ -88,14 +88,8 @@ are provided from the module.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`a`|The operand|
-|`?suffix`|`String`|The string to print after the argument|
-
-### String.**getCodePoint**
-
-```grain
-getCodePoint : (ptr: WasmI32) => WasmI32
-```
+| param     | type     | description                            |
+| --------- | -------- | -------------------------------------- |
+| `value`   | `a`      | The operand                            |
+| `?suffix` | `String` | The string to print after the argument |
 

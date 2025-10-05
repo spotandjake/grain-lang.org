@@ -33,22 +33,22 @@ No other changes yet.
 </details>
 
 ```grain
-fromNumber : (number: Number) => Int64
+fromNumber: (number: Number) => Int64
 ```
 
 Converts a Number to an Int64.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`number`|`Number`|The value to convert|
+| param    | type     | description          |
+| -------- | -------- | -------------------- |
+| `number` | `Number` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The Number represented as an Int64|
+| type    | description                        |
+| ------- | ---------------------------------- |
+| `Int64` | The Number represented as an Int64 |
 
 ### Int64.**toNumber**
 
@@ -58,22 +58,22 @@ No other changes yet.
 </details>
 
 ```grain
-toNumber : (value: Int64) => Number
+toNumber: (value: Int64) => Number
 ```
 
 Converts an Int64 to a Number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int64`|The value to convert|
+| param   | type    | description          |
+| ------- | ------- | -------------------- |
+| `value` | `Int64` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The Int64 represented as a Number|
+| type     | description                       |
+| -------- | --------------------------------- |
+| `Number` | The Int64 represented as a Number |
 
 ### Int64.**fromUint64**
 
@@ -83,27 +83,62 @@ No other changes yet.
 </details>
 
 ```grain
-fromUint64 : (number: Uint64) => Int64
+fromUint64: (number: Uint64) => Int64
 ```
 
 Converts a Uint64 to an Int64.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`number`|`Uint64`|The value to convert|
+| param    | type     | description          |
+| -------- | -------- | -------------------- |
+| `number` | `Uint64` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The Uint64 represented as an Int64|
+| type    | description                        |
+| ------- | ---------------------------------- |
+| `Int64` | The Uint64 represented as an Int64 |
 
 Examples:
 
 ```grain
 Int64.fromUint64(1uL) == 1L
+```
+
+### Int64.**reinterpretFloat64**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+reinterpretFloat64: (value: Float64) => Int64
+```
+
+Interprets a Float64 as an Int64.
+
+Parameters:
+
+| param   | type      | description          |
+| ------- | --------- | -------------------- |
+| `value` | `Float64` | The value to convert |
+
+Returns:
+
+| type    | description                         |
+| ------- | ----------------------------------- |
+| `Int64` | The Float64 interpreted as an Int64 |
+
+Examples:
+
+```grain
+assert Int64.reinterpretFloat64(1.0d) == 4607182418800017408L
+```
+
+```grain
+assert Int64.reinterpretFloat64(-1.0d) == -4616189618054758400L
 ```
 
 ### Int64.**incr**
@@ -114,22 +149,22 @@ No other changes yet.
 </details>
 
 ```grain
-incr : (value: Int64) => Int64
+incr: (value: Int64) => Int64
 ```
 
 Increments the value by one.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int64`|The value to increment|
+| param   | type    | description            |
+| ------- | ------- | ---------------------- |
+| `value` | `Int64` | The value to increment |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The incremented value|
+| type    | description           |
+| ------- | --------------------- |
+| `Int64` | The incremented value |
 
 Examples:
 
@@ -149,22 +184,22 @@ No other changes yet.
 </details>
 
 ```grain
-decr : (value: Int64) => Int64
+decr: (value: Int64) => Int64
 ```
 
 Decrements the value by one.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int64`|The value to decrement|
+| param   | type    | description            |
+| ------- | ------- | ---------------------- |
+| `value` | `Int64` | The value to decrement |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The decremented value|
+| type    | description           |
+| ------- | --------------------- |
+| `Int64` | The decremented value |
 
 Examples:
 
@@ -191,23 +226,23 @@ Int64.decr(0L) == -1L
 </details>
 
 ```grain
-(+) : (x: Int64, y: Int64) => Int64
+(+): (x: Int64, y: Int64) => Int64
 ```
 
 Computes the sum of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first operand|
-|`y`|`Int64`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int64` | The first operand  |
+| `y`   | `Int64` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The sum of the two operands|
+| type    | description                 |
+| ------- | --------------------------- |
+| `Int64` | The sum of the two operands |
 
 Examples:
 
@@ -231,23 +266,23 @@ assert 1L + 1L == 2L
 </details>
 
 ```grain
-(-) : (x: Int64, y: Int64) => Int64
+(-): (x: Int64, y: Int64) => Int64
 ```
 
 Computes the difference of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first operand|
-|`y`|`Int64`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int64` | The first operand  |
+| `y`   | `Int64` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The difference of the two operands|
+| type    | description                        |
+| ------- | ---------------------------------- |
+| `Int64` | The difference of the two operands |
 
 Examples:
 
@@ -271,23 +306,23 @@ assert 2L - 1L == 1L
 </details>
 
 ```grain
-(*) : (x: Int64, y: Int64) => Int64
+(*): (x: Int64, y: Int64) => Int64
 ```
 
 Computes the product of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first operand|
-|`y`|`Int64`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int64` | The first operand  |
+| `y`   | `Int64` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The product of the two operands|
+| type    | description                     |
+| ------- | ------------------------------- |
+| `Int64` | The product of the two operands |
 
 Examples:
 
@@ -311,23 +346,23 @@ assert 2L * 2L == 4L
 </details>
 
 ```grain
-(/) : (x: Int64, y: Int64) => Int64
+(/): (x: Int64, y: Int64) => Int64
 ```
 
 Computes the quotient of its operands using signed division.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first operand|
-|`y`|`Int64`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int64` | The first operand  |
+| `y`   | `Int64` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The quotient of its operands|
+| type    | description                  |
+| ------- | ---------------------------- |
+| `Int64` | The quotient of its operands |
 
 Examples:
 
@@ -344,23 +379,23 @@ No other changes yet.
 </details>
 
 ```grain
-rem : (x: Int64, y: Int64) => Int64
+rem: (x: Int64, y: Int64) => Int64
 ```
 
 Computes the remainder of the division of its operands using signed division.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first operand|
-|`y`|`Int64`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int64` | The first operand  |
+| `y`   | `Int64` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The remainder of its operands|
+| type    | description                   |
+| ------- | ----------------------------- |
+| `Int64` | The remainder of its operands |
 
 Examples:
 
@@ -383,7 +418,7 @@ Int64.rem(8L, 3L) == 2L
 </details>
 
 ```grain
-(%) : (x: Int64, y: Int64) => Int64
+(%): (x: Int64, y: Int64) => Int64
 ```
 
 Computes the remainder of the division of the first operand by the second.
@@ -391,16 +426,16 @@ The result will have the sign of the second operand.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first operand|
-|`y`|`Int64`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int64` | The first operand  |
+| `y`   | `Int64` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The modulus of its operands|
+| type    | description                 |
+| ------- | --------------------------- |
+| `Int64` | The modulus of its operands |
 
 Throws:
 
@@ -423,23 +458,23 @@ No other changes yet.
 </details>
 
 ```grain
-rotl : (value: Int64, amount: Int64) => Int64
+rotl: (value: Int64, amount: Int64) => Int64
 ```
 
 Rotates the bits of the value left by the given number of bits.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int64`|The value to rotate|
-|`amount`|`Int64`|The number of bits to rotate by|
+| param    | type    | description                     |
+| -------- | ------- | ------------------------------- |
+| `value`  | `Int64` | The value to rotate             |
+| `amount` | `Int64` | The number of bits to rotate by |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The rotated value|
+| type    | description       |
+| ------- | ----------------- |
+| `Int64` | The rotated value |
 
 Examples:
 
@@ -459,23 +494,23 @@ No other changes yet.
 </details>
 
 ```grain
-rotr : (value: Int64, amount: Int64) => Int64
+rotr: (value: Int64, amount: Int64) => Int64
 ```
 
 Rotates the bits of the value right by the given number of bits.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int64`|The value to rotate|
-|`amount`|`Int64`|The number of bits to rotate by|
+| param    | type    | description                     |
+| -------- | ------- | ------------------------------- |
+| `value`  | `Int64` | The value to rotate             |
+| `amount` | `Int64` | The number of bits to rotate by |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The rotated value|
+| type    | description       |
+| ------- | ----------------- |
+| `Int64` | The rotated value |
 
 Examples:
 
@@ -502,23 +537,23 @@ Int64.rotr(4L, 2L) == 1L
 </details>
 
 ```grain
-(<<) : (value: Int64, amount: Int64) => Int64
+(<<): (value: Int64, amount: Int64) => Int64
 ```
 
 Shifts the bits of the value left by the given number of bits.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int64`|The value to shift|
-|`amount`|`Int64`|The number of bits to shift by|
+| param    | type    | description                    |
+| -------- | ------- | ------------------------------ |
+| `value`  | `Int64` | The value to shift             |
+| `amount` | `Int64` | The number of bits to shift by |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The shifted value|
+| type    | description       |
+| ------- | ----------------- |
+| `Int64` | The shifted value |
 
 Examples:
 
@@ -542,23 +577,23 @@ assert (5L << 1L) == 10L
 </details>
 
 ```grain
-(>>) : (value: Int64, amount: Int64) => Int64
+(>>): (value: Int64, amount: Int64) => Int64
 ```
 
 Shifts the bits of the value right by the given number of bits, preserving the sign bit.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int64`|The value to shift|
-|`amount`|`Int64`|The amount to shift by|
+| param    | type    | description            |
+| -------- | ------- | ---------------------- |
+| `value`  | `Int64` | The value to shift     |
+| `amount` | `Int64` | The amount to shift by |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The shifted value|
+| type    | description       |
+| ------- | ----------------- |
+| `Int64` | The shifted value |
 
 Examples:
 
@@ -582,23 +617,23 @@ assert (5L >> 1L) == 2L
 </details>
 
 ```grain
-(==) : (x: Int64, y: Int64) => Bool
+(==): (x: Int64, y: Int64) => Bool
 ```
 
 Checks if the first value is equal to the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first value|
-|`y`|`Int64`|The second value|
+| param | type    | description      |
+| ----- | ------- | ---------------- |
+| `x`   | `Int64` | The first value  |
+| `y`   | `Int64` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is equal to the second value or `false` otherwise|
+| type   | description                                                                 |
+| ------ | --------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is equal to the second value or `false` otherwise |
 
 Examples:
 
@@ -622,23 +657,23 @@ assert 1L == 1L
 </details>
 
 ```grain
-(!=) : (x: Int64, y: Int64) => Bool
+(!=): (x: Int64, y: Int64) => Bool
 ```
 
 Checks if the first value is not equal to the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first value|
-|`y`|`Int64`|The second value|
+| param | type    | description      |
+| ----- | ------- | ---------------- |
+| `x`   | `Int64` | The first value  |
+| `y`   | `Int64` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is not equal to the second value or `false` otherwise|
+| type   | description                                                                     |
+| ------ | ------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is not equal to the second value or `false` otherwise |
 
 Examples:
 
@@ -655,22 +690,22 @@ No other changes yet.
 </details>
 
 ```grain
-eqz : (value: Int64) => Bool
+eqz: (value: Int64) => Bool
 ```
 
 Checks if the given value is equal to zero.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int64`|The value to inspect|
+| param   | type    | description          |
+| ------- | ------- | -------------------- |
+| `value` | `Int64` | The value to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is equal to zero or `false` otherwise|
+| type   | description                                                     |
+| ------ | --------------------------------------------------------------- |
+| `Bool` | `true` if the first value is equal to zero or `false` otherwise |
 
 Examples:
 
@@ -697,23 +732,23 @@ Int64.eqz(1L) == false
 </details>
 
 ```grain
-(<) : (x: Int64, y: Int64) => Bool
+(<): (x: Int64, y: Int64) => Bool
 ```
 
 Checks if the first value is less than the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first value|
-|`y`|`Int64`|The second value|
+| param | type    | description      |
+| ----- | ------- | ---------------- |
+| `x`   | `Int64` | The first value  |
+| `y`   | `Int64` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is less than the second value or `false` otherwise|
+| type   | description                                                                  |
+| ------ | ---------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is less than the second value or `false` otherwise |
 
 Examples:
 
@@ -737,23 +772,23 @@ assert 1L < 2L
 </details>
 
 ```grain
-(>) : (x: Int64, y: Int64) => Bool
+(>): (x: Int64, y: Int64) => Bool
 ```
 
 Checks if the first value is greater than the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first value|
-|`y`|`Int64`|The second value|
+| param | type    | description      |
+| ----- | ------- | ---------------- |
+| `x`   | `Int64` | The first value  |
+| `y`   | `Int64` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is greater than the second value or `false` otherwise|
+| type   | description                                                                     |
+| ------ | ------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is greater than the second value or `false` otherwise |
 
 Examples:
 
@@ -777,23 +812,23 @@ assert 2L > 1L
 </details>
 
 ```grain
-(<=) : (x: Int64, y: Int64) => Bool
+(<=): (x: Int64, y: Int64) => Bool
 ```
 
 Checks if the first value is less than or equal to the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first value|
-|`y`|`Int64`|The second value|
+| param | type    | description      |
+| ----- | ------- | ---------------- |
+| `x`   | `Int64` | The first value  |
+| `y`   | `Int64` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is less than or equal to the second value or `false` otherwise|
+| type   | description                                                                              |
+| ------ | ---------------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is less than or equal to the second value or `false` otherwise |
 
 Examples:
 
@@ -822,23 +857,23 @@ assert 1L <= 1L
 </details>
 
 ```grain
-(>=) : (x: Int64, y: Int64) => Bool
+(>=): (x: Int64, y: Int64) => Bool
 ```
 
 Checks if the first value is greater than or equal to the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first value|
-|`y`|`Int64`|The second value|
+| param | type    | description      |
+| ----- | ------- | ---------------- |
+| `x`   | `Int64` | The first value  |
+| `y`   | `Int64` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is greater than or equal to the second value or `false` otherwise|
+| type   | description                                                                                 |
+| ------ | ------------------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is greater than or equal to the second value or `false` otherwise |
 
 Examples:
 
@@ -860,22 +895,22 @@ No other changes yet.
 </details>
 
 ```grain
-lnot : (value: Int64) => Int64
+lnot: (value: Int64) => Int64
 ```
 
 Computes the bitwise NOT of the given value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int64`|The given value|
+| param   | type    | description     |
+| ------- | ------- | --------------- |
+| `value` | `Int64` | The given value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|Containing the inverted bits of the given value|
+| type    | description                                     |
+| ------- | ----------------------------------------------- |
+| `Int64` | Containing the inverted bits of the given value |
 
 Examples:
 
@@ -898,23 +933,23 @@ Int64.lnot(-5L) == 4L
 </details>
 
 ```grain
-(&) : (x: Int64, y: Int64) => Int64
+(&): (x: Int64, y: Int64) => Int64
 ```
 
 Computes the bitwise AND (`&`) on the given operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first operand|
-|`y`|`Int64`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int64` | The first operand  |
+| `y`   | `Int64` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|Containing a `1` in each bit position for which the corresponding bits of both operands are `1`|
+| type    | description                                                                                     |
+| ------- | ----------------------------------------------------------------------------------------------- |
+| `Int64` | Containing a `1` in each bit position for which the corresponding bits of both operands are `1` |
 
 Examples:
 
@@ -938,23 +973,23 @@ assert (3L & 4L) == 0L
 </details>
 
 ```grain
-(|) : (x: Int64, y: Int64) => Int64
+(|): (x: Int64, y: Int64) => Int64
 ```
 
 Computes the bitwise OR (`|`) on the given operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first operand|
-|`y`|`Int64`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int64` | The first operand  |
+| `y`   | `Int64` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|Containing a `1` in each bit position for which the corresponding bits of either or both operands are `1`|
+| type    | description                                                                                               |
+| ------- | --------------------------------------------------------------------------------------------------------- |
+| `Int64` | Containing a `1` in each bit position for which the corresponding bits of either or both operands are `1` |
 
 Examples:
 
@@ -978,23 +1013,23 @@ assert (3L | 4L) == 7L
 </details>
 
 ```grain
-(^) : (x: Int64, y: Int64) => Int64
+(^): (x: Int64, y: Int64) => Int64
 ```
 
 Computes the bitwise XOR (`^`) on the given operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first operand|
-|`y`|`Int64`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int64` | The first operand  |
+| `y`   | `Int64` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|Containing a `1` in each bit position for which the corresponding bits of either but not both operands are `1`|
+| type    | description                                                                                                    |
+| ------- | -------------------------------------------------------------------------------------------------------------- |
+| `Int64` | Containing a `1` in each bit position for which the corresponding bits of either but not both operands are `1` |
 
 Examples:
 
@@ -1011,22 +1046,22 @@ No other changes yet.
 </details>
 
 ```grain
-clz : (value: Int64) => Int64
+clz: (value: Int64) => Int64
 ```
 
 Counts the number of leading zero bits in the value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int64`|The value to inspect|
+| param   | type    | description          |
+| ------- | ------- | -------------------- |
+| `value` | `Int64` | The value to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The amount of leading zeros|
+| type    | description                 |
+| ------- | --------------------------- |
+| `Int64` | The amount of leading zeros |
 
 Examples:
 
@@ -1046,22 +1081,22 @@ No other changes yet.
 </details>
 
 ```grain
-ctz : (value: Int64) => Int64
+ctz: (value: Int64) => Int64
 ```
 
 Counts the number of trailing zero bits in the value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int64`|The value to inspect|
+| param   | type    | description          |
+| ------- | ------- | -------------------- |
+| `value` | `Int64` | The value to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The amount of trailing zeros|
+| type    | description                  |
+| ------- | ---------------------------- |
+| `Int64` | The amount of trailing zeros |
 
 Examples:
 
@@ -1081,22 +1116,22 @@ No other changes yet.
 </details>
 
 ```grain
-popcnt : (value: Int64) => Int64
+popcnt: (value: Int64) => Int64
 ```
 
 Counts the number of bits set to `1` in the value, also known as a population count.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int64`|The value to inspect|
+| param   | type    | description          |
+| ------- | ------- | -------------------- |
+| `value` | `Int64` | The value to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The amount of 1-bits in its operand|
+| type    | description                         |
+| ------- | ----------------------------------- |
+| `Int64` | The amount of 1-bits in its operand |
 
 Examples:
 
@@ -1116,28 +1151,28 @@ No other changes yet.
 </details>
 
 ```grain
-(**) : (base: Int64, power: Int64) => Int64
+(**): (base: Int64, power: Int64) => Int64
 ```
 
 Computes the exponentiation of the given base and power.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`base`|`Int64`|The base number|
-|`power`|`Int64`|The exponent number|
+| param   | type    | description         |
+| ------- | ------- | ------------------- |
+| `base`  | `Int64` | The base number     |
+| `power` | `Int64` | The exponent number |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The base raised to the given power|
+| type    | description                        |
+| ------- | ---------------------------------- |
+| `Int64` | The base raised to the given power |
 
 Examples:
 
 ```grain
-from Int64 use { (**) }
+use Int64.{ (**) }
 assert 2L ** 3L == 8L
 ```
 

@@ -109,23 +109,23 @@ No other changes yet.
 </details>
 
 ```grain
-encode : (str: String, ?encodeSet: EncodeSet) => String
+encode: (str: String, ?encodeSet: EncodeSet) => String
 ```
 
 Percent-encodes characters in a string based on the specified `EncodeSet`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`str`|`String`|The string to encode|
-|`?encodeSet`|`EncodeSet`|An indication for which characters to percent-encode. `EncodeNonUnreserved` by default|
+| param        | type        | description                                                                            |
+| ------------ | ----------- | -------------------------------------------------------------------------------------- |
+| `str`        | `String`    | The string to encode                                                                   |
+| `?encodeSet` | `EncodeSet` | An indication for which characters to percent-encode. `EncodeNonUnreserved` by default |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`String`|A percent-encoding of the given string|
+| type     | description                            |
+| -------- | -------------------------------------- |
+| `String` | A percent-encoding of the given string |
 
 Examples:
 
@@ -149,22 +149,22 @@ No other changes yet.
 </details>
 
 ```grain
-decode : (str: String) => Result<String, DecodingError>
+decode: (str: String) => Result<String, DecodingError>
 ```
 
 Decodes any percent-encoded characters in a string.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`str`|`String`|The string to decode|
+| param | type     | description          |
+| ----- | -------- | -------------------- |
+| `str` | `String` | The string to decode |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<String, DecodingError>`|`Ok(decoded)` containing the decoded string or `Err(err)` if the decoding failed|
+| type                            | description                                                                      |
+| ------------------------------- | -------------------------------------------------------------------------------- |
+| `Result<String, DecodingError>` | `Ok(decoded)` containing the decoded string or `Err(err)` if the decoding failed |
 
 ### Uri.**encodeQuery**
 
@@ -174,7 +174,7 @@ No other changes yet.
 </details>
 
 ```grain
-encodeQuery :
+encodeQuery:
   (urlVals: List<(String, String)>, ?encodeSet: EncodeSet) => String
 ```
 
@@ -182,15 +182,15 @@ Encodes a list of key-value pairs into an query string.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`urlVals`|`List<(String, String)>`|A list of key-value pairs|
+| param     | type                     | description               |
+| --------- | ------------------------ | ------------------------- |
+| `urlVals` | `List<(String, String)>` | A list of key-value pairs |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`String`|A query string|
+| type     | description    |
+| -------- | -------------- |
+| `String` | A query string |
 
 ### Uri.**decodeQuery**
 
@@ -200,22 +200,22 @@ No other changes yet.
 </details>
 
 ```grain
-decodeQuery : (str: String) => Result<List<(String, String)>, DecodingError>
+decodeQuery: (str: String) => Result<List<(String, String)>, DecodingError>
 ```
 
 Decodes a query string into a list of pairs.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`str`|`String`|A query string|
+| param | type     | description    |
+| ----- | -------- | -------------- |
+| `str` | `String` | A query string |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<List<(String, String)>, DecodingError>`|`Ok(decoded)` containing a list of key-value pairs from the decoded string or `Err(err)` if the decoding failed|
+| type                                            | description                                                                                                     |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `Result<List<(String, String)>, DecodingError>` | `Ok(decoded)` containing a list of key-value pairs from the decoded string or `Err(err)` if the decoding failed |
 
 ### Uri.**parse**
 
@@ -225,7 +225,7 @@ No other changes yet.
 </details>
 
 ```grain
-parse : (str: String) => Result<Uri, ParseError>
+parse: (str: String) => Result<Uri, ParseError>
 ```
 
 Parses a string into a `Uri` according to RFC 3986. If the URI string has a
@@ -234,15 +234,15 @@ segments.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`str`|`String`|The RFC 3986 URI string to parse|
+| param | type     | description                      |
+| ----- | -------- | -------------------------------- |
+| `str` | `String` | The RFC 3986 URI string to parse |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<Uri, ParseError>`|`Ok(uri)` containing a `Uri` if the given string is a valid URI or `Err(ParseError)` otherwise|
+| type                      | description                                                                                    |
+| ------------------------- | ---------------------------------------------------------------------------------------------- |
+| `Result<Uri, ParseError>` | `Ok(uri)` containing a `Uri` if the given string is a valid URI or `Err(ParseError)` otherwise |
 
 Examples:
 
@@ -262,24 +262,23 @@ No other changes yet.
 </details>
 
 ```grain
-resolveReference :
-  (base: Uri, ref: Uri) => Result<Uri, ResolveReferenceError>
+resolveReference: (base: Uri, ref: Uri) => Result<Uri, ResolveReferenceError>
 ```
 
 Transforms a base URI and a URI reference into a target URI
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`base`|`Uri`|The base URI to resolve a URI reference on|
-|`ref`|`Uri`|The URI reference to apply onto the base|
+| param  | type  | description                                |
+| ------ | ----- | ------------------------------------------ |
+| `base` | `Uri` | The base URI to resolve a URI reference on |
+| `ref`  | `Uri` | The URI reference to apply onto the base   |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<Uri, ResolveReferenceError>`|`Ok(uri)` containing the target `Uri` or `Err(err)` if the input is malformed|
+| type                                 | description                                                                   |
+| ------------------------------------ | ----------------------------------------------------------------------------- |
+| `Result<Uri, ResolveReferenceError>` | `Ok(uri)` containing the target `Uri` or `Err(err)` if the input is malformed |
 
 Examples:
 
@@ -303,7 +302,7 @@ No other changes yet.
 </details>
 
 ```grain
-make :
+make:
   (?scheme: Option<String>, ?userinfo: Option<String>, ?host: Option<String>,
    ?port: Option<Number>, ?path: String, ?query: Option<String>,
    ?fragment: Option<String>, ?encodeComponents: Bool) =>
@@ -314,16 +313,16 @@ Constructs a new `Uri` from components.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`?scheme`|`Option<String>`|`Some(scheme)` containing the desired scheme component or `None` for a scheme-less URI|
-|`?userinfo`|`Option<String>`|`Some(userinfo)` containing the desired userinfo component or `None` for a userinfo-less URI|
-|`?host`|`Option<String>`|`Some(host)` containing the desired host component or `None` for a host-less URI|
-|`?port`|`Option<Number>`|`Some(port)` containing the desired port component or `None` for a port-less URI|
-|`?path`|`String`|The desired path for the URI. `""` by default|
-|`?query`|`Option<String>`|`Some(query)` containing the desired query string component or `None` for a query-less URI|
-|`?fragment`|`Option<String>`|`Some(fragment)` containing the desired fragment component or `None` for a fragment-less URI|
-|`?encodeComponents`|`Bool`|Whether or not to apply percent encoding for each component to remove unsafe characters for each component|
+| param               | type             | description                                                                                                |
+| ------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| `?scheme`           | `Option<String>` | `Some(scheme)` containing the desired scheme component or `None` for a scheme-less URI                     |
+| `?userinfo`         | `Option<String>` | `Some(userinfo)` containing the desired userinfo component or `None` for a userinfo-less URI               |
+| `?host`             | `Option<String>` | `Some(host)` containing the desired host component or `None` for a host-less URI                           |
+| `?port`             | `Option<Number>` | `Some(port)` containing the desired port component or `None` for a port-less URI                           |
+| `?path`             | `String`         | The desired path for the URI. `""` by default                                                              |
+| `?query`            | `Option<String>` | `Some(query)` containing the desired query string component or `None` for a query-less URI                 |
+| `?fragment`         | `Option<String>` | `Some(fragment)` containing the desired fragment component or `None` for a fragment-less URI               |
+| `?encodeComponents` | `Bool`           | Whether or not to apply percent encoding for each component to remove unsafe characters for each component |
 
 Examples:
 
@@ -351,7 +350,7 @@ No other changes yet.
 </details>
 
 ```grain
-update :
+update:
   (uri: Uri, ?scheme: Option<Option<String>>,
    ?userinfo: Option<Option<String>>, ?host: Option<Option<String>>,
    ?port: Option<Option<Number>>, ?path: Option<String>,
@@ -366,17 +365,17 @@ used for that component.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`uri`|`Uri`|The `Uri` to update|
-|`?scheme`|`Option<Option<String>>`|`Some(scheme)` containing the desired updated scheme component or `None` to maintain the base URI's scheme|
-|`?userinfo`|`Option<Option<String>>`|`Some(userinfo)` containing the desired updated userinfo component or `None` to maintain the base URI's userinfo|
-|`?host`|`Option<Option<String>>`|`Some(host)` containing the desired updated host component or `None` to maintain the base URI's host|
-|`?port`|`Option<Option<Number>>`|`Some(port)` containing the desired updated port component or `None` to maintain the base URI's port|
-|`?path`|`Option<String>`|`Some(path)` containing the desired updated path component or `None` to maintain the base URI's path|
-|`?query`|`Option<Option<String>>`|`Some(query)` containing the desired updated query string component or `None` to maintain the base URI's query|
-|`?fragment`|`Option<Option<String>>`|`Some(fragment)` containing the desired updated fragment component or `None` to maintain the base URI's fragment|
-|`?encodeComponents`|`Bool`|Whether or not to apply percent encoding for each updated component to remove unsafe characters|
+| param               | type                     | description                                                                                                      |
+| ------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| `uri`               | `Uri`                    | The `Uri` to update                                                                                              |
+| `?scheme`           | `Option<Option<String>>` | `Some(scheme)` containing the desired updated scheme component or `None` to maintain the base URI's scheme       |
+| `?userinfo`         | `Option<Option<String>>` | `Some(userinfo)` containing the desired updated userinfo component or `None` to maintain the base URI's userinfo |
+| `?host`             | `Option<Option<String>>` | `Some(host)` containing the desired updated host component or `None` to maintain the base URI's host             |
+| `?port`             | `Option<Option<Number>>` | `Some(port)` containing the desired updated port component or `None` to maintain the base URI's port             |
+| `?path`             | `Option<String>`         | `Some(path)` containing the desired updated path component or `None` to maintain the base URI's path             |
+| `?query`            | `Option<Option<String>>` | `Some(query)` containing the desired updated query string component or `None` to maintain the base URI's query   |
+| `?fragment`         | `Option<Option<String>>` | `Some(fragment)` containing the desired updated fragment component or `None` to maintain the base URI's fragment |
+| `?encodeComponents` | `Bool`                   | Whether or not to apply percent encoding for each updated component to remove unsafe characters                  |
 
 Examples:
 
@@ -408,22 +407,22 @@ No other changes yet.
 </details>
 
 ```grain
-hasAuthority : (uri: Uri) => Bool
+hasAuthority: (uri: Uri) => Bool
 ```
 
 Determines whether a `Uri` has an authority (i.e. has a host component)
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`uri`|`Uri`|The `Uri` to consider|
+| param | type  | description           |
+| ----- | ----- | --------------------- |
+| `uri` | `Uri` | The `Uri` to consider |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the `Uri` has an authority component or `false` otherwise|
+| type   | description                                                         |
+| ------ | ------------------------------------------------------------------- |
+| `Bool` | `true` if the `Uri` has an authority component or `false` otherwise |
 
 ### Uri.**isAbsolute**
 
@@ -433,22 +432,22 @@ No other changes yet.
 </details>
 
 ```grain
-isAbsolute : (uri: Uri) => Bool
+isAbsolute: (uri: Uri) => Bool
 ```
 
 Determines whether a `Uri` is an absolute URI (has a scheme component)
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`uri`|`Uri`|The `Uri` to consider|
+| param | type  | description           |
+| ----- | ----- | --------------------- |
+| `uri` | `Uri` | The `Uri` to consider |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the `Uri` is absolute (has a scheme component) or `false` otherwise|
+| type   | description                                                                   |
+| ------ | ----------------------------------------------------------------------------- |
+| `Bool` | `true` if the `Uri` is absolute (has a scheme component) or `false` otherwise |
 
 ### Uri.**toString**
 
@@ -458,20 +457,20 @@ No other changes yet.
 </details>
 
 ```grain
-toString : (uri: Uri) => String
+toString: (uri: Uri) => String
 ```
 
 Converts the given `Uri` into a string.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`uri`|`Uri`|The `Uri` to convert|
+| param | type  | description          |
+| ----- | ----- | -------------------- |
+| `uri` | `Uri` | The `Uri` to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`String`|A string representation of the `Uri`|
+| type     | description                          |
+| -------- | ------------------------------------ |
+| `String` | A string representation of the `Uri` |
 

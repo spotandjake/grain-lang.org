@@ -39,22 +39,22 @@ No other changes yet.
 </details>
 
 ```grain
-length : (array: Array<a>) => Number
+length: (array: Array<a>) => Number
 ```
 
 Provides the length of the input array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array`|`Array<a>`|The array to inspect|
+| param   | type       | description          |
+| ------- | ---------- | -------------------- |
+| `array` | `Array<a>` | The array to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The number of elements in the array|
+| type     | description                         |
+| -------- | ----------------------------------- |
+| `Number` | The number of elements in the array |
 
 Examples:
 
@@ -70,7 +70,7 @@ No other changes yet.
 </details>
 
 ```grain
-make : (length: Number, item: a) => Array<a>
+make: (length: Number, item: a) => Array<a>
 ```
 
 Creates a new array of the specified length with each element being
@@ -78,16 +78,16 @@ initialized with the given value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`length`|`Number`|The length of the new array|
-|`item`|`a`|The value to store at each index|
+| param    | type     | description                      |
+| -------- | -------- | -------------------------------- |
+| `length` | `Number` | The length of the new array      |
+| `item`   | `a`      | The value to store at each index |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<a>`|The new array|
+| type       | description   |
+| ---------- | ------------- |
+| `Array<a>` | The new array |
 
 Throws:
 
@@ -110,7 +110,7 @@ No other changes yet.
 </details>
 
 ```grain
-init : (length: Number, fn: (Number => a)) => Array<a>
+init: (length: Number, fn: (Number => a)) => Array<a>
 ```
 
 Creates a new array of the specified length where each element is
@@ -119,16 +119,16 @@ is called with the index of each array element.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`length`|`Number`|The length of the new array|
-|`fn`|`Number => a`|The initializer function to call with each index, where the value returned will be used to initialize the element|
+| param    | type          | description                                                                                                       |
+| -------- | ------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `length` | `Number`      | The length of the new array                                                                                       |
+| `fn`     | `Number => a` | The initializer function to call with each index, where the value returned will be used to initialize the element |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<a>`|The new array|
+| type       | description   |
+| ---------- | ------------- |
+| `Array<a>` | The new array |
 
 Throws:
 
@@ -141,6 +141,53 @@ Examples:
 
 ```grain
 Array.init(5, n => n + 3) == [> 3, 4, 5, 6, 7]
+```
+
+### Array.**tryInit**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+tryInit:
+  (length: Number, fn: (Number => Result<a, b>)) => Result<Array<a>, b>
+```
+
+Creates a new array where each element is initialized with the `Ok`
+result value of an initializer function. The initializer is called with the
+index of each element, and returns the new array if all calls to the
+initializer succeed or the first error otherwise.
+
+Parameters:
+
+| param    | type                     | description                                                                                                             |
+| -------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| `length` | `Number`                 | The length of the new array                                                                                             |
+| `fn`     | `Number => Result<a, b>` | The initializer function to call with each index, where the `Ok` value returned will be used to initialize each element |
+
+Returns:
+
+| type                  | description                                                                                                             |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `Result<Array<a>, b>` | `Ok(array)` if all elements were successfully initialized or `Err(error)` if the initializer function returned an error |
+
+Throws:
+
+`InvalidArgument(String)`
+
+* When `length` is not an integer
+* When `length` is negative
+
+Examples:
+
+```grain
+Array.tryInit(5, n => Ok(n + 3)) == [> 3, 4, 5, 6, 7]
+```
+
+```grain
+Array.tryInit(5, n => if (n == 1) Err("stop") else Ok(n)) == Err("stop")
 ```
 
 ### Array.**get**
@@ -158,7 +205,7 @@ Array.init(5, n => n + 3) == [> 3, 4, 5, 6, 7]
 </details>
 
 ```grain
-get : (index: Number, array: Array<a>) => a
+get: (index: Number, array: Array<a>) => a
 ```
 
 An alias for normal syntactic array access, i.e. `array[n]`.
@@ -168,16 +215,16 @@ A negative index is treated as an offset from the end of the array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`index`|`Number`|The index to access|
-|`array`|`Array<a>`|The array to access|
+| param   | type       | description         |
+| ------- | ---------- | ------------------- |
+| `index` | `Number`   | The index to access |
+| `array` | `Array<a>` | The array to access |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`a`|The element from the array|
+| type | description                |
+| ---- | -------------------------- |
+| `a`  | The element from the array |
 
 Throws:
 
@@ -207,7 +254,7 @@ Array.get(1, [> 1, 2, 3, 4, 5]) == 2
 </details>
 
 ```grain
-set : (index: Number, value: a, array: Array<a>) => Void
+set: (index: Number, value: a, array: Array<a>) => Void
 ```
 
 An alias for normal syntactic array set, i.e. `array[n] = value`.
@@ -217,11 +264,11 @@ A negative index is treated as an offset from the end of the array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`index`|`Number`|The index to update|
-|`value`|`a`|The value to store|
-|`array`|`Array<a>`|The array to update|
+| param   | type       | description         |
+| ------- | ---------- | ------------------- |
+| `index` | `Number`   | The index to update |
+| `value` | `a`        | The value to store  |
+| `array` | `Array<a>` | The array to update |
 
 Throws:
 
@@ -246,7 +293,7 @@ No other changes yet.
 </details>
 
 ```grain
-append : (array1: Array<a>, array2: Array<a>) => Array<a>
+append: (array1: Array<a>, array2: Array<a>) => Array<a>
 ```
 
 Creates a new array with the elements of the first array followed by
@@ -254,16 +301,16 @@ the elements of the second array. This does not modify the arguments.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array1`|`Array<a>`|The array containing elements to appear first|
-|`array2`|`Array<a>`|The array containing elements to appear second|
+| param    | type       | description                                    |
+| -------- | ---------- | ---------------------------------------------- |
+| `array1` | `Array<a>` | The array containing elements to appear first  |
+| `array2` | `Array<a>` | The array containing elements to appear second |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<a>`|The new array containing elements from `array1` followed by elements from `array2`|
+| type       | description                                                                        |
+| ---------- | ---------------------------------------------------------------------------------- |
+| `Array<a>` | The new array containing elements from `array1` followed by elements from `array2` |
 
 Throws:
 
@@ -285,7 +332,7 @@ No other changes yet.
 </details>
 
 ```grain
-concat : (arrays: List<Array<a>>) => Array<a>
+concat: (arrays: List<Array<a>>) => Array<a>
 ```
 
 Creates a single array containing the elements of all arrays in the
@@ -293,15 +340,15 @@ provided list. Does not modify any of the input arguments.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`arrays`|`List<Array<a>>`|A list containing all arrays to combine|
+| param    | type             | description                             |
+| -------- | ---------------- | --------------------------------------- |
+| `arrays` | `List<Array<a>>` | A list containing all arrays to combine |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<a>`|The new array|
+| type       | description   |
+| ---------- | ------------- |
+| `Array<a>` | The new array |
 
 Throws:
 
@@ -323,7 +370,7 @@ No other changes yet.
 </details>
 
 ```grain
-copy : (array: Array<a>) => Array<a>
+copy: (array: Array<a>) => Array<a>
 ```
 
 Produces a shallow copy of the input array. The new array contains the
@@ -331,15 +378,15 @@ same elements as the original.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array`|`Array<a>`|The array to copy|
+| param   | type       | description       |
+| ------- | ---------- | ----------------- |
+| `array` | `Array<a>` | The array to copy |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<a>`|The new array containing the elements from the input|
+| type       | description                                          |
+| ---------- | ---------------------------------------------------- |
+| `Array<a>` | The new array containing the elements from the input |
 
 Examples:
 
@@ -355,18 +402,18 @@ No other changes yet.
 </details>
 
 ```grain
-cycle : (fn: (a => Void), n: Number, array: Array<a>) => Void
+cycle: (fn: (a => Void), n: Number, array: Array<a>) => Void
 ```
 
 Iterates an array a given number of times, calling an iterator function on each element.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Void`|The iterator function to call with each element|
-|`n`|`Number`|The number of times to iterate the given array|
-|`array`|`Array<a>`|The array to iterate|
+| param   | type        | description                                     |
+| ------- | ----------- | ----------------------------------------------- |
+| `fn`    | `a => Void` | The iterator function to call with each element |
+| `n`     | `Number`    | The number of times to iterate the given array  |
+| `array` | `Array<a>`  | The array to iterate                            |
 
 Examples:
 
@@ -391,17 +438,17 @@ assert str == "abcabc"
 </details>
 
 ```grain
-forEach : (fn: (a => Void), array: Array<a>) => Void
+forEach: (fn: (a => Void), array: Array<a>) => Void
 ```
 
 Iterates an array, calling an iterator function on each element.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Void`|The iterator function to call with each element|
-|`array`|`Array<a>`|The array to iterate|
+| param   | type        | description                                     |
+| ------- | ----------- | ----------------------------------------------- |
+| `fn`    | `a => Void` | The iterator function to call with each element |
+| `array` | `Array<a>`  | The array to iterate                            |
 
 Examples:
 
@@ -426,7 +473,7 @@ assert str == "abc"
 </details>
 
 ```grain
-forEachi : (fn: ((a, Number) => Void), array: Array<a>) => Void
+forEachi: (fn: ((a, Number) => Void), array: Array<a>) => Void
 ```
 
 Iterates an array, calling an iterator function on each element.
@@ -434,10 +481,10 @@ Also passes the index as the second argument to the function.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, Number) => Void`|The iterator function to call with each element|
-|`array`|`Array<a>`|The array to iterate|
+| param   | type                  | description                                     |
+| ------- | --------------------- | ----------------------------------------------- |
+| `fn`    | `(a, Number) => Void` | The iterator function to call with each element |
+| `array` | `Array<a>`            | The array to iterate                            |
 
 Examples:
 
@@ -462,7 +509,7 @@ assert str == "a0b1c2"
 </details>
 
 ```grain
-map : (fn: (a => b), array: Array<a>) => Array<b>
+map: (fn: (a => b), array: Array<a>) => Array<b>
 ```
 
 Produces a new array initialized with the results of a mapper function
@@ -470,16 +517,16 @@ called on each element of the input array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => b`|The mapper function to call on each element, where the value returned will be used to initialize the element in the new array|
-|`array`|`Array<a>`|The array to iterate|
+| param   | type       | description                                                                                                                   |
+| ------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `fn`    | `a => b`   | The mapper function to call on each element, where the value returned will be used to initialize the element in the new array |
+| `array` | `Array<a>` | The array to iterate                                                                                                          |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<b>`|The new array with mapped values|
+| type       | description                      |
+| ---------- | -------------------------------- |
+| `Array<b>` | The new array with mapped values |
 
 Examples:
 
@@ -495,7 +542,7 @@ No other changes yet.
 </details>
 
 ```grain
-mapi : (fn: ((a, Number) => b), array: Array<a>) => Array<b>
+mapi: (fn: ((a, Number) => b), array: Array<a>) => Array<b>
 ```
 
 Produces a new array initialized with the results of a mapper function
@@ -503,16 +550,16 @@ called on each element of the input array and its index.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, Number) => b`|The mapper function to call on each element, where the value returned will be used to initialize the element in the new array|
-|`array`|`Array<a>`|The array to iterate|
+| param   | type               | description                                                                                                                   |
+| ------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| `fn`    | `(a, Number) => b` | The mapper function to call on each element, where the value returned will be used to initialize the element in the new array |
+| `array` | `Array<a>`         | The array to iterate                                                                                                          |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<b>`|The new array with mapped values|
+| type       | description                      |
+| ---------- | -------------------------------- |
+| `Array<b>` | The new array with mapped values |
 
 Examples:
 
@@ -528,7 +575,7 @@ No other changes yet.
 </details>
 
 ```grain
-reduce : (fn: ((a, b) => a), initial: a, array: Array<b>) => a
+reduce: (fn: ((a, b) => a), initial: a, array: Array<b>) => a
 ```
 
 Combines all elements of an array using a reducer function,
@@ -541,17 +588,17 @@ returned. The accumulator starts with value `initial`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, b) => a`|The reducer function to call on each element, where the value returned will be the next accumulator value|
-|`initial`|`a`|The initial value to use for the accumulator on the first iteration|
-|`array`|`Array<b>`|The array to iterate|
+| param     | type          | description                                                                                               |
+| --------- | ------------- | --------------------------------------------------------------------------------------------------------- |
+| `fn`      | `(a, b) => a` | The reducer function to call on each element, where the value returned will be the next accumulator value |
+| `initial` | `a`           | The initial value to use for the accumulator on the first iteration                                       |
+| `array`   | `Array<b>`    | The array to iterate                                                                                      |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`a`|The final accumulator returned from `fn`|
+| type | description                              |
+| ---- | ---------------------------------------- |
+| `a`  | The final accumulator returned from `fn` |
 
 Examples:
 
@@ -571,7 +618,7 @@ No other changes yet.
 </details>
 
 ```grain
-reduceRight : (fn: ((a, b) => b), initial: b, array: Array<a>) => b
+reduceRight: (fn: ((a, b) => b), initial: b, array: Array<a>) => b
 ```
 
 Combines all elements of an array using a reducer function,
@@ -584,17 +631,17 @@ returned. The accumulator starts with value `initial`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, b) => b`|The reducer function to call on each element, where the value returned will be the next accumulator value|
-|`initial`|`b`|The initial value to use for the accumulator on the first iteration|
-|`array`|`Array<a>`|The array to iterate|
+| param     | type          | description                                                                                               |
+| --------- | ------------- | --------------------------------------------------------------------------------------------------------- |
+| `fn`      | `(a, b) => b` | The reducer function to call on each element, where the value returned will be the next accumulator value |
+| `initial` | `b`           | The initial value to use for the accumulator on the first iteration                                       |
+| `array`   | `Array<a>`    | The array to iterate                                                                                      |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`b`|The final accumulator returned from `fn`|
+| type | description                              |
+| ---- | ---------------------------------------- |
+| `b`  | The final accumulator returned from `fn` |
 
 Examples:
 
@@ -610,7 +657,7 @@ No other changes yet.
 </details>
 
 ```grain
-reducei : (fn: ((a, b, Number) => a), initial: a, array: Array<b>) => a
+reducei: (fn: ((a, b, Number) => a), initial: a, array: Array<b>) => a
 ```
 
 Combines all elements of an array using a reducer function,
@@ -624,17 +671,17 @@ starts with value `initial`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, b, Number) => a`|The reducer function to call on each element, where the value returned will be the next accumulator value|
-|`initial`|`a`|The initial value to use for the accumulator on the first iteration|
-|`array`|`Array<b>`|The array to iterate|
+| param     | type                  | description                                                                                               |
+| --------- | --------------------- | --------------------------------------------------------------------------------------------------------- |
+| `fn`      | `(a, b, Number) => a` | The reducer function to call on each element, where the value returned will be the next accumulator value |
+| `initial` | `a`                   | The initial value to use for the accumulator on the first iteration                                       |
+| `array`   | `Array<b>`            | The array to iterate                                                                                      |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`a`|The final accumulator returned from `fn`|
+| type | description                              |
+| ---- | ---------------------------------------- |
+| `a`  | The final accumulator returned from `fn` |
 
 Examples:
 
@@ -657,7 +704,7 @@ No other changes yet.
 </details>
 
 ```grain
-flatMap : (fn: (b => Array<a>), array: Array<b>) => Array<a>
+flatMap: (fn: (b => Array<a>), array: Array<b>) => Array<a>
 ```
 
 Produces a new array by calling a function on each element
@@ -667,16 +714,16 @@ of all results.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`b => Array<a>`|The function to be called on each element, where the value returned will be an array that gets appended to the new array|
-|`array`|`Array<b>`|The array to iterate|
+| param   | type            | description                                                                                                              |
+| ------- | --------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `fn`    | `b => Array<a>` | The function to be called on each element, where the value returned will be an array that gets appended to the new array |
+| `array` | `Array<b>`      | The array to iterate                                                                                                     |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<a>`|The new array|
+| type       | description   |
+| ---------- | ------------- |
+| `Array<a>` | The new array |
 
 Throws:
 
@@ -698,7 +745,7 @@ No other changes yet.
 </details>
 
 ```grain
-every : (fn: (a => Bool), array: Array<a>) => Bool
+every: (fn: (a => Bool), array: Array<a>) => Bool
 ```
 
 Checks that the given condition is satisfied for all
@@ -706,16 +753,16 @@ elements in the input array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`array`|`Array<a>`|The array to check|
+| param   | type        | description                                                                                                     |
+| ------- | ----------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`    | `a => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `array` | `Array<a>`  | The array to check                                                                                              |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if all elements satisfy the condition or `false` otherwise|
+| type   | description                                                       |
+| ------ | ----------------------------------------------------------------- |
+| `Bool` | `true` if all elements satisfy the condition or `false` otherwise |
 
 Examples:
 
@@ -735,7 +782,7 @@ No other changes yet.
 </details>
 
 ```grain
-some : (fn: (a => Bool), array: Array<a>) => Bool
+some: (fn: (a => Bool), array: Array<a>) => Bool
 ```
 
 Checks that the given condition is satisfied **at least
@@ -743,16 +790,16 @@ once** by an element in the input array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`array`|`Array<a>`|The array to iterate|
+| param   | type        | description                                                                                                     |
+| ------- | ----------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`    | `a => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `array` | `Array<a>`  | The array to iterate                                                                                            |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if one or more elements satisfy the condition or `false` otherwise|
+| type   | description                                                               |
+| ------ | ------------------------------------------------------------------------- |
+| `Bool` | `true` if one or more elements satisfy the condition or `false` otherwise |
 
 Examples:
 
@@ -776,17 +823,17 @@ No other changes yet.
 </details>
 
 ```grain
-fill : (value: a, array: Array<a>) => Void
+fill: (value: a, array: Array<a>) => Void
 ```
 
 Replaces all elements in an array with the new value provided.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`a`|The value replacing each element|
-|`array`|`Array<a>`|The array to update|
+| param   | type       | description                      |
+| ------- | ---------- | -------------------------------- |
+| `value` | `a`        | The value replacing each element |
+| `array` | `Array<a>` | The array to update              |
 
 Examples:
 
@@ -804,7 +851,7 @@ No other changes yet.
 </details>
 
 ```grain
-fillRange : (value: a, start: Number, stop: Number, array: Array<a>) => Void
+fillRange: (value: a, start: Number, stop: Number, array: Array<a>) => Void
 ```
 
 Replaces all elements in the provided index range in the array
@@ -812,12 +859,12 @@ with the new value provided. Fails if the index is out-of-bounds.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`a`|The value replacing each element between the indexes|
-|`start`|`Number`|The index to begin replacement|
-|`stop`|`Number`|The (exclusive) index to end replacement|
-|`array`|`Array<a>`|The array to update|
+| param   | type       | description                                          |
+| ------- | ---------- | ---------------------------------------------------- |
+| `value` | `a`        | The value replacing each element between the indexes |
+| `start` | `Number`   | The index to begin replacement                       |
+| `stop`  | `Number`   | The (exclusive) index to end replacement             |
+| `array` | `Array<a>` | The array to update                                  |
 
 Throws:
 
@@ -842,22 +889,22 @@ No other changes yet.
 </details>
 
 ```grain
-reverse : (array: Array<a>) => Array<a>
+reverse: (array: Array<a>) => Array<a>
 ```
 
 Creates a new array with all elements in reverse order.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array`|`Array<a>`|The array to reverse|
+| param   | type       | description          |
+| ------- | ---------- | -------------------- |
+| `array` | `Array<a>` | The array to reverse |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<a>`|The new array|
+| type       | description   |
+| ---------- | ------------- |
+| `Array<a>` | The new array |
 
 Examples:
 
@@ -873,22 +920,22 @@ No other changes yet.
 </details>
 
 ```grain
-toList : (array: Array<a>) => List<a>
+toList: (array: Array<a>) => List<a>
 ```
 
 Converts the input array to a list.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array`|`Array<a>`|The array to convert|
+| param   | type       | description          |
+| ------- | ---------- | -------------------- |
+| `array` | `Array<a>` | The array to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|The list containing all elements from the array|
+| type      | description                                     |
+| --------- | ----------------------------------------------- |
+| `List<a>` | The list containing all elements from the array |
 
 Examples:
 
@@ -904,22 +951,22 @@ No other changes yet.
 </details>
 
 ```grain
-fromList : (list: List<a>) => Array<a>
+fromList: (list: List<a>) => Array<a>
 ```
 
 Converts the input list to an array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`list`|`List<a>`|The list to convert|
+| param  | type      | description         |
+| ------ | --------- | ------------------- |
+| `list` | `List<a>` | The list to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<a>`|The array containing all elements from the list|
+| type       | description                                     |
+| ---------- | ----------------------------------------------- |
+| `Array<a>` | The array containing all elements from the list |
 
 Examples:
 
@@ -935,7 +982,7 @@ No other changes yet.
 </details>
 
 ```grain
-contains : (search: a, array: Array<a>) => Bool
+contains: (search: a, array: Array<a>) => Bool
 ```
 
 Checks if the value is an element of the input array.
@@ -943,16 +990,16 @@ Uses the generic `==` structural equality operator.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`search`|`a`|The value to compare|
-|`array`|`Array<a>`|The array to inspect|
+| param    | type       | description          |
+| -------- | ---------- | -------------------- |
+| `search` | `a`        | The value to compare |
+| `array`  | `Array<a>` | The array to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the value exists in the array or `false` otherwise|
+| type   | description                                                  |
+| ------ | ------------------------------------------------------------ |
+| `Bool` | `true` if the value exists in the array or `false` otherwise |
 
 Examples:
 
@@ -972,23 +1019,23 @@ No other changes yet.
 </details>
 
 ```grain
-find : (fn: (a => Bool), array: Array<a>) => Option<a>
+find: (fn: (a => Bool), array: Array<a>) => Option<a>
 ```
 
 Finds the first element in an array that satisfies the given condition.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`array`|`Array<a>`|The array to search|
+| param   | type        | description                                                                                                     |
+| ------- | ----------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`    | `a => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `array` | `Array<a>`  | The array to search                                                                                             |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<a>`|`Some(element)` containing the first value found or `None` otherwise|
+| type        | description                                                          |
+| ----------- | -------------------------------------------------------------------- |
+| `Option<a>` | `Some(element)` containing the first value found or `None` otherwise |
 
 Examples:
 
@@ -1012,23 +1059,23 @@ No other changes yet.
 </details>
 
 ```grain
-findIndex : (fn: (a => Bool), array: Array<a>) => Option<Number>
+findIndex: (fn: (a => Bool), array: Array<a>) => Option<Number>
 ```
 
 Finds the first index in an array where the element satisfies the given condition.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`array`|`Array<a>`|The array to search|
+| param   | type        | description                                                                                                     |
+| ------- | ----------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`    | `a => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `array` | `Array<a>`  | The array to search                                                                                             |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<Number>`|`Some(index)` containing the index of the first element found or `None` otherwise|
+| type             | description                                                                       |
+| ---------------- | --------------------------------------------------------------------------------- |
+| `Option<Number>` | `Some(index)` containing the index of the first element found or `None` otherwise |
 
 Examples:
 
@@ -1052,7 +1099,7 @@ No other changes yet.
 </details>
 
 ```grain
-product : (array1: Array<a>, array2: Array<b>) => Array<(a, b)>
+product: (array1: Array<a>, array2: Array<b>) => Array<(a, b)>
 ```
 
 Combines two arrays into a Cartesian product of tuples containing
@@ -1060,16 +1107,16 @@ all ordered pairs `(a, b)`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array1`|`Array<a>`|The array to provide values for the first tuple element|
-|`array2`|`Array<b>`|The array to provide values for the second tuple element|
+| param    | type       | description                                              |
+| -------- | ---------- | -------------------------------------------------------- |
+| `array1` | `Array<a>` | The array to provide values for the first tuple element  |
+| `array2` | `Array<b>` | The array to provide values for the second tuple element |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<(a, b)>`|The new array containing all pairs of `(a, b)`|
+| type            | description                                    |
+| --------------- | ---------------------------------------------- |
+| `Array<(a, b)>` | The new array containing all pairs of `(a, b)` |
 
 Throws:
 
@@ -1091,23 +1138,23 @@ No other changes yet.
 </details>
 
 ```grain
-count : (fn: (a => Bool), array: Array<a>) => Number
+count: (fn: (a => Bool), array: Array<a>) => Number
 ```
 
 Counts the number of elements in an array that satisfy the given condition.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`array`|`Array<a>`|The array to iterate|
+| param   | type        | description                                                                                                     |
+| ------- | ----------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`    | `a => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `array` | `Array<a>`  | The array to iterate                                                                                            |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The total number of elements that satisfy the condition|
+| type     | description                                             |
+| -------- | ------------------------------------------------------- |
+| `Number` | The total number of elements that satisfy the condition |
 
 Examples:
 
@@ -1123,7 +1170,7 @@ No other changes yet.
 </details>
 
 ```grain
-counti : (fn: ((a, Number) => Bool), array: Array<a>) => Number
+counti: (fn: ((a, Number) => Bool), array: Array<a>) => Number
 ```
 
 Counts the number of elements in an array that satisfy the
@@ -1131,16 +1178,16 @@ given condition. Also passes the index to the function.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, Number) => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`array`|`Array<a>`|The array to iterate|
+| param   | type                  | description                                                                                                     |
+| ------- | --------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`    | `(a, Number) => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `array` | `Array<a>`            | The array to iterate                                                                                            |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The total number of elements that satisfy the condition|
+| type     | description                                             |
+| -------- | ------------------------------------------------------- |
+| `Number` | The total number of elements that satisfy the condition |
 
 Examples:
 
@@ -1160,7 +1207,7 @@ No other changes yet.
 </details>
 
 ```grain
-filter : (fn: (a => Bool), array: Array<a>) => Array<a>
+filter: (fn: (a => Bool), array: Array<a>) => Array<a>
 ```
 
 Produces a new array by calling a function on each element of
@@ -1169,16 +1216,16 @@ the condition.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`array`|`Array<a>`|The array to iterate|
+| param   | type        | description                                                                                                     |
+| ------- | ----------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`    | `a => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `array` | `Array<a>`  | The array to iterate                                                                                            |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<a>`|The new array containing elements where `fn` returned `true`|
+| type       | description                                                  |
+| ---------- | ------------------------------------------------------------ |
+| `Array<a>` | The new array containing elements where `fn` returned `true` |
 
 Examples:
 
@@ -1194,7 +1241,7 @@ No other changes yet.
 </details>
 
 ```grain
-filteri : (fn: ((a, Number) => Bool), array: Array<a>) => Array<a>
+filteri: (fn: ((a, Number) => Bool), array: Array<a>) => Array<a>
 ```
 
 Produces a new array by calling a function on each element of
@@ -1203,16 +1250,16 @@ the condition. Also passes the index to the function.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, Number) => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`array`|`Array<a>`|The array to iterate|
+| param   | type                  | description                                                                                                     |
+| ------- | --------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`    | `(a, Number) => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `array` | `Array<a>`            | The array to iterate                                                                                            |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<a>`|The new array containing elements where `fn` returned `true`|
+| type       | description                                                  |
+| ---------- | ------------------------------------------------------------ |
+| `Array<a>` | The new array containing elements where `fn` returned `true` |
 
 Examples:
 
@@ -1232,7 +1279,7 @@ No other changes yet.
 </details>
 
 ```grain
-unique : (array: Array<a>) => Array<a>
+unique: (array: Array<a>) => Array<a>
 ```
 
 Produces a new array with any duplicates removed.
@@ -1240,15 +1287,15 @@ Uses the generic `==` structural equality operator.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array`|`Array<a>`|The array to filter|
+| param   | type       | description         |
+| ------- | ---------- | ------------------- |
+| `array` | `Array<a>` | The array to filter |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<a>`|The new array with only unique values|
+| type       | description                           |
+| ---------- | ------------------------------------- |
+| `Array<a>` | The new array with only unique values |
 
 Examples:
 
@@ -1271,7 +1318,7 @@ Array.unique([> 1, 2, 1, 2, 3, 1]) == [> 1, 2, 3]
 </details>
 
 ```grain
-zip : (array1: Array<a>, array2: Array<b>) => Array<(a, b)>
+zip: (array1: Array<a>, array2: Array<b>) => Array<(a, b)>
 ```
 
 Produces a new array filled with tuples of elements from both given arrays.
@@ -1280,16 +1327,16 @@ will contain the second item of each array, and so on.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array1`|`Array<a>`|The array to provide values for the first tuple element|
-|`array2`|`Array<b>`|The array to provide values for the second tuple element|
+| param    | type       | description                                              |
+| -------- | ---------- | -------------------------------------------------------- |
+| `array1` | `Array<a>` | The array to provide values for the first tuple element  |
+| `array2` | `Array<b>` | The array to provide values for the second tuple element |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<(a, b)>`|The new array containing indexed pairs of `(a, b)`|
+| type            | description                                        |
+| --------------- | -------------------------------------------------- |
+| `Array<(a, b)>` | The new array containing indexed pairs of `(a, b)` |
 
 Throws:
 
@@ -1311,7 +1358,7 @@ No other changes yet.
 </details>
 
 ```grain
-zipWith : (fn: ((a, b) => c), array1: Array<a>, array2: Array<b>) => Array<c>
+zipWith: (fn: ((a, b) => c), array1: Array<a>, array2: Array<b>) => Array<c>
 ```
 
 Produces a new array filled with elements defined by applying a function on
@@ -1325,17 +1372,17 @@ array to have the length of the smaller array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, b) => c`|The function to apply to pairs of elements|
-|`array1`|`Array<a>`|The array whose elements will each be passed to the function as the first argument|
-|`array2`|`Array<b>`|The array whose elements will each be passed to the function as the second argument|
+| param    | type          | description                                                                         |
+| -------- | ------------- | ----------------------------------------------------------------------------------- |
+| `fn`     | `(a, b) => c` | The function to apply to pairs of elements                                          |
+| `array1` | `Array<a>`    | The array whose elements will each be passed to the function as the first argument  |
+| `array2` | `Array<b>`    | The array whose elements will each be passed to the function as the second argument |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<c>`|The new array containing elements derived from applying the function to pairs of input array elements|
+| type       | description                                                                                           |
+| ---------- | ----------------------------------------------------------------------------------------------------- |
+| `Array<c>` | The new array containing elements derived from applying the function to pairs of input array elements |
 
 Throws:
 
@@ -1361,22 +1408,22 @@ No other changes yet.
 </details>
 
 ```grain
-unzip : (array: Array<(a, b)>) => (Array<a>, Array<b>)
+unzip: (array: Array<(a, b)>) => (Array<a>, Array<b>)
 ```
 
 Produces two arrays by splitting apart an array of tuples.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array`|`Array<(a, b)>`|The array of tuples to split|
+| param   | type            | description                  |
+| ------- | --------------- | ---------------------------- |
+| `array` | `Array<(a, b)>` | The array of tuples to split |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`(Array<a>, Array<b>)`|An array containing all elements from the first tuple element, and an array containing all elements from the second tuple element|
+| type                   | description                                                                                                                       |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `(Array<a>, Array<b>)` | An array containing all elements from the first tuple element, and an array containing all elements from the second tuple element |
 
 Examples:
 
@@ -1392,23 +1439,23 @@ No other changes yet.
 </details>
 
 ```grain
-join : (separator: String, items: Array<String>) => String
+join: (separator: String, items: Array<String>) => String
 ```
 
 Concatenates an array of strings into a single string, separated by a separator string.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`separator`|`String`|The separator to insert between items in the string|
-|`items`|`Array<String>`|The input strings|
+| param       | type            | description                                         |
+| ----------- | --------------- | --------------------------------------------------- |
+| `separator` | `String`        | The separator to insert between items in the string |
+| `items`     | `Array<String>` | The input strings                                   |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`String`|The concatenated string|
+| type     | description             |
+| -------- | ----------------------- |
+| `String` | The concatenated string |
 
 Examples:
 
@@ -1431,7 +1478,7 @@ Array.join(", ", [> "a", "b", "c"]) == "a, b, c"
 </details>
 
 ```grain
-slice : (start: Number, ?end: Number, array: Array<a>) => Array<a>
+slice: (start: Number, ?end: Number, array: Array<a>) => Array<a>
 ```
 
 Slices an array given zero-based start and end indexes. The value
@@ -1442,17 +1489,17 @@ the end of the array. e.g. `slice(1, -1, [> 'a', 'b', 'c']) == [> 'b']`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`start`|`Number`|The index of the array where the slice will begin (inclusive)|
-|`?end`|`Number`|The index of the array where the slice will end (exclusive)|
-|`array`|`Array<a>`|The array to be sliced|
+| param   | type       | description                                                   |
+| ------- | ---------- | ------------------------------------------------------------- |
+| `start` | `Number`   | The index of the array where the slice will begin (inclusive) |
+| `?end`  | `Number`   | The index of the array where the slice will end (exclusive)   |
+| `array` | `Array<a>` | The array to be sliced                                        |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<a>`|The subset of the array that was sliced|
+| type       | description                             |
+| ---------- | --------------------------------------- |
+| `Array<a>` | The subset of the array that was sliced |
 
 Examples:
 
@@ -1479,7 +1526,7 @@ Array.slice(1, [> 1, 2, 3, 4]) == [> 2, 3, 4]
 </details>
 
 ```grain
-sort : (?compare: ((num1: a, num2: a) => Number), array: Array<a>) => Void
+sort: (?compare: ((num1: a, num2: a) => Number), array: Array<a>) => Void
 ```
 
 Sorts an array in-place.
@@ -1488,10 +1535,10 @@ Ordering is calculated using a comparator function which takes two array element
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`?compare`|`(num1: a, num2: a) => Number`|The comparator function used to indicate sort order|
-|`array`|`Array<a>`|The array to be sorted|
+| param      | type                           | description                                         |
+| ---------- | ------------------------------ | --------------------------------------------------- |
+| `?compare` | `(num1: a, num2: a) => Number` | The comparator function used to indicate sort order |
+| `array`    | `Array<a>`                     | The array to be sorted                              |
 
 Examples:
 
@@ -1516,7 +1563,7 @@ assert arr == [> 1, 2, 3, 4]
 </details>
 
 ```grain
-rotate : (n: Number, arr: Array<a>) => Void
+rotate: (n: Number, arr: Array<a>) => Void
 ```
 
 Rotates array elements in place by the specified amount to the left, such
@@ -1527,10 +1574,10 @@ specified amount to the right. See examples.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`n`|`Number`|The number of elements to rotate by|
-|`arr`|`Array<a>`|The array to be rotated|
+| param | type       | description                         |
+| ----- | ---------- | ----------------------------------- |
+| `n`   | `Number`   | The number of elements to rotate by |
+| `arr` | `Array<a>` | The array to be rotated             |
 
 Examples:
 
@@ -1554,7 +1601,7 @@ No other changes yet.
 </details>
 
 ```grain
-chunk : (chunkSize: Number, arr: Array<a>) => Array<Array<a>>
+chunk: (chunkSize: Number, arr: Array<a>) => Array<Array<a>>
 ```
 
 Splits the given array into chunks of the provided size.
@@ -1562,16 +1609,16 @@ If the array cannot be split evenly, the final chunk will contain the remaining 
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`chunkSize`|`Number`|The maximum size of each chunk|
-|`arr`|`Array<a>`|The array to chunk|
+| param       | type       | description                    |
+| ----------- | ---------- | ------------------------------ |
+| `chunkSize` | `Number`   | The maximum size of each chunk |
+| `arr`       | `Array<a>` | The array to chunk             |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<Array<a>>`|An array of chunks|
+| type              | description        |
+| ----------------- | ------------------ |
+| `Array<Array<a>>` | An array of chunks |
 
 Throws:
 
@@ -1647,7 +1694,7 @@ Functions and constants included in the Array.Immutable module.
 </details>
 
 ```grain
-empty : ImmutableArray<a>
+empty: ImmutableArray<a>
 ```
 
 An empty array.
@@ -1673,22 +1720,22 @@ Array.Immutable.empty == Array.Immutable.fromList([])
 </details>
 
 ```grain
-isEmpty : (array: ImmutableArray<a>) => Bool
+isEmpty: (array: ImmutableArray<a>) => Bool
 ```
 
 Determines if the array contains no elements.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array`|`ImmutableArray<a>`|The array to check|
+| param   | type                | description        |
+| ------- | ------------------- | ------------------ |
+| `array` | `ImmutableArray<a>` | The array to check |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the array is empty and `false` otherwise|
+| type   | description                                        |
+| ------ | -------------------------------------------------- |
+| `Bool` | `true` if the array is empty and `false` otherwise |
 
 Examples:
 
@@ -1717,22 +1764,22 @@ assert Immutable.isEmpty(Immutable.fromList([])) == true
 </details>
 
 ```grain
-length : (array: ImmutableArray<a>) => Number
+length: (array: ImmutableArray<a>) => Number
 ```
 
 Provides the length of the input array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array`|`ImmutableArray<a>`|The array to inspect|
+| param   | type                | description          |
+| ------- | ------------------- | -------------------- |
+| `array` | `ImmutableArray<a>` | The array to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The number of elements in the array|
+| type     | description                         |
+| -------- | ----------------------------------- |
+| `Number` | The number of elements in the array |
 
 Examples:
 
@@ -1756,7 +1803,7 @@ assert Immutable.length(Immutable.fromList([1, 2, 3, 4, 5])) == 5
 </details>
 
 ```grain
-get : (index: Number, array: ImmutableArray<a>) => a
+get: (index: Number, array: ImmutableArray<a>) => a
 ```
 
 Retrieves the element from the array at the specified index.
@@ -1764,16 +1811,16 @@ A negative index is treated as an offset from the end of the array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`index`|`Number`|The index to access|
-|`array`|`ImmutableArray<a>`|The array to access|
+| param   | type                | description         |
+| ------- | ------------------- | ------------------- |
+| `index` | `Number`            | The index to access |
+| `array` | `ImmutableArray<a>` | The array to access |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`a`|The element from the array|
+| type | description                |
+| ---- | -------------------------- |
+| `a`  | The element from the array |
 
 Throws:
 
@@ -1808,8 +1855,7 @@ assert Immutable.get(-1, Immutable.fromList([1, 2, 3, 4])) == 4
 </details>
 
 ```grain
-set :
-  (index: Number, value: a, array: ImmutableArray<a>) => ImmutableArray<a>
+set: (index: Number, value: a, array: ImmutableArray<a>) => ImmutableArray<a>
 ```
 
 Creates a new array in which the element at the specified index is set to a
@@ -1817,17 +1863,17 @@ new value. A negative index is treated as an offset from the end of the array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`index`|`Number`|The index to update|
-|`value`|`a`|The value to store|
-|`array`|`ImmutableArray<a>`|The array to update|
+| param   | type                | description         |
+| ------- | ------------------- | ------------------- |
+| `index` | `Number`            | The index to update |
+| `value` | `a`                 | The value to store  |
+| `array` | `ImmutableArray<a>` | The array to update |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`ImmutableArray<a>`|A new array containing the new element at the given index|
+| type                | description                                               |
+| ------------------- | --------------------------------------------------------- |
+| `ImmutableArray<a>` | A new array containing the new element at the given index |
 
 Throws:
 
@@ -1860,7 +1906,7 @@ assert array == Immutable.fromList([1, 9, 3, 4, 5])
 </details>
 
 ```grain
-append :
+append:
   (array1: ImmutableArray<a>, array2: ImmutableArray<a>) => ImmutableArray<a>
 ```
 
@@ -1869,16 +1915,16 @@ the elements of the second array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array1`|`ImmutableArray<a>`|The array containing elements to appear first|
-|`array2`|`ImmutableArray<a>`|The array containing elements to appear second|
+| param    | type                | description                                    |
+| -------- | ------------------- | ---------------------------------------------- |
+| `array1` | `ImmutableArray<a>` | The array containing elements to appear first  |
+| `array2` | `ImmutableArray<a>` | The array containing elements to appear second |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`ImmutableArray<a>`|The new array containing elements from `array1` followed by elements from `array2`|
+| type                | description                                                                        |
+| ------------------- | ---------------------------------------------------------------------------------- |
+| `ImmutableArray<a>` | The new array containing elements from `array1` followed by elements from `array2` |
 
 Examples:
 
@@ -1906,7 +1952,7 @@ assert arr2 == Immutable.fromList([3, 4, 5])
 </details>
 
 ```grain
-concat : (arrays: List<ImmutableArray<a>>) => ImmutableArray<a>
+concat: (arrays: List<ImmutableArray<a>>) => ImmutableArray<a>
 ```
 
 Creates a single array containing the elements of all arrays in the
@@ -1914,15 +1960,15 @@ provided list.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`arrays`|`List<ImmutableArray<a>>`|A list containing all arrays to combine|
+| param    | type                      | description                             |
+| -------- | ------------------------- | --------------------------------------- |
+| `arrays` | `List<ImmutableArray<a>>` | A list containing all arrays to combine |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`ImmutableArray<a>`|The new array|
+| type                | description   |
+| ------------------- | ------------- |
+| `ImmutableArray<a>` | The new array |
 
 Examples:
 
@@ -1949,7 +1995,7 @@ assert Immutable.concat([arr1, arr2, arr3]) == Immutable.fromList([1, 2, 3, 4, 5
 </details>
 
 ```grain
-init : (length: Number, fn: (Number => a)) => ImmutableArray<a>
+init: (length: Number, fn: (Number => a)) => ImmutableArray<a>
 ```
 
 Creates a new array of the specified length where each element is
@@ -1958,16 +2004,16 @@ is called with the index of each array element.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`length`|`Number`|The length of the new array|
-|`fn`|`Number => a`|The initializer function to call with each index, where the value returned will be used to initialize the element|
+| param    | type          | description                                                                                                       |
+| -------- | ------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `length` | `Number`      | The length of the new array                                                                                       |
+| `fn`     | `Number => a` | The initializer function to call with each index, where the value returned will be used to initialize the element |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`ImmutableArray<a>`|The new array|
+| type                | description   |
+| ------------------- | ------------- |
+| `ImmutableArray<a>` | The new array |
 
 Examples:
 
@@ -1996,7 +2042,7 @@ assert Immutable.init(5, i => i + 3) == Immutable.fromList([3, 4, 5, 6, 7])
 </details>
 
 ```grain
-make : (length: Number, value: a) => ImmutableArray<a>
+make: (length: Number, value: a) => ImmutableArray<a>
 ```
 
 Creates a new array of the specified length with each element being
@@ -2004,16 +2050,16 @@ initialized with the given value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`length`|`Number`|The length of the new array|
-|`value`|`a`|The value to store at each index|
+| param    | type     | description                      |
+| -------- | -------- | -------------------------------- |
+| `length` | `Number` | The length of the new array      |
+| `value`  | `a`      | The value to store at each index |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`ImmutableArray<a>`|The new array|
+| type                | description   |
+| ------------------- | ------------- |
+| `ImmutableArray<a>` | The new array |
 
 Examples:
 
@@ -2037,17 +2083,17 @@ assert Immutable.make(5, "🌾") == Immutable.fromList(["🌾", "🌾", "🌾", 
 </details>
 
 ```grain
-forEach : (fn: (a => Void), array: ImmutableArray<a>) => Void
+forEach: (fn: (a => Void), array: ImmutableArray<a>) => Void
 ```
 
 Iterates an array, calling an iterator function on each element.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Void`|The iterator function to call with each element|
-|`array`|`ImmutableArray<a>`|The array to iterate|
+| param   | type                | description                                     |
+| ------- | ------------------- | ----------------------------------------------- |
+| `fn`    | `a => Void`         | The iterator function to call with each element |
+| `array` | `ImmutableArray<a>` | The array to iterate                            |
 
 Examples:
 
@@ -2074,18 +2120,18 @@ assert str == "foobarbaz"
 </details>
 
 ```grain
-cycle : (fn: (a => Void), n: Number, array: ImmutableArray<a>) => Void
+cycle: (fn: (a => Void), n: Number, array: ImmutableArray<a>) => Void
 ```
 
 Iterates an array a given number of times, calling an iterator function on each element.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Void`|The iterator function to call with each element|
-|`n`|`Number`|The number of times to iterate the given array|
-|`array`|`ImmutableArray<a>`|The array to iterate|
+| param   | type                | description                                     |
+| ------- | ------------------- | ----------------------------------------------- |
+| `fn`    | `a => Void`         | The iterator function to call with each element |
+| `n`     | `Number`            | The number of times to iterate the given array  |
+| `array` | `ImmutableArray<a>` | The array to iterate                            |
 
 Examples:
 
@@ -2112,7 +2158,7 @@ assert str == "abcabc"
 </details>
 
 ```grain
-map : (fn: (a => b), array: ImmutableArray<a>) => ImmutableArray<b>
+map: (fn: (a => b), array: ImmutableArray<a>) => ImmutableArray<b>
 ```
 
 Produces a new array initialized with the results of a mapper function
@@ -2120,16 +2166,16 @@ called on each element of the input array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => b`|The mapper function to call on each element, where the value returned will be used to initialize the element in the new array|
-|`array`|`ImmutableArray<a>`|The array to iterate|
+| param   | type                | description                                                                                                                   |
+| ------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `fn`    | `a => b`            | The mapper function to call on each element, where the value returned will be used to initialize the element in the new array |
+| `array` | `ImmutableArray<a>` | The array to iterate                                                                                                          |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`ImmutableArray<b>`|The new array with mapped values|
+| type                | description                      |
+| ------------------- | -------------------------------- |
+| `ImmutableArray<b>` | The new array with mapped values |
 
 Examples:
 
@@ -2155,7 +2201,7 @@ assert arr == Immutable.fromList(["foo_", "bar_", "baz_"])
 </details>
 
 ```grain
-reduce : (fn: ((a, b) => a), initial: a, array: ImmutableArray<b>) => a
+reduce: (fn: ((a, b) => a), initial: a, array: ImmutableArray<b>) => a
 ```
 
 Combines all elements of an array using a reducer function,
@@ -2168,17 +2214,17 @@ returned. The accumulator starts with value `initial`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, b) => a`|The reducer function to call on each element, where the value returned will be the next accumulator value|
-|`initial`|`a`|The initial value to use for the accumulator on the first iteration|
-|`array`|`ImmutableArray<b>`|The array to iterate|
+| param     | type                | description                                                                                               |
+| --------- | ------------------- | --------------------------------------------------------------------------------------------------------- |
+| `fn`      | `(a, b) => a`       | The reducer function to call on each element, where the value returned will be the next accumulator value |
+| `initial` | `a`                 | The initial value to use for the accumulator on the first iteration                                       |
+| `array`   | `ImmutableArray<b>` | The array to iterate                                                                                      |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`a`|The final accumulator returned from `fn`|
+| type | description                              |
+| ---- | ---------------------------------------- |
+| `a`  | The final accumulator returned from `fn` |
 
 Examples:
 
@@ -2203,7 +2249,7 @@ assert Immutable.reduce((acc, x) => acc + x, 0, arr) == 6
 </details>
 
 ```grain
-reduceRight : (fn: ((a, b) => b), initial: b, array: ImmutableArray<a>) => b
+reduceRight: (fn: ((a, b) => b), initial: b, array: ImmutableArray<a>) => b
 ```
 
 Combines all elements of an array using a reducer function,
@@ -2216,17 +2262,17 @@ returned. The accumulator starts with value `initial`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, b) => b`|The reducer function to call on each element, where the value returned will be the next accumulator value|
-|`initial`|`b`|The initial value to use for the accumulator on the first iteration|
-|`array`|`ImmutableArray<a>`|The array to iterate|
+| param     | type                | description                                                                                               |
+| --------- | ------------------- | --------------------------------------------------------------------------------------------------------- |
+| `fn`      | `(a, b) => b`       | The reducer function to call on each element, where the value returned will be the next accumulator value |
+| `initial` | `b`                 | The initial value to use for the accumulator on the first iteration                                       |
+| `array`   | `ImmutableArray<a>` | The array to iterate                                                                                      |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`b`|The final accumulator returned from `fn`|
+| type | description                              |
+| ---- | ---------------------------------------- |
+| `b`  | The final accumulator returned from `fn` |
 
 Examples:
 
@@ -2251,7 +2297,7 @@ assert Immutable.reduceRight((x, acc) => acc ++ x, "", arr) == "foobarbaz"
 </details>
 
 ```grain
-flatMap :
+flatMap:
   (fn: (a => ImmutableArray<b>), array: ImmutableArray<a>) =>
    ImmutableArray<b>
 ```
@@ -2263,16 +2309,16 @@ of all results.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => ImmutableArray<b>`|The function to be called on each element, where the value returned will be an array that gets appended to the new array|
-|`array`|`ImmutableArray<a>`|The array to iterate|
+| param   | type                     | description                                                                                                              |
+| ------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `fn`    | `a => ImmutableArray<b>` | The function to be called on each element, where the value returned will be an array that gets appended to the new array |
+| `array` | `ImmutableArray<a>`      | The array to iterate                                                                                                     |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`ImmutableArray<b>`|The new array|
+| type                | description   |
+| ------------------- | ------------- |
+| `ImmutableArray<b>` | The new array |
 
 Examples:
 
@@ -2298,22 +2344,22 @@ assert arr == Immutable.fromList([1, 2, 3, 4, 5, 6])
 </details>
 
 ```grain
-fromList : (list: List<a>) => ImmutableArray<a>
+fromList: (list: List<a>) => ImmutableArray<a>
 ```
 
 Converts the input list to an array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`list`|`List<a>`|The list to convert|
+| param  | type      | description         |
+| ------ | --------- | ------------------- |
+| `list` | `List<a>` | The list to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`ImmutableArray<a>`|The array containing all elements from the list|
+| type                | description                                     |
+| ------------------- | ----------------------------------------------- |
+| `ImmutableArray<a>` | The array containing all elements from the list |
 
 Examples:
 
@@ -2338,22 +2384,22 @@ assert Immutable.get(1, arr) == 2
 </details>
 
 ```grain
-toList : (array: ImmutableArray<a>) => List<a>
+toList: (array: ImmutableArray<a>) => List<a>
 ```
 
 Converts the input array to a list.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array`|`ImmutableArray<a>`|The array to convert|
+| param   | type                | description          |
+| ------- | ------------------- | -------------------- |
+| `array` | `ImmutableArray<a>` | The array to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|The list containing all elements from the array|
+| type      | description                                     |
+| --------- | ----------------------------------------------- |
+| `List<a>` | The list containing all elements from the array |
 
 Examples:
 
@@ -2379,7 +2425,7 @@ assert Immutable.toList(arr) == ['d', 'b', 'c']
 </details>
 
 ```grain
-filter : (fn: (a => Bool), array: ImmutableArray<a>) => ImmutableArray<a>
+filter: (fn: (a => Bool), array: ImmutableArray<a>) => ImmutableArray<a>
 ```
 
 Produces a new array by calling a function on each element of
@@ -2388,16 +2434,16 @@ the condition.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`array`|`ImmutableArray<a>`|The array to iterate|
+| param   | type                | description                                                                                                     |
+| ------- | ------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`    | `a => Bool`         | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `array` | `ImmutableArray<a>` | The array to iterate                                                                                            |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`ImmutableArray<a>`|The new array containing elements where `fn` returned `true`|
+| type                | description                                                  |
+| ------------------- | ------------------------------------------------------------ |
+| `ImmutableArray<a>` | The new array containing elements where `fn` returned `true` |
 
 Examples:
 
@@ -2423,7 +2469,7 @@ assert Immutable.toList(arr) == ['a', 'a']
 </details>
 
 ```grain
-every : (fn: (a => Bool), array: ImmutableArray<a>) => Bool
+every: (fn: (a => Bool), array: ImmutableArray<a>) => Bool
 ```
 
 Checks that the given condition is satisfied for all
@@ -2431,16 +2477,16 @@ elements in the input array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`array`|`ImmutableArray<a>`|The array to check|
+| param   | type                | description                                                                                                     |
+| ------- | ------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`    | `a => Bool`         | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `array` | `ImmutableArray<a>` | The array to check                                                                                              |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if all elements satify the condition or `false` otherwise|
+| type   | description                                                       |
+| ------ | ----------------------------------------------------------------- |
+| `Bool` | `true` if all elements satisfy the condition or `false` otherwise |
 
 Examples:
 
@@ -2471,7 +2517,7 @@ assert Immutable.every(e => e == 'a', arr) == false
 </details>
 
 ```grain
-some : (fn: (a => Bool), array: ImmutableArray<a>) => Bool
+some: (fn: (a => Bool), array: ImmutableArray<a>) => Bool
 ```
 
 Checks that the given condition is satisfied **at least
@@ -2479,16 +2525,16 @@ once** by an element in the input array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`array`|`ImmutableArray<a>`|The array to iterate|
+| param   | type                | description                                                                                                     |
+| ------- | ------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`    | `a => Bool`         | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `array` | `ImmutableArray<a>` | The array to iterate                                                                                            |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if one or more elements satisfy the condition or `false` otherwise|
+| type   | description                                                               |
+| ------ | ------------------------------------------------------------------------- |
+| `Bool` | `true` if one or more elements satisfy the condition or `false` otherwise |
 
 Examples:
 
@@ -2519,22 +2565,22 @@ assert Immutable.some(e => e == 'a', arr) == false
 </details>
 
 ```grain
-reverse : (array: ImmutableArray<a>) => ImmutableArray<a>
+reverse: (array: ImmutableArray<a>) => ImmutableArray<a>
 ```
 
 Creates a new array with all elements in reverse order.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array`|`ImmutableArray<a>`|The array to reverse|
+| param   | type                | description          |
+| ------- | ------------------- | -------------------- |
+| `array` | `ImmutableArray<a>` | The array to reverse |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`ImmutableArray<a>`|The new array|
+| type                | description   |
+| ------------------- | ------------- |
+| `ImmutableArray<a>` | The new array |
 
 Examples:
 
@@ -2560,7 +2606,7 @@ assert Immutable.toList(arr) == ['c', 'b', 'a']
 </details>
 
 ```grain
-contains : (search: a, array: ImmutableArray<a>) => Bool
+contains: (search: a, array: ImmutableArray<a>) => Bool
 ```
 
 Checks if the value is an element of the input array.
@@ -2568,16 +2614,16 @@ Uses the generic `==` structural equality operator.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`search`|`a`|The value to compare|
-|`array`|`ImmutableArray<a>`|The array to inspect|
+| param    | type                | description          |
+| -------- | ------------------- | -------------------- |
+| `search` | `a`                 | The value to compare |
+| `array`  | `ImmutableArray<a>` | The array to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the value exists in the array or `false` otherwise|
+| type   | description                                                  |
+| ------ | ------------------------------------------------------------ |
+| `Bool` | `true` if the value exists in the array or `false` otherwise |
 
 Examples:
 
@@ -2608,23 +2654,23 @@ assert Immutable.contains('a', arr) == false
 </details>
 
 ```grain
-find : (fn: (a => Bool), array: ImmutableArray<a>) => Option<a>
+find: (fn: (a => Bool), array: ImmutableArray<a>) => Option<a>
 ```
 
 Finds the first element in an array that satisfies the given condition.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`array`|`ImmutableArray<a>`|The array to search|
+| param   | type                | description                                                                                                     |
+| ------- | ------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`    | `a => Bool`         | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `array` | `ImmutableArray<a>` | The array to search                                                                                             |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<a>`|`Some(element)` containing the first value found or `None` otherwise|
+| type        | description                                                          |
+| ----------- | -------------------------------------------------------------------- |
+| `Option<a>` | `Some(element)` containing the first value found or `None` otherwise |
 
 Examples:
 
@@ -2655,23 +2701,23 @@ assert Immutable.find(e => e == 2, arr) == None
 </details>
 
 ```grain
-findIndex : (fn: (a => Bool), array: ImmutableArray<a>) => Option<Number>
+findIndex: (fn: (a => Bool), array: ImmutableArray<a>) => Option<Number>
 ```
 
 Finds the first index in an array where the element satisfies the given condition.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`array`|`ImmutableArray<a>`|The array to search|
+| param   | type                | description                                                                                                     |
+| ------- | ------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`    | `a => Bool`         | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `array` | `ImmutableArray<a>` | The array to search                                                                                             |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<Number>`|`Some(index)` containing the index of the first element found or `None` otherwise|
+| type             | description                                                                       |
+| ---------------- | --------------------------------------------------------------------------------- |
+| `Option<Number>` | `Some(index)` containing the index of the first element found or `None` otherwise |
 
 Examples:
 
@@ -2702,7 +2748,7 @@ assert Immutable.findIndex(e => e == 2, arr) == None
 </details>
 
 ```grain
-product :
+product:
   (array1: ImmutableArray<a>, array2: ImmutableArray<b>) =>
    ImmutableArray<(a, b)>
 ```
@@ -2712,16 +2758,16 @@ all ordered pairs `(a, b)`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array1`|`ImmutableArray<a>`|The array to provide values for the first tuple element|
-|`array2`|`ImmutableArray<b>`|The array to provide values for the second tuple element|
+| param    | type                | description                                              |
+| -------- | ------------------- | -------------------------------------------------------- |
+| `array1` | `ImmutableArray<a>` | The array to provide values for the first tuple element  |
+| `array2` | `ImmutableArray<b>` | The array to provide values for the second tuple element |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`ImmutableArray<(a, b)>`|The new array containing all pairs of `(a, b)`|
+| type                     | description                                    |
+| ------------------------ | ---------------------------------------------- |
+| `ImmutableArray<(a, b)>` | The new array containing all pairs of `(a, b)` |
 
 Examples:
 
@@ -2747,23 +2793,23 @@ assert Immutable.product(arr1, arr2) == Immutable.fromList([(1, 3), (1, 4), (2, 
 </details>
 
 ```grain
-count : (fn: (a => Bool), array: ImmutableArray<a>) => Number
+count: (fn: (a => Bool), array: ImmutableArray<a>) => Number
 ```
 
 Counts the number of elements in an array that satisfy the given condition.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`array`|`ImmutableArray<a>`|The array to iterate|
+| param   | type                | description                                                                                                     |
+| ------- | ------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`    | `a => Bool`         | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `array` | `ImmutableArray<a>` | The array to iterate                                                                                            |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The total number of elements that satisfy the condition|
+| type     | description                                             |
+| -------- | ------------------------------------------------------- |
+| `Number` | The total number of elements that satisfy the condition |
 
 Examples:
 
@@ -2788,7 +2834,7 @@ assert Immutable.count(e => e == 1, arr) == 2
 </details>
 
 ```grain
-unique : (array: ImmutableArray<a>) => ImmutableArray<a>
+unique: (array: ImmutableArray<a>) => ImmutableArray<a>
 ```
 
 Produces a new array with any duplicates removed.
@@ -2796,15 +2842,15 @@ Uses the generic `==` structural equality operator.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array`|`ImmutableArray<a>`|The array to filter|
+| param   | type                | description         |
+| ------- | ------------------- | ------------------- |
+| `array` | `ImmutableArray<a>` | The array to filter |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`ImmutableArray<a>`|The new array with only unique values|
+| type                | description                           |
+| ------------------- | ------------------------------------- |
+| `ImmutableArray<a>` | The new array with only unique values |
 
 Examples:
 
@@ -2829,7 +2875,7 @@ assert Immutable.unique(arr) == Immutable.fromList([1, 2, 3, 4])
 </details>
 
 ```grain
-zip :
+zip:
   (array1: ImmutableArray<a>, array2: ImmutableArray<b>) =>
    ImmutableArray<(a, b)>
 ```
@@ -2843,16 +2889,16 @@ array to have the length of the smaller array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array1`|`ImmutableArray<a>`|The array to provide values for the first tuple element|
-|`array2`|`ImmutableArray<b>`|The array to provide values for the second tuple element|
+| param    | type                | description                                              |
+| -------- | ------------------- | -------------------------------------------------------- |
+| `array1` | `ImmutableArray<a>` | The array to provide values for the first tuple element  |
+| `array2` | `ImmutableArray<b>` | The array to provide values for the second tuple element |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`ImmutableArray<(a, b)>`|The new array containing indexed pairs of `(a, b)`|
+| type                     | description                                        |
+| ------------------------ | -------------------------------------------------- |
+| `ImmutableArray<(a, b)>` | The new array containing indexed pairs of `(a, b)` |
 
 Examples:
 
@@ -2878,7 +2924,7 @@ assert Immutable.zip(arr1, arr2) == Immutable.fromList([(1, 4), (2, 5), (3, 6)])
 </details>
 
 ```grain
-zipWith :
+zipWith:
   (fn: ((a, b) => c), array1: ImmutableArray<a>, array2: ImmutableArray<b>) =>
    ImmutableArray<c>
 ```
@@ -2894,17 +2940,17 @@ array to have the length of the smaller array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, b) => c`|The function to apply to pairs of elements|
-|`array1`|`ImmutableArray<a>`|The array whose elements will each be passed to the function as the first argument|
-|`array2`|`ImmutableArray<b>`|The array whose elements will each be passed to the function as the second argument|
+| param    | type                | description                                                                         |
+| -------- | ------------------- | ----------------------------------------------------------------------------------- |
+| `fn`     | `(a, b) => c`       | The function to apply to pairs of elements                                          |
+| `array1` | `ImmutableArray<a>` | The array whose elements will each be passed to the function as the first argument  |
+| `array2` | `ImmutableArray<b>` | The array whose elements will each be passed to the function as the second argument |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`ImmutableArray<c>`|The new array containing elements derived from applying the function to pairs of input array elements|
+| type                | description                                                                                           |
+| ------------------- | ----------------------------------------------------------------------------------------------------- |
+| `ImmutableArray<c>` | The new array containing elements derived from applying the function to pairs of input array elements |
 
 Examples:
 
@@ -2937,7 +2983,7 @@ assert Immutable.zipWith((a, b) => a * b, arr1, arr2) == Immutable.fromList([4, 
 </details>
 
 ```grain
-unzip :
+unzip:
   (array: ImmutableArray<(a, b)>) => (ImmutableArray<a>, ImmutableArray<b>)
 ```
 
@@ -2945,15 +2991,15 @@ Produces two arrays by splitting apart an array of tuples.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`array`|`ImmutableArray<(a, b)>`|The array of tuples to split|
+| param   | type                     | description                  |
+| ------- | ------------------------ | ---------------------------- |
+| `array` | `ImmutableArray<(a, b)>` | The array of tuples to split |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`(ImmutableArray<a>, ImmutableArray<b>)`|An array containing all elements from the first tuple element and an array containing all elements from the second tuple element|
+| type                                     | description                                                                                                                      |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `(ImmutableArray<a>, ImmutableArray<b>)` | An array containing all elements from the first tuple element and an array containing all elements from the second tuple element |
 
 Examples:
 
@@ -2980,23 +3026,23 @@ assert Immutable.unzip(arr1) == (arr2, arr3)
 </details>
 
 ```grain
-join : (separator: String, array: ImmutableArray<String>) => String
+join: (separator: String, array: ImmutableArray<String>) => String
 ```
 
 Concatenates an array of strings into a single string, separated by a separator string.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`separator`|`String`|The separator to insert between items in the string|
-|`array`|`ImmutableArray<String>`|The input strings|
+| param       | type                     | description                                         |
+| ----------- | ------------------------ | --------------------------------------------------- |
+| `separator` | `String`                 | The separator to insert between items in the string |
+| `array`     | `ImmutableArray<String>` | The input strings                                   |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`String`|The concatenated string|
+| type     | description             |
+| -------- | ----------------------- |
+| `String` | The concatenated string |
 
 Examples:
 
@@ -3022,7 +3068,7 @@ assert Immutable.join(", ", arr) == "a, b, c"
 </details>
 
 ```grain
-slice :
+slice:
   (start: Number, ?end: Number, array: ImmutableArray<a>) =>
    ImmutableArray<a>
 ```
@@ -3035,17 +3081,17 @@ the end of the array.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`start`|`Number`|The index of the array where the slice will begin (inclusive)|
-|`?end`|`Number`|The index of the array where the slice will end (exclusive)|
-|`array`|`ImmutableArray<a>`|The array to be sliced|
+| param   | type                | description                                                   |
+| ------- | ------------------- | ------------------------------------------------------------- |
+| `start` | `Number`            | The index of the array where the slice will begin (inclusive) |
+| `?end`  | `Number`            | The index of the array where the slice will end (exclusive)   |
+| `array` | `ImmutableArray<a>` | The array to be sliced                                        |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`ImmutableArray<a>`|The subset of the array that was sliced|
+| type                | description                             |
+| ------------------- | --------------------------------------- |
+| `ImmutableArray<a>` | The subset of the array that was sliced |
 
 Examples:
 
@@ -3076,7 +3122,7 @@ assert Immutable.slice(1, end=-1, arr) == Immutable.fromList(['b'])
 </details>
 
 ```grain
-sort :
+sort:
   (?compare: ((num1: a, num2: a) => Number), array: ImmutableArray<a>) =>
    ImmutableArray<a>
 ```
@@ -3087,16 +3133,16 @@ Ordering is calculated using a comparator function which takes two array element
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`?compare`|`(num1: a, num2: a) => Number`|The comparator function used to indicate sort order|
-|`array`|`ImmutableArray<a>`|The array to be sorted|
+| param      | type                           | description                                         |
+| ---------- | ------------------------------ | --------------------------------------------------- |
+| `?compare` | `(num1: a, num2: a) => Number` | The comparator function used to indicate sort order |
+| `array`    | `ImmutableArray<a>`            | The array to be sorted                              |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`ImmutableArray<a>`|The sorted array|
+| type                | description      |
+| ------------------- | ---------------- |
+| `ImmutableArray<a>` | The sorted array |
 
 Examples:
 
@@ -3121,7 +3167,7 @@ assert Immutable.sort(compare=(a, b) => a - b, arr) == Immutable.fromList([1, 2,
 </details>
 
 ```grain
-rotate : (n: Number, array: ImmutableArray<a>) => ImmutableArray<a>
+rotate: (n: Number, array: ImmutableArray<a>) => ImmutableArray<a>
 ```
 
 Rotates array elements by the specified amount to the left, such that the
@@ -3132,10 +3178,10 @@ specified amount to the right. See examples.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`n`|`Number`|The number of elements to rotate by|
-|`array`|`ImmutableArray<a>`|The array to be rotated|
+| param   | type                | description                         |
+| ------- | ------------------- | ----------------------------------- |
+| `n`     | `Number`            | The number of elements to rotate by |
+| `array` | `ImmutableArray<a>` | The array to be rotated             |
 
 Examples:
 

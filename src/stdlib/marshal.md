@@ -37,7 +37,7 @@ No other changes yet.
 </details>
 
 ```grain
-marshal : (value: a) => Bytes
+marshal: (value: a) => Bytes
 ```
 
 Serialize a value into a byte-based representation suitable for transmission
@@ -46,15 +46,15 @@ deserialized at a later time to restore the value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`a`|The value to serialize|
+| param   | type | description            |
+| ------- | ---- | ---------------------- |
+| `value` | `a`  | The value to serialize |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bytes`|A byte-based representation of the value|
+| type    | description                              |
+| ------- | ---------------------------------------- |
+| `Bytes` | A byte-based representation of the value |
 
 Examples:
 
@@ -74,7 +74,7 @@ No other changes yet.
 </details>
 
 ```grain
-unmarshal : (bytes: Bytes) => Result<a, String>
+unmarshal: (bytes: Bytes) => Result<a, String>
 ```
 
 Deserialize the byte-based representation of a value back into an in-memory
@@ -86,15 +86,15 @@ unmarshaled corresponds to the expected type.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`bytes`|`Bytes`|The data to deserialize|
+| param   | type    | description             |
+| ------- | ------- | ----------------------- |
+| `bytes` | `Bytes` | The data to deserialize |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<a, String>`|An in-memory value|
+| type                | description        |
+| ------------------- | ------------------ |
+| `Result<a, String>` | An in-memory value |
 
 Examples:
 

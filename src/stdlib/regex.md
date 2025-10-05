@@ -46,13 +46,13 @@ the following accessors:
 
 Fields:
 
-|name|type|description|
-|----|----|-----------|
-|`group`|`Number => Option<String>`|Returns the contents of the given group. Note that group 0 contains<br/>the entire matched substring, and group 1 contains the first parenthesized group.|
-|`groupPosition`|`Number => Option<(Number, Number)>`|Returns the position of the given group|
-|`numGroups`|`Number`|Returns the number of defined groups in this match object (includes group 0)|
-|`allGroups`|`() => Array<Option<String>>`|Returns the contents of all groups matched in this match object|
-|`allGroupPositions`|`() => Array<Option<(Number, Number)>>`|Returns the positions of all groups matched in this match object|
+| name                | type                                    | description                                                                                                                                               |
+| ------------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `group`             | `Number => Option<String>`              | Returns the contents of the given group. Note that group 0 contains<br/>the entire matched substring, and group 1 contains the first parenthesized group. |
+| `groupPosition`     | `Number => Option<(Number, Number)>`    | Returns the position of the given group                                                                                                                   |
+| `numGroups`         | `Number`                                | Returns the number of defined groups in this match object (includes group 0)                                                                              |
+| `allGroups`         | `() => Array<Option<String>>`           | Returns the contents of all groups matched in this match object                                                                                           |
+| `allGroupPositions` | `() => Array<Option<(Number, Number)>>` | Returns the positions of all groups matched in this match object                                                                                          |
 
 ## Values
 
@@ -66,7 +66,7 @@ No other changes yet.
 </details>
 
 ```grain
-make : (regexString: String) => Result<RegularExpression, String>
+make: (regexString: String) => Result<RegularExpression, String>
 ```
 
 Compiles the given pattern string into a regular expression object.
@@ -155,15 +155,15 @@ The *POSIX* classes are as follows:
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`regexString`|`String`|The regular expression to compile|
+| param         | type     | description                       |
+| ------------- | -------- | --------------------------------- |
+| `regexString` | `String` | The regular expression to compile |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<RegularExpression, String>`|The compiled regular expression|
+| type                                | description                     |
+| ----------------------------------- | ------------------------------- |
+| `Result<RegularExpression, String>` | The compiled regular expression |
 
 Examples:
 
@@ -179,23 +179,23 @@ No other changes yet.
 </details>
 
 ```grain
-isMatch : (rx: RegularExpression, string: String) => Bool
+isMatch: (rx: RegularExpression, string: String) => Bool
 ```
 
 Determines if the given regular expression has a match in the given string.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`rx`|`RegularExpression`|The regular expression to search for|
-|`string`|`String`|The string to search within|
+| param    | type                | description                          |
+| -------- | ------------------- | ------------------------------------ |
+| `rx`     | `RegularExpression` | The regular expression to search for |
+| `string` | `String`            | The string to search within          |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the RegExp matches the string or `false` otherwise|
+| type   | description                                                  |
+| ------ | ------------------------------------------------------------ |
+| `Bool` | `true` if the RegExp matches the string or `false` otherwise |
 
 Examples:
 
@@ -211,7 +211,7 @@ No other changes yet.
 </details>
 
 ```grain
-isMatchRange :
+isMatchRange:
   (rx: RegularExpression, string: String, start: Number, end: Number) => Bool
 ```
 
@@ -219,18 +219,18 @@ Determines if the given regular expression has a match in the given string betwe
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`rx`|`RegularExpression`|The regular expression to search for|
-|`string`|`String`|The string to search|
-|`start`|`Number`|The start offset to search between|
-|`end`|`Number`|The end offset to search between|
+| param    | type                | description                          |
+| -------- | ------------------- | ------------------------------------ |
+| `rx`     | `RegularExpression` | The regular expression to search for |
+| `string` | `String`            | The string to search                 |
+| `start`  | `Number`            | The start offset to search between   |
+| `end`    | `Number`            | The end offset to search between     |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the RegExp matches the string in the given range, otherwise `false`|
+| type   | description                                                                   |
+| ------ | ----------------------------------------------------------------------------- |
+| `Bool` | `true` if the RegExp matches the string in the given range, otherwise `false` |
 
 Examples:
 
@@ -250,23 +250,23 @@ No other changes yet.
 </details>
 
 ```grain
-find : (rx: RegularExpression, string: String) => Option<MatchResult>
+find: (rx: RegularExpression, string: String) => Option<MatchResult>
 ```
 
 Returns the first match for the given regular expression contained within the given string.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`rx`|`RegularExpression`|The regular expression to search for|
-|`string`|`String`|The string to search|
+| param    | type                | description                          |
+| -------- | ------------------- | ------------------------------------ |
+| `rx`     | `RegularExpression` | The regular expression to search for |
+| `string` | `String`            | The string to search                 |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<MatchResult>`|The match result, if any|
+| type                  | description              |
+| --------------------- | ------------------------ |
+| `Option<MatchResult>` | The match result, if any |
 
 Examples:
 
@@ -282,7 +282,7 @@ No other changes yet.
 </details>
 
 ```grain
-findRange :
+findRange:
   (rx: RegularExpression, string: String, start: Number, end: Number) =>
    Option<MatchResult>
 ```
@@ -292,18 +292,18 @@ between the given start/end range.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`rx`|`RegularExpression`|The regular expression to search for|
-|`string`|`String`|The string to search|
-|`start`|`Number`|The start offset to search between|
-|`end`|`Number`|The end offset to search between|
+| param    | type                | description                          |
+| -------- | ------------------- | ------------------------------------ |
+| `rx`     | `RegularExpression` | The regular expression to search for |
+| `string` | `String`            | The string to search                 |
+| `start`  | `Number`            | The start offset to search between   |
+| `end`    | `Number`            | The end offset to search between     |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<MatchResult>`|The match result, if any|
+| type                  | description              |
+| --------------------- | ------------------------ |
+| `Option<MatchResult>` | The match result, if any |
 
 Examples:
 
@@ -314,23 +314,23 @@ Regex.findRange(Result.unwrap(Regex.make("ca+[at]")), "caaat", 0, 5)
 ### Regex.**findAll**
 
 ```grain
-findAll : (rx: RegularExpression, string: String) => List<MatchResult>
+findAll: (rx: RegularExpression, string: String) => List<MatchResult>
 ```
 
 Returns all matches for the given regular expression contained within the given string.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`rx`|`RegularExpression`|The regular expression to search for|
-|`string`|`String`|The string to search|
+| param    | type                | description                          |
+| -------- | ------------------- | ------------------------------------ |
+| `rx`     | `RegularExpression` | The regular expression to search for |
+| `string` | `String`            | The string to search                 |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<MatchResult>`|The list of matches|
+| type                | description         |
+| ------------------- | ------------------- |
+| `List<MatchResult>` | The list of matches |
 
 ### Regex.**findAllRange**
 
@@ -340,7 +340,7 @@ No other changes yet.
 </details>
 
 ```grain
-findAllRange :
+findAllRange:
   (rx: RegularExpression, string: String, start: Number, end: Number) =>
    List<MatchResult>
 ```
@@ -350,18 +350,18 @@ between the given start/end range.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`rx`|`RegularExpression`|The regular expression to search for|
-|`string`|`String`|The string to search|
-|`start`|`Number`|The start offset to search between|
-|`end`|`Number`|The end offset to search between|
+| param    | type                | description                          |
+| -------- | ------------------- | ------------------------------------ |
+| `rx`     | `RegularExpression` | The regular expression to search for |
+| `string` | `String`            | The string to search                 |
+| `start`  | `Number`            | The start offset to search between   |
+| `end`    | `Number`            | The end offset to search between     |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<MatchResult>`|The list of matches|
+| type                | description         |
+| ------------------- | ------------------- |
+| `List<MatchResult>` | The list of matches |
 
 Examples:
 
@@ -377,7 +377,7 @@ No other changes yet.
 </details>
 
 ```grain
-replace :
+replace:
   (rx: RegularExpression, toSearch: String, replacement: String) => String
 ```
 
@@ -393,17 +393,17 @@ Replacement strings support the following syntax:
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`rx`|`RegularExpression`|The regular expression to search for|
-|`toSearch`|`String`|The string to search|
-|`replacement`|`String`|The string that replaces matches|
+| param         | type                | description                          |
+| ------------- | ------------------- | ------------------------------------ |
+| `rx`          | `RegularExpression` | The regular expression to search for |
+| `toSearch`    | `String`            | The string to search                 |
+| `replacement` | `String`            | The string that replaces matches     |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`String`|The given string with the appropriate replacements, if any|
+| type     | description                                                |
+| -------- | ---------------------------------------------------------- |
+| `String` | The given string with the appropriate replacements, if any |
 
 Examples:
 
@@ -419,7 +419,7 @@ No other changes yet.
 </details>
 
 ```grain
-replaceAll :
+replaceAll:
   (rx: RegularExpression, toSearch: String, replacement: String) => String
 ```
 
@@ -428,17 +428,17 @@ See `replace` for replacement string syntax.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`rx`|`RegularExpression`|The regular expression to search for|
-|`toSearch`|`String`|The string to search|
-|`replacement`|`String`|The string that replaces matches|
+| param         | type                | description                          |
+| ------------- | ------------------- | ------------------------------------ |
+| `rx`          | `RegularExpression` | The regular expression to search for |
+| `toSearch`    | `String`            | The string to search                 |
+| `replacement` | `String`            | The string that replaces matches     |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`String`|The input string with the appropriate replacements, if any|
+| type     | description                                                |
+| -------- | ---------------------------------------------------------- |
+| `String` | The input string with the appropriate replacements, if any |
 
 Examples:
 
@@ -454,7 +454,7 @@ No other changes yet.
 </details>
 
 ```grain
-split : (rx: RegularExpression, str: String) => List<String>
+split: (rx: RegularExpression, str: String) => List<String>
 ```
 
 Splits the given string at the first match for the given regular expression.
@@ -464,16 +464,16 @@ will be included in the output list.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`rx`|`RegularExpression`|The regular expression to match|
-|`str`|`String`|The string to split|
+| param | type                | description                     |
+| ----- | ------------------- | ------------------------------- |
+| `rx`  | `RegularExpression` | The regular expression to match |
+| `str` | `String`            | The string to split             |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<String>`|A list of the split segments|
+| type           | description                  |
+| -------------- | ---------------------------- |
+| `List<String>` | A list of the split segments |
 
 Examples:
 
@@ -489,7 +489,7 @@ No other changes yet.
 </details>
 
 ```grain
-splitAll : (rx: RegularExpression, str: String) => List<String>
+splitAll: (rx: RegularExpression, str: String) => List<String>
 ```
 
 Splits the given string at every match for the given regular expression.
@@ -499,16 +499,16 @@ will be included in the output list.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`rx`|`RegularExpression`|The regular expression to match|
-|`str`|`String`|The string to split|
+| param | type                | description                     |
+| ----- | ------------------- | ------------------------------- |
+| `rx`  | `RegularExpression` | The regular expression to match |
+| `str` | `String`            | The string to split             |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<String>`|A list of the split segments|
+| type           | description                  |
+| -------------- | ---------------------------- |
+| `List<String>` | A list of the split segments |
 
 Examples:
 

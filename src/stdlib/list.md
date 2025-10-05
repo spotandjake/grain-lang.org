@@ -25,6 +25,31 @@ from "list" include List
 
 Functions and constants included in the List module.
 
+### List.**reverse**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.1.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+reverse: (list: List<a>) => List<a>
+```
+
+Creates a new list with all elements in reverse order.
+
+Parameters:
+
+| param  | type      | description         |
+| ------ | --------- | ------------------- |
+| `list` | `List<a>` | The list to reverse |
+
+Returns:
+
+| type      | description  |
+| --------- | ------------ |
+| `List<a>` | The new list |
+
 ### List.**init**
 
 <details disabled>
@@ -33,7 +58,7 @@ No other changes yet.
 </details>
 
 ```grain
-init : (length: Number, fn: (Number => a)) => List<a>
+init: (length: Number, fn: (Number => a)) => List<a>
 ```
 
 Creates a new list of the specified length where each element is
@@ -42,16 +67,16 @@ is called with the index of each list element.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`length`|`Number`|The length of the new list|
-|`fn`|`Number => a`|The initializer function to call with each index, where the value returned will be used to initialize the element|
+| param    | type          | description                                                                                                       |
+| -------- | ------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `length` | `Number`      | The length of the new list                                                                                        |
+| `fn`     | `Number => a` | The initializer function to call with each index, where the value returned will be used to initialize the element |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|The new list|
+| type      | description  |
+| --------- | ------------ |
+| `List<a>` | The new list |
 
 Examples:
 
@@ -74,22 +99,22 @@ List.init(5, n => n + 3) // [3, 4, 5, 6, 7]
 </details>
 
 ```grain
-length : (list: List<a>) => Number
+length: (list: List<a>) => Number
 ```
 
 Computes the length of the input list.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`list`|`List<a>`|The list to inspect|
+| param  | type      | description         |
+| ------ | --------- | ------------------- |
+| `list` | `List<a>` | The list to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The number of elements in the list|
+| type     | description                        |
+| -------- | ---------------------------------- |
+| `Number` | The number of elements in the list |
 
 ### List.**isEmpty**
 
@@ -99,47 +124,22 @@ No other changes yet.
 </details>
 
 ```grain
-isEmpty : (list: List<a>) => Bool
+isEmpty: (list: List<a>) => Bool
 ```
 
 Determines if the list contains no elements.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`list`|`List<a>`|The list to inspect|
+| param  | type      | description         |
+| ------ | --------- | ------------------- |
+| `list` | `List<a>` | The list to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the list is empty and `false` otherwise|
-
-### List.**reverse**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.1.0</code></summary>
-No other changes yet.
-</details>
-
-```grain
-reverse : (list: List<a>) => List<a>
-```
-
-Creates a new list with all elements in reverse order.
-
-Parameters:
-
-|param|type|description|
-|-----|----|-----------|
-|`list`|`List<a>`|The list to reverse|
-
-Returns:
-
-|type|description|
-|----|-----------|
-|`List<a>`|The new list|
+| type   | description                                       |
+| ------ | ------------------------------------------------- |
+| `Bool` | `true` if the list is empty and `false` otherwise |
 
 ### List.**append**
 
@@ -149,7 +149,7 @@ No other changes yet.
 </details>
 
 ```grain
-append : (list1: List<a>, list2: List<a>) => List<a>
+append: (list1: List<a>, list2: List<a>) => List<a>
 ```
 
 Creates a new list with the elements of the first list followed by
@@ -157,16 +157,16 @@ the elements of the second list.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`list1`|`List<a>`|The list containing elements to appear first|
-|`list2`|`List<a>`|The list containing elements to appear second|
+| param   | type      | description                                   |
+| ------- | --------- | --------------------------------------------- |
+| `list1` | `List<a>` | The list containing elements to appear first  |
+| `list2` | `List<a>` | The list containing elements to appear second |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|The new list containing elements from `list1` followed by elements from `list2`|
+| type      | description                                                                     |
+| --------- | ------------------------------------------------------------------------------- |
+| `List<a>` | The new list containing elements from `list1` followed by elements from `list2` |
 
 ### List.**contains**
 
@@ -176,7 +176,7 @@ No other changes yet.
 </details>
 
 ```grain
-contains : (search: a, list: List<a>) => Bool
+contains: (search: a, list: List<a>) => Bool
 ```
 
 Checks if the value is an element of the input list.
@@ -184,16 +184,16 @@ Uses the generic `==` structural equality operator.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`search`|`a`|The value to compare|
-|`list`|`List<a>`|The list to inspect|
+| param    | type      | description          |
+| -------- | --------- | -------------------- |
+| `search` | `a`       | The value to compare |
+| `list`   | `List<a>` | The list to inspect  |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the value exists in the list or `false` otherwise|
+| type   | description                                                 |
+| ------ | ----------------------------------------------------------- |
+| `Bool` | `true` if the value exists in the list or `false` otherwise |
 
 ### List.**reduce**
 
@@ -211,7 +211,7 @@ Returns:
 </details>
 
 ```grain
-reduce : (fn: ((a, b) => a), initial: a, list: List<b>) => a
+reduce: (fn: ((a, b) => a), initial: a, list: List<b>) => a
 ```
 
 Combines all elements of a list using a reducer function,
@@ -224,17 +224,17 @@ returned. The accumulator starts with value `initial`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, b) => a`|The reducer function to call on each element, where the value returned will be the next accumulator value|
-|`initial`|`a`|The initial value to use for the accumulator on the first iteration|
-|`list`|`List<b>`|The list to iterate|
+| param     | type          | description                                                                                               |
+| --------- | ------------- | --------------------------------------------------------------------------------------------------------- |
+| `fn`      | `(a, b) => a` | The reducer function to call on each element, where the value returned will be the next accumulator value |
+| `initial` | `a`           | The initial value to use for the accumulator on the first iteration                                       |
+| `list`    | `List<b>`     | The list to iterate                                                                                       |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`a`|The final accumulator returned from `fn`|
+| type | description                              |
+| ---- | ---------------------------------------- |
+| `a`  | The final accumulator returned from `fn` |
 
 Examples:
 
@@ -258,7 +258,7 @@ List.reduce((a, b) => a + b, 0, [1, 2, 3]) // 6
 </details>
 
 ```grain
-reduceRight : (fn: ((a, b) => b), initial: b, list: List<a>) => b
+reduceRight: (fn: ((a, b) => b), initial: b, list: List<a>) => b
 ```
 
 Combines all elements of a list using a reducer function,
@@ -271,17 +271,17 @@ returned. The accumulator starts with value `initial`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, b) => b`|The reducer function to call on each element, where the value returned will be the next accumulator value|
-|`initial`|`b`|The initial value to use for the accumulator on the first iteration|
-|`list`|`List<a>`|The list to iterate|
+| param     | type          | description                                                                                               |
+| --------- | ------------- | --------------------------------------------------------------------------------------------------------- |
+| `fn`      | `(a, b) => b` | The reducer function to call on each element, where the value returned will be the next accumulator value |
+| `initial` | `b`           | The initial value to use for the accumulator on the first iteration                                       |
+| `list`    | `List<a>`     | The list to iterate                                                                                       |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`b`|The final accumulator returned from `fn`|
+| type | description                              |
+| ---- | ---------------------------------------- |
+| `b`  | The final accumulator returned from `fn` |
 
 Examples:
 
@@ -297,7 +297,7 @@ No other changes yet.
 </details>
 
 ```grain
-map : (fn: (a => b), list: List<a>) => List<b>
+map: (fn: (a => b), list: List<a>) => List<b>
 ```
 
 Produces a new list initialized with the results of a mapper function
@@ -305,16 +305,16 @@ called on each element of the input list.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => b`|The mapper function to call on each element, where the value returned will be used to initialize the element in the new list|
-|`list`|`List<a>`|The list to iterate|
+| param  | type      | description                                                                                                                  |
+| ------ | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `fn`   | `a => b`  | The mapper function to call on each element, where the value returned will be used to initialize the element in the new list |
+| `list` | `List<a>` | The list to iterate                                                                                                          |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<b>`|The new list with mapped values|
+| type      | description                     |
+| --------- | ------------------------------- |
+| `List<b>` | The new list with mapped values |
 
 ### List.**mapi**
 
@@ -324,7 +324,7 @@ No other changes yet.
 </details>
 
 ```grain
-mapi : (fn: ((a, Number) => b), list: List<a>) => List<b>
+mapi: (fn: ((a, Number) => b), list: List<a>) => List<b>
 ```
 
 Produces a new list initialized with the results of a mapper function
@@ -332,16 +332,88 @@ called on each element of the input list and its index.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, Number) => b`|The mapper function to call on each element, where the value returned will be used to initialize the element in the new list|
-|`list`|`List<a>`|The list to iterate|
+| param  | type               | description                                                                                                                  |
+| ------ | ------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| `fn`   | `(a, Number) => b` | The mapper function to call on each element, where the value returned will be used to initialize the element in the new list |
+| `list` | `List<a>`          | The list to iterate                                                                                                          |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<b>`|The new list with mapped values|
+| type      | description                     |
+| --------- | ------------------------------- |
+| `List<b>` | The new list with mapped values |
+
+### List.**filterMap**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+filterMap: (fn: (a => Option<b>), list: List<a>) => List<b>
+```
+
+Produces a new list initialized with the results of a mapper function
+called on each element of the input list.
+The mapper function can return `None` to exclude the element from the new list.
+
+Parameters:
+
+| param  | type             | description                                                                                                                  |
+| ------ | ---------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `fn`   | `a => Option<b>` | The mapper function to call on each element, where the value returned will be used to initialize the element in the new list |
+| `list` | `List<a>`        | The list to iterate                                                                                                          |
+
+Returns:
+
+| type      | description                              |
+| --------- | ---------------------------------------- |
+| `List<b>` | The new list with filtered mapped values |
+
+Examples:
+
+```grain
+List.filterMap(x => if (x % 2 == 0) Some(toString(x)) else None, [1, 2, 3, 4]) == ["2", "4"]
+```
+
+### List.**filterMapi**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+filterMapi: (fn: ((a, Number) => Option<b>), list: List<a>) => List<b>
+```
+
+Produces a new list initialized with the results of a mapper function
+called on each element of the input list and its index.
+The mapper function can return `None` to exclude the element from the new list.
+
+Parameters:
+
+| param  | type                       | description                                                                                                                  |
+| ------ | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `fn`   | `(a, Number) => Option<b>` | The mapper function to call on each element, where the value returned will be used to initialize the element in the new list |
+| `list` | `List<a>`                  | The list to iterate                                                                                                          |
+
+Returns:
+
+| type      | description                              |
+| --------- | ---------------------------------------- |
+| `List<b>` | The new list with filtered mapped values |
+
+Examples:
+
+```grain
+List.filterMapi((x, i) => if (x % 2 == 0) Some(toString(x)) else None, [1, 2, 3, 4]) == ["2", "4"]
+```
+
+```grain
+List.filterMapi((x, i) => if (i == 0) Some(toString(x)) else None, [1, 2, 3, 4]) == ["1"]
+```
 
 ### List.**flatMap**
 
@@ -351,7 +423,7 @@ No other changes yet.
 </details>
 
 ```grain
-flatMap : (fn: (a => List<b>), list: List<a>) => List<b>
+flatMap: (fn: (a => List<b>), list: List<a>) => List<b>
 ```
 
 Produces a new list by calling a function on each element
@@ -361,16 +433,16 @@ of all results.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => List<b>`|The function to be called on each element, where the value returned will be a list that gets appended to the new list|
-|`list`|`List<a>`|The list to iterate|
+| param  | type           | description                                                                                                           |
+| ------ | -------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `fn`   | `a => List<b>` | The function to be called on each element, where the value returned will be a list that gets appended to the new list |
+| `list` | `List<a>`      | The list to iterate                                                                                                   |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<b>`|The new list|
+| type      | description  |
+| --------- | ------------ |
+| `List<b>` | The new list |
 
 ### List.**every**
 
@@ -380,7 +452,7 @@ No other changes yet.
 </details>
 
 ```grain
-every : (fn: (a => Bool), list: List<a>) => Bool
+every: (fn: (a => Bool), list: List<a>) => Bool
 ```
 
 Checks that the given condition is satisfied for all
@@ -388,16 +460,16 @@ elements in the input list.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`list`|`List<a>`|The list to check|
+| param  | type        | description                                                                                                     |
+| ------ | ----------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`   | `a => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `list` | `List<a>`   | The list to check                                                                                               |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if all elements satify the condition or `false` otherwise|
+| type   | description                                                       |
+| ------ | ----------------------------------------------------------------- |
+| `Bool` | `true` if all elements satisfy the condition or `false` otherwise |
 
 ### List.**some**
 
@@ -407,7 +479,7 @@ No other changes yet.
 </details>
 
 ```grain
-some : (fn: (a => Bool), list: List<a>) => Bool
+some: (fn: (a => Bool), list: List<a>) => Bool
 ```
 
 Checks that the given condition is satisfied **at least
@@ -415,16 +487,16 @@ once** by an element in the input list.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`list`|`List<a>`|The list to iterate|
+| param  | type        | description                                                                                                     |
+| ------ | ----------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`   | `a => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `list` | `List<a>`   | The list to iterate                                                                                             |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if one or more elements satify the condition or `false` otherwise|
+| type   | description                                                               |
+| ------ | ------------------------------------------------------------------------- |
+| `Bool` | `true` if one or more elements satisfy the condition or `false` otherwise |
 
 ### List.**forEach**
 
@@ -434,17 +506,17 @@ No other changes yet.
 </details>
 
 ```grain
-forEach : (fn: (a => Void), list: List<a>) => Void
+forEach: (fn: (a => Void), list: List<a>) => Void
 ```
 
 Iterates a list, calling an iterator function on each element.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Void`|The iterator function to call with each element|
-|`list`|`List<a>`|The list to iterate|
+| param  | type        | description                                     |
+| ------ | ----------- | ----------------------------------------------- |
+| `fn`   | `a => Void` | The iterator function to call with each element |
+| `list` | `List<a>`   | The list to iterate                             |
 
 ### List.**forEachi**
 
@@ -454,7 +526,7 @@ No other changes yet.
 </details>
 
 ```grain
-forEachi : (fn: ((a, Number) => Void), list: List<a>) => Void
+forEachi: (fn: ((a, Number) => Void), list: List<a>) => Void
 ```
 
 Iterates a list, calling an iterator function on each element.
@@ -462,10 +534,10 @@ Also passes the index as the second argument to the function.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, Number) => Void`|The iterator function to call with each element|
-|`list`|`List<a>`|The list to iterate|
+| param  | type                  | description                                     |
+| ------ | --------------------- | ----------------------------------------------- |
+| `fn`   | `(a, Number) => Void` | The iterator function to call with each element |
+| `list` | `List<a>`             | The list to iterate                             |
 
 ### List.**filter**
 
@@ -475,7 +547,7 @@ No other changes yet.
 </details>
 
 ```grain
-filter : (fn: (a => Bool), list: List<a>) => List<a>
+filter: (fn: (a => Bool), list: List<a>) => List<a>
 ```
 
 Produces a new list by calling a function on each element of
@@ -484,16 +556,16 @@ the condition.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`list`|`List<a>`|The list to iterate|
+| param  | type        | description                                                                                                     |
+| ------ | ----------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`   | `a => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `list` | `List<a>`   | The list to iterate                                                                                             |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|The new list containing elements where `fn` returned `true`|
+| type      | description                                                 |
+| --------- | ----------------------------------------------------------- |
+| `List<a>` | The new list containing elements where `fn` returned `true` |
 
 ### List.**filteri**
 
@@ -503,7 +575,7 @@ No other changes yet.
 </details>
 
 ```grain
-filteri : (fn: ((a, Number) => Bool), list: List<a>) => List<a>
+filteri: (fn: ((a, Number) => Bool), list: List<a>) => List<a>
 ```
 
 Produces a new list by calling a function on each element of
@@ -512,16 +584,16 @@ the condition. Also passes the index to the function.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, Number) => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`list`|`List<a>`|The list to iterate|
+| param  | type                  | description                                                                                                     |
+| ------ | --------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`   | `(a, Number) => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `list` | `List<a>`             | The list to iterate                                                                                             |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|The new list containing elements where `fn` returned `true`|
+| type      | description                                                 |
+| --------- | ----------------------------------------------------------- |
+| `List<a>` | The new list containing elements where `fn` returned `true` |
 
 ### List.**reject**
 
@@ -531,7 +603,7 @@ No other changes yet.
 </details>
 
 ```grain
-reject : (fn: (a => Bool), list: List<a>) => List<a>
+reject: (fn: (a => Bool), list: List<a>) => List<a>
 ```
 
 Produces a new list by calling a function on each element of
@@ -540,16 +612,16 @@ the condition.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`list`|`List<a>`|The list to iterate|
+| param  | type        | description                                                                                                     |
+| ------ | ----------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`   | `a => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `list` | `List<a>`   | The list to iterate                                                                                             |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|The new list containing elements where `fn` returned `false`|
+| type      | description                                                  |
+| --------- | ------------------------------------------------------------ |
+| `List<a>` | The new list containing elements where `fn` returned `false` |
 
 ### List.**head**
 
@@ -568,7 +640,7 @@ Returns:
 </details>
 
 ```grain
-head : (list: List<a>) => Option<a>
+head: (list: List<a>) => Option<a>
 ```
 
 Provides `Some(element)` containing the first element, or "head", of
@@ -576,15 +648,15 @@ the input list or `None` if the list is empty.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`list`|`List<a>`|The list to access|
+| param  | type      | description        |
+| ------ | --------- | ------------------ |
+| `list` | `List<a>` | The list to access |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<a>`|`Some(firstElement)` if the list has elements or `None` otherwise|
+| type        | description                                                       |
+| ----------- | ----------------------------------------------------------------- |
+| `Option<a>` | `Some(firstElement)` if the list has elements or `None` otherwise |
 
 ### List.**tail**
 
@@ -603,7 +675,7 @@ Returns:
 </details>
 
 ```grain
-tail : (list: List<a>) => Option<List<a>>
+tail: (list: List<a>) => Option<List<a>>
 ```
 
 Provides `Some(tail)` containing all list items except the first element, or "tail", of
@@ -611,15 +683,15 @@ the input list or `None` if the list is empty.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`list`|`List<a>`|The list to access|
+| param  | type      | description        |
+| ------ | --------- | ------------------ |
+| `list` | `List<a>` | The list to access |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<List<a>>`|`Some(tail)` if the list has elements or `None` otherwise|
+| type              | description                                               |
+| ----------------- | --------------------------------------------------------- |
+| `Option<List<a>>` | `Some(tail)` if the list has elements or `None` otherwise |
 
 ### List.**nth**
 
@@ -637,7 +709,7 @@ Returns:
 </details>
 
 ```grain
-nth : (index: Number, list: List<a>) => Option<a>
+nth: (index: Number, list: List<a>) => Option<a>
 ```
 
 Provides `Some(element)` containing the element in the list at the specified index
@@ -645,16 +717,16 @@ or `None` if the index is out-of-bounds or the list is empty.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`index`|`Number`|The index to access|
-|`list`|`List<a>`|The list to access|
+| param   | type      | description         |
+| ------- | --------- | ------------------- |
+| `index` | `Number`  | The index to access |
+| `list`  | `List<a>` | The list to access  |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<a>`|`Some(element)` if the list contains an element at the index or `None` otherwise|
+| type        | description                                                                      |
+| ----------- | -------------------------------------------------------------------------------- |
+| `Option<a>` | `Some(element)` if the list contains an element at the index or `None` otherwise |
 
 ### List.**flatten**
 
@@ -664,22 +736,22 @@ No other changes yet.
 </details>
 
 ```grain
-flatten : (list: List<List<a>>) => List<a>
+flatten: (list: List<List<a>>) => List<a>
 ```
 
 Flattens nested lists.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`list`|`List<List<a>>`|The list to flatten|
+| param  | type            | description         |
+| ------ | --------------- | ------------------- |
+| `list` | `List<List<a>>` | The list to flatten |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|A new list containing all nested list elements combined|
+| type      | description                                             |
+| --------- | ------------------------------------------------------- |
+| `List<a>` | A new list containing all nested list elements combined |
 
 Examples:
 
@@ -702,24 +774,24 @@ List.flatten([[1, 2], [3, 4]]) // [1, 2, 3, 4]
 </details>
 
 ```grain
-insert : (index: Number, value: a, list: List<a>) => List<a>
+insert: (index: Number, value: a, list: List<a>) => List<a>
 ```
 
 Inserts a new value into a list at the specified index.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`index`|`Number`|The index to update|
-|`value`|`a`|The value to insert|
-|`list`|`List<a>`|The list to update|
+| param   | type      | description         |
+| ------- | --------- | ------------------- |
+| `index` | `Number`  | The index to update |
+| `value` | `a`       | The value to insert |
+| `list`  | `List<a>` | The list to update  |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|The new list|
+| type      | description  |
+| --------- | ------------ |
+| `List<a>` | The new list |
 
 Throws:
 
@@ -743,23 +815,23 @@ Throws:
 </details>
 
 ```grain
-count : (fn: (a => Bool), list: List<a>) => Number
+count: (fn: (a => Bool), list: List<a>) => Number
 ```
 
 Counts the number of elements in a list that satisfy the given condition.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`list`|`List<a>`|The list to iterate|
+| param  | type        | description                                                                                                     |
+| ------ | ----------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`   | `a => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `list` | `List<a>`   | The list to iterate                                                                                             |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The total number of elements that satisfy the condition|
+| type     | description                                             |
+| -------- | ------------------------------------------------------- |
+| `Number` | The total number of elements that satisfy the condition |
 
 ### List.**part**
 
@@ -769,23 +841,23 @@ No other changes yet.
 </details>
 
 ```grain
-part : (count: Number, list: List<a>) => (List<a>, List<a>)
+part: (count: Number, list: List<a>) => (List<a>, List<a>)
 ```
 
 Split a list into two, with the first list containing the required number of elements.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`count`|`Number`|The number of elements required|
-|`list`|`List<a>`|The list to split|
+| param   | type      | description                     |
+| ------- | --------- | ------------------------------- |
+| `count` | `Number`  | The number of elements required |
+| `list`  | `List<a>` | The list to split               |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`(List<a>, List<a>)`|Two lists where the first contains exactly the required amount of elements and the second contains any remaining elements|
+| type                 | description                                                                                                               |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `(List<a>, List<a>)` | Two lists where the first contains exactly the required amount of elements and the second contains any remaining elements |
 
 Throws:
 
@@ -809,7 +881,7 @@ Throws:
 </details>
 
 ```grain
-rotate : (n: Number, list: List<a>) => List<a>
+rotate: (n: Number, list: List<a>) => List<a>
 ```
 
 Rotates list elements by the specified amount to the left, such that `n`th
@@ -820,10 +892,10 @@ specified amount to the right. See examples.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`n`|`Number`|The number of elements to rotate by|
-|`list`|`List<a>`|The list to be rotated|
+| param  | type      | description                         |
+| ------ | --------- | ----------------------------------- |
+| `n`    | `Number`  | The number of elements to rotate by |
+| `list` | `List<a>` | The list to be rotated              |
 
 Examples:
 
@@ -855,7 +927,7 @@ List.rotate(-7, [1, 2, 3, 4, 5]) // [4, 5, 1, 2, 3]
 </details>
 
 ```grain
-unique : (list: List<a>) => List<a>
+unique: (list: List<a>) => List<a>
 ```
 
 Produces a new list with any duplicates removed.
@@ -863,15 +935,15 @@ Uses the generic `==` structural equality operator.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`list`|`List<a>`|The list to filter|
+| param  | type      | description        |
+| ------ | --------- | ------------------ |
+| `list` | `List<a>` | The list to filter |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|The new list with only unique values|
+| type      | description                          |
+| --------- | ------------------------------------ |
+| `List<a>` | The new list with only unique values |
 
 ### List.**zip**
 
@@ -881,7 +953,7 @@ No other changes yet.
 </details>
 
 ```grain
-zip : (list1: List<a>, list2: List<b>) => List<(a, b)>
+zip: (list1: List<a>, list2: List<b>) => List<(a, b)>
 ```
 
 Produces a new list filled with tuples of elements from both given lists.
@@ -893,16 +965,16 @@ list to have the length of the smaller list.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`list1`|`List<a>`|The list to provide values for the first tuple element|
-|`list2`|`List<b>`|The list to provide values for the second tuple element|
+| param   | type      | description                                             |
+| ------- | --------- | ------------------------------------------------------- |
+| `list1` | `List<a>` | The list to provide values for the first tuple element  |
+| `list2` | `List<b>` | The list to provide values for the second tuple element |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<(a, b)>`|The new list containing indexed pairs of `(a, b)`|
+| type           | description                                       |
+| -------------- | ------------------------------------------------- |
+| `List<(a, b)>` | The new list containing indexed pairs of `(a, b)` |
 
 Examples:
 
@@ -922,7 +994,7 @@ No other changes yet.
 </details>
 
 ```grain
-zipWith : (fn: ((a, b) => c), list1: List<a>, list2: List<b>) => List<c>
+zipWith: (fn: ((a, b) => c), list1: List<a>, list2: List<b>) => List<c>
 ```
 
 Produces a new list filled with elements defined by applying a function on
@@ -936,17 +1008,17 @@ list to have the length of the smaller list.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, b) => c`|The function to apply to pairs of elements|
-|`list1`|`List<a>`|The list whose elements will each be passed to the function as the first argument|
-|`list2`|`List<b>`|The list whose elements will each be passed to the function as the second argument|
+| param   | type          | description                                                                        |
+| ------- | ------------- | ---------------------------------------------------------------------------------- |
+| `fn`    | `(a, b) => c` | The function to apply to pairs of elements                                         |
+| `list1` | `List<a>`     | The list whose elements will each be passed to the function as the first argument  |
+| `list2` | `List<b>`     | The list whose elements will each be passed to the function as the second argument |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<c>`|The new list containing elements derived from applying the function to pairs of input list elements|
+| type      | description                                                                                         |
+| --------- | --------------------------------------------------------------------------------------------------- |
+| `List<c>` | The new list containing elements derived from applying the function to pairs of input list elements |
 
 Examples:
 
@@ -966,22 +1038,22 @@ No other changes yet.
 </details>
 
 ```grain
-unzip : (list: List<(a, b)>) => (List<a>, List<b>)
+unzip: (list: List<(a, b)>) => (List<a>, List<b>)
 ```
 
 Produces two lists by splitting apart a list of tuples.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`list`|`List<(a, b)>`|The list of tuples to split|
+| param  | type           | description                 |
+| ------ | -------------- | --------------------------- |
+| `list` | `List<(a, b)>` | The list of tuples to split |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`(List<a>, List<b>)`|An list containing all elements from the first tuple element, and a list containing all elements from the second tuple element|
+| type                 | description                                                                                                                    |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `(List<a>, List<b>)` | An list containing all elements from the first tuple element, and a list containing all elements from the second tuple element |
 
 ### List.**drop**
 
@@ -991,7 +1063,7 @@ No other changes yet.
 </details>
 
 ```grain
-drop : (count: Number, list: List<a>) => List<a>
+drop: (count: Number, list: List<a>) => List<a>
 ```
 
 Produces a new list with the specified number of elements removed from
@@ -999,16 +1071,16 @@ the beginning of the input list.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`count`|`Number`|The amount of elements to remove|
-|`list`|`List<a>`|The input list|
+| param   | type      | description                      |
+| ------- | --------- | -------------------------------- |
+| `count` | `Number`  | The amount of elements to remove |
+| `list`  | `List<a>` | The input list                   |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|The new list without the dropped elements|
+| type      | description                               |
+| --------- | ----------------------------------------- |
+| `List<a>` | The new list without the dropped elements |
 
 Throws:
 
@@ -1024,7 +1096,7 @@ No other changes yet.
 </details>
 
 ```grain
-dropWhile : (fn: (a => Bool), list: List<a>) => List<a>
+dropWhile: (fn: (a => Bool), list: List<a>) => List<a>
 ```
 
 Produces a new list with the elements removed from the beginning
@@ -1033,16 +1105,16 @@ Stops when the predicate function returns `false`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`list`|`List<a>`|The input list|
+| param  | type        | description                                                                                                     |
+| ------ | ----------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`   | `a => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `list` | `List<a>`   | The input list                                                                                                  |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|The new list without the dropped elements|
+| type      | description                               |
+| --------- | ----------------------------------------- |
+| `List<a>` | The new list without the dropped elements |
 
 ### List.**take**
 
@@ -1052,7 +1124,7 @@ No other changes yet.
 </details>
 
 ```grain
-take : (count: Number, list: List<a>) => List<a>
+take: (count: Number, list: List<a>) => List<a>
 ```
 
 Produces a new list with–at most—the specified amount elements from
@@ -1060,16 +1132,16 @@ the beginning of the input list.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`count`|`Number`|The amount of elements to keep|
-|`list`|`List<a>`|The input list|
+| param   | type      | description                    |
+| ------- | --------- | ------------------------------ |
+| `count` | `Number`  | The amount of elements to keep |
+| `list`  | `List<a>` | The input list                 |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|The new list containing the taken elements|
+| type      | description                                |
+| --------- | ------------------------------------------ |
+| `List<a>` | The new list containing the taken elements |
 
 Throws:
 
@@ -1085,7 +1157,7 @@ No other changes yet.
 </details>
 
 ```grain
-takeWhile : (fn: (a => Bool), list: List<a>) => List<a>
+takeWhile: (fn: (a => Bool), list: List<a>) => List<a>
 ```
 
 Produces a new list with elements from the beginning of the input list
@@ -1094,16 +1166,16 @@ Stops when the predicate function returns `false`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`list`|`List<a>`|The input list|
+| param  | type        | description                                                                                                     |
+| ------ | ----------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`   | `a => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `list` | `List<a>`   | The input list                                                                                                  |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|The new list containing the taken elements|
+| type      | description                                |
+| --------- | ------------------------------------------ |
+| `List<a>` | The new list containing the taken elements |
 
 ### List.**find**
 
@@ -1121,23 +1193,23 @@ Returns:
 </details>
 
 ```grain
-find : (fn: (a => Bool), list: List<a>) => Option<a>
+find: (fn: (a => Bool), list: List<a>) => Option<a>
 ```
 
-Finds the first element in a list that satifies the given condition.
+Finds the first element in a list that satisfies the given condition.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`list`|`List<a>`|The list to search|
+| param  | type        | description                                                                                                     |
+| ------ | ----------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`   | `a => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `list` | `List<a>`   | The list to search                                                                                              |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<a>`|`Some(element)` containing the first value found or `None` otherwise|
+| type        | description                                                          |
+| ----------- | -------------------------------------------------------------------- |
+| `Option<a>` | `Some(element)` containing the first value found or `None` otherwise |
 
 ### List.**findIndex**
 
@@ -1155,23 +1227,58 @@ Returns:
 </details>
 
 ```grain
-findIndex : (fn: (a => Bool), list: List<a>) => Option<Number>
+findIndex: (fn: (a => Bool), list: List<a>) => Option<Number>
 ```
 
-Finds the first index in a list where the element satifies the given condition.
+Finds the first index in a list where the element satisfies the given condition.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
-|`list`|`List<a>`|The list to search|
+| param  | type        | description                                                                                                     |
+| ------ | ----------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`   | `a => Bool` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `list` | `List<a>`   | The list to search                                                                                              |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<Number>`|`Some(index)` containing the index of the first element found or `None` otherwise|
+| type             | description                                                                       |
+| ---------------- | --------------------------------------------------------------------------------- |
+| `Option<Number>` | `Some(index)` containing the index of the first element found or `None` otherwise |
+
+### List.**findMap**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+findMap: (fn: (a => Option<b>), list: List<a>) => Option<b>
+```
+
+Finds the first element in a list that satisfies the given condition and
+returns the result of applying a mapper function to it.
+
+Parameters:
+
+| param  | type             | description                                                                                                     |
+| ------ | ---------------- | --------------------------------------------------------------------------------------------------------------- |
+| `fn`   | `a => Option<b>` | The function to call on each element, where the returned value indicates if the element satisfies the condition |
+| `list` | `List<a>`        | The list to search                                                                                              |
+
+Returns:
+
+| type        | description                                                                                |
+| ----------- | ------------------------------------------------------------------------------------------ |
+| `Option<b>` | `Some(mapped)` containing the first value found with the given mapping or `None` otherwise |
+
+Examples:
+
+```grain
+let jsonObject = [(1, 'a'), (2, 'b'), (1, 'c')]
+let getItem = (key, obj) => List.findMap(((k, v)) => if (k == key) Some(v) else None, obj)
+assert getItem(1, jsonObject) == Some('a')
+```
 
 ### List.**product**
 
@@ -1181,7 +1288,7 @@ No other changes yet.
 </details>
 
 ```grain
-product : (list1: List<a>, list2: List<b>) => List<(a, b)>
+product: (list1: List<a>, list2: List<b>) => List<(a, b)>
 ```
 
 Combines two lists into a Cartesian product of tuples containing
@@ -1189,16 +1296,16 @@ all ordered pairs `(a, b)`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`list1`|`List<a>`|The list to provide values for the first tuple element|
-|`list2`|`List<b>`|The list to provide values for the second tuple element|
+| param   | type      | description                                             |
+| ------- | --------- | ------------------------------------------------------- |
+| `list1` | `List<a>` | The list to provide values for the first tuple element  |
+| `list2` | `List<b>` | The list to provide values for the second tuple element |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<(a, b)>`|The new list containing all pairs of `(a, b)`|
+| type           | description                                   |
+| -------------- | --------------------------------------------- |
+| `List<(a, b)>` | The new list containing all pairs of `(a, b)` |
 
 ### List.**sub**
 
@@ -1208,7 +1315,7 @@ No other changes yet.
 </details>
 
 ```grain
-sub : (start: Number, length: Number, list: List<a>) => List<a>
+sub: (start: Number, length: Number, list: List<a>) => List<a>
 ```
 
 Provides the subset of a list given zero-based start index and amount of elements
@@ -1216,17 +1323,17 @@ to include.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`start`|`Number`|The index of the list where the subset will begin (inclusive)|
-|`length`|`Number`|The amount of elements to be included in the subset|
-|`list`|`List<a>`|The input list|
+| param    | type      | description                                                   |
+| -------- | --------- | ------------------------------------------------------------- |
+| `start`  | `Number`  | The index of the list where the subset will begin (inclusive) |
+| `length` | `Number`  | The amount of elements to be included in the subset           |
+| `list`   | `List<a>` | The input list                                                |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|The subset of the list|
+| type      | description            |
+| --------- | ---------------------- |
+| `List<a>` | The subset of the list |
 
 Throws:
 
@@ -1243,7 +1350,7 @@ No other changes yet.
 </details>
 
 ```grain
-join : (separator: String, list: List<String>) => String
+join: (separator: String, list: List<String>) => String
 ```
 
 Combine the given list of strings into one string with the specified
@@ -1251,16 +1358,16 @@ separator inserted between each item.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`separator`|`String`|The separator to insert between elements|
-|`list`|`List<String>`|The list to combine|
+| param       | type           | description                              |
+| ----------- | -------------- | ---------------------------------------- |
+| `separator` | `String`       | The separator to insert between elements |
+| `list`      | `List<String>` | The list to combine                      |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`String`|The combined elements with the separator between each|
+| type     | description                                           |
+| -------- | ----------------------------------------------------- |
+| `String` | The combined elements with the separator between each |
 
 ### List.**revAppend**
 
@@ -1270,23 +1377,23 @@ No other changes yet.
 </details>
 
 ```grain
-revAppend : (list1: List<a>, list2: List<a>) => List<a>
+revAppend: (list1: List<a>, list2: List<a>) => List<a>
 ```
 
 Reverses the first list and appends the second list to the end.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`list1`|`List<a>`|The list to reverse|
-|`list2`|`List<a>`|The list to append|
+| param   | type      | description         |
+| ------- | --------- | ------------------- |
+| `list1` | `List<a>` | The list to reverse |
+| `list2` | `List<a>` | The list to append  |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|The new list|
+| type      | description  |
+| --------- | ------------ |
+| `List<a>` | The new list |
 
 ### List.**sort**
 
@@ -1303,7 +1410,7 @@ Returns:
 </details>
 
 ```grain
-sort : (?compare: ((num1: a, num2: a) => Number), list: List<a>) => List<a>
+sort: (?compare: ((num1: a, num2: a) => Number), list: List<a>) => List<a>
 ```
 
 Sorts the given list based on a given comparator function. The resulting list is sorted in increasing order.
@@ -1312,14 +1419,330 @@ Ordering is calculated using a comparator function which takes two list elements
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`?compare`|`(num1: a, num2: a) => Number`|The comparator function used to indicate sort order|
-|`list`|`List<a>`|The list to be sorted|
+| param      | type                           | description                                         |
+| ---------- | ------------------------------ | --------------------------------------------------- |
+| `?compare` | `(num1: a, num2: a) => Number` | The comparator function used to indicate sort order |
+| `list`     | `List<a>`                      | The list to be sorted                               |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|The sorted list|
+| type      | description     |
+| --------- | --------------- |
+| `List<a>` | The sorted list |
+
+## List.Associative
+
+Utilities for working with lists of key-key value pairs.
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+let data = [
+ ("name", "Alice"),
+ ("age", "30"),
+]
+assert List.Associative.get("name", data) == Some("Alice")
+```
+
+### Values
+
+Functions and constants included in the List.Associative module.
+
+#### List.Associative.**has**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+has: (key: a, list: List<(a, b)>) => Bool
+```
+
+Checks if the given key is present in the list of key-value pairs.
+
+Parameters:
+
+| param  | type           | description                 |
+| ------ | -------------- | --------------------------- |
+| `key`  | `a`            | The key to search for       |
+| `list` | `List<(a, b)>` | The list of key-value pairs |
+
+Returns:
+
+| type   | description                                     |
+| ------ | ----------------------------------------------- |
+| `Bool` | `true` if the key is found or `false` otherwise |
+
+Examples:
+
+```grain
+let data = [
+  ("name", "Alice"),
+  ("age", "30"),
+]
+assert List.Associative.has("name", data) == true
+```
+
+```grain
+List.Associative.has("age", []) == false
+```
+
+#### List.Associative.**get**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+get: (key: a, list: List<(a, b)>) => Option<b>
+```
+
+Retrieves the first value in the list of key-value pairs that matches the given key.
+
+Parameters:
+
+| param  | type           | description                 |
+| ------ | -------------- | --------------------------- |
+| `key`  | `a`            | The key to search for       |
+| `list` | `List<(a, b)>` | The list of key-value pairs |
+
+Returns:
+
+| type        | description                                           |
+| ----------- | ----------------------------------------------------- |
+| `Option<b>` | `Some(value)` if the key is found or `None` otherwise |
+
+Examples:
+
+```grain
+let data = [
+ ("name", "Alice"),
+ ("name", "Bob"),
+ ("age", "30"),
+]
+assert List.Associative.get("name", data) == Some("Alice")
+```
+
+```grain
+List.Associative.get("age", []) == None
+```
+
+#### List.Associative.**getAll**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+getAll: (key: a, list: List<(a, b)>) => List<b>
+```
+
+Retrieves all values in the list of key-value pairs that match the given key.
+
+Parameters:
+
+| param  | type           | description                 |
+| ------ | -------------- | --------------------------- |
+| `key`  | `a`            | The key to search for       |
+| `list` | `List<(a, b)>` | The list of key-value pairs |
+
+Returns:
+
+| type      | description                               |
+| --------- | ----------------------------------------- |
+| `List<b>` | An array of values matching the given key |
+
+Examples:
+
+```grain
+let data = [
+ ("name", "Alice"),
+ ("name", "Bob"),
+ ("age", "30"),
+]
+assert List.Associative.getAll("name", data) == [
+  "Alice",
+  "Bob"
+]
+```
+
+```grain
+List.Associative.getAll("age", []) == []
+```
+
+#### List.Associative.**set**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+set: (key: a, value: b, list: List<(a, b)>) => List<(a, b)>
+```
+
+Creates a new list with the first value in the list of key-value pairs that matches the key replaced.
+If the key is not found the item is appended to the list.
+
+Parameters:
+
+| param   | type           | description                 |
+| ------- | -------------- | --------------------------- |
+| `key`   | `a`            | The key to replace          |
+| `value` | `b`            | The new value to set        |
+| `list`  | `List<(a, b)>` | The list of key-value pairs |
+
+Returns:
+
+| type           | description                                 |
+| -------------- | ------------------------------------------- |
+| `List<(a, b)>` | A new list with the key-value pair replaced |
+
+Examples:
+
+```grain
+let data = [
+ ("name", "Alice"),
+ ("name", "Bob"),
+ ("age", "30"),
+]
+assert List.Associative.set("name", "Charlie", data) == [("name", "Charlie"), ("name", "Bob"), ("age", "30")]
+```
+
+```grain
+List.Associative.set("age", "30", [("name", "Alice")]) == [("name", "Alice"), ("age", "30")]
+```
+
+#### List.Associative.**setAll**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+setAll: (key: a, value: b, list: List<(a, b)>) => List<(a, b)>
+```
+
+Creates a new list with all values in the list of key-value pairs that match the key replaced.
+If the key is not found the item is appended to the list.
+
+Parameters:
+
+| param   | type           | description                 |
+| ------- | -------------- | --------------------------- |
+| `key`   | `a`            | The key to replace          |
+| `value` | `b`            | The new value to set        |
+| `list`  | `List<(a, b)>` | The list of key-value pairs |
+
+Returns:
+
+| type           | description                                  |
+| -------------- | -------------------------------------------- |
+| `List<(a, b)>` | A new list with the key-value pairs replaced |
+
+Examples:
+
+```grain
+let data = [
+ ("name", "Alice"),
+ ("name", "Bob"),
+ ("age", "30"),
+]
+assert List.Associative.setAll("name", "Charlie", data) == [("name", "Charlie"), ("name", "Charlie"), ("age", "30")]
+```
+
+```grain
+List.Associative.setAll("age", "30", [("name", "Alice")]) == [("name", "Alice"), ("age", "30")]
+```
+
+#### List.Associative.**remove**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+remove: (key: a, list: List<(a, b)>) => List<(a, b)>
+```
+
+Creates a new list with the first value in the list of key-value pairs that matches the key removed.
+If the key is not found, the list is returned unchanged.
+
+Parameters:
+
+| param  | type           | description                 |
+| ------ | -------------- | --------------------------- |
+| `key`  | `a`            | The key to remove           |
+| `list` | `List<(a, b)>` | The list of key-value pairs |
+
+Returns:
+
+| type           | description                                  |
+| -------------- | -------------------------------------------- |
+| `List<(a, b)>` | The new list with the key-value pair removed |
+
+Examples:
+
+```grain
+let data = [
+  ("name", "Alice"),
+  ("name", "Bob"),
+  ("age", "30"),
+]
+assert List.Associative.remove("name", data) == [("name", "Bob"), ("age", "30")]
+```
+
+```grain
+List.Associative.remove("age", [("name", "Alice")]) == []
+```
+
+#### List.Associative.**removeAll**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+removeAll: (key: a, list: List<(a, b)>) => List<(a, b)>
+```
+
+Creates a new list with all values in the list of key-value pairs matching the key removed.
+If the key is not found, the list is returned unchanged.
+
+Parameters:
+
+| param  | type           | description                 |
+| ------ | -------------- | --------------------------- |
+| `key`  | `a`            | The key to remove           |
+| `list` | `List<(a, b)>` | The list of key-value pairs |
+
+Returns:
+
+| type           | description                                   |
+| -------------- | --------------------------------------------- |
+| `List<(a, b)>` | The new list with the key-value pairs removed |
+
+Examples:
+
+```grain
+let data = [
+  ("name", "Alice"),
+  ("name", "Bob"),
+  ("age", "30"),
+]
+assert List.Associative.removeAll("name", data) == [("age", "30")]
+```
+
+```grain
+List.Associative.removeAll("age", [("name", "Alice")]) == [("name", "Alice")]
+```
 

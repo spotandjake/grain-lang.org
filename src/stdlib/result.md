@@ -36,22 +36,22 @@ No other changes yet.
 </details>
 
 ```grain
-isOk : (result: Result<a, b>) => Bool
+isOk: (result: Result<a, b>) => Bool
 ```
 
 Checks if the Result is the `Ok` variant.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`result`|`Result<a, b>`|The result to check|
+| param    | type           | description         |
+| -------- | -------------- | ------------------- |
+| `result` | `Result<a, b>` | The result to check |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the Result is the `Ok` variant or `false` otherwise|
+| type   | description                                                   |
+| ------ | ------------------------------------------------------------- |
+| `Bool` | `true` if the Result is the `Ok` variant or `false` otherwise |
 
 ### Result.**isErr**
 
@@ -61,22 +61,22 @@ No other changes yet.
 </details>
 
 ```grain
-isErr : (result: Result<a, b>) => Bool
+isErr: (result: Result<a, b>) => Bool
 ```
 
 Checks if the Result is the `Err` variant.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`result`|`Result<a, b>`|The result to check|
+| param    | type           | description         |
+| -------- | -------------- | ------------------- |
+| `result` | `Result<a, b>` | The result to check |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the Result is the `Err` variant or `false` otherwise|
+| type   | description                                                    |
+| ------ | -------------------------------------------------------------- |
+| `Bool` | `true` if the Result is the `Err` variant or `false` otherwise |
 
 ### Result.**toOption**
 
@@ -86,22 +86,22 @@ No other changes yet.
 </details>
 
 ```grain
-toOption : (result: Result<a, b>) => Option<a>
+toOption: (result: Result<a, b>) => Option<a>
 ```
 
 Converts the Result to an Option. An error value is discarded and replaced with `None`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`result`|`Result<a, b>`|The result to convert|
+| param    | type           | description           |
+| -------- | -------------- | --------------------- |
+| `result` | `Result<a, b>` | The result to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<a>`|`Some(value)` if the Result is `Ok(value)` or `None` if the Result is an `Err`|
+| type        | description                                                                    |
+| ----------- | ------------------------------------------------------------------------------ |
+| `Option<a>` | `Some(value)` if the Result is `Ok(value)` or `None` if the Result is an `Err` |
 
 ### Result.**flatMap**
 
@@ -111,23 +111,23 @@ No other changes yet.
 </details>
 
 ```grain
-flatMap : (fn: (a => Result<b, c>), result: Result<a, c>) => Result<b, c>
+flatMap: (fn: (a => Result<b, c>), result: Result<a, c>) => Result<b, c>
 ```
 
 If the Result is `Ok(value)`, applies the given function to the `value` to produce a new Result.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Result<b, c>`|The function to call on the value of an `Ok` variant|
-|`result`|`Result<a, c>`|The result to map|
+| param    | type                | description                                          |
+| -------- | ------------------- | ---------------------------------------------------- |
+| `fn`     | `a => Result<b, c>` | The function to call on the value of an `Ok` variant |
+| `result` | `Result<a, c>`      | The result to map                                    |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<b, c>`|A new Result produced by the mapping function if the variant was `Ok` or the unmodified `Err` otherwise|
+| type           | description                                                                                             |
+| -------------- | ------------------------------------------------------------------------------------------------------- |
+| `Result<b, c>` | A new Result produced by the mapping function if the variant was `Ok` or the unmodified `Err` otherwise |
 
 ### Result.**flatMapErr**
 
@@ -137,23 +137,23 @@ No other changes yet.
 </details>
 
 ```grain
-flatMapErr : (fn: (a => Result<b, c>), result: Result<b, a>) => Result<b, c>
+flatMapErr: (fn: (a => Result<b, c>), result: Result<b, a>) => Result<b, c>
 ```
 
 If the Result is an `Err(value)`, applies the given function to the `value` to produce a new Result.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Result<b, c>`|The function to call on the value of an `Err` variant|
-|`result`|`Result<b, a>`|The result to map|
+| param    | type                | description                                           |
+| -------- | ------------------- | ----------------------------------------------------- |
+| `fn`     | `a => Result<b, c>` | The function to call on the value of an `Err` variant |
+| `result` | `Result<b, a>`      | The result to map                                     |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<b, c>`|A new Result produced by the mapping function if the variant was `Err` or the unmodified `Ok` otherwise|
+| type           | description                                                                                             |
+| -------------- | ------------------------------------------------------------------------------------------------------- |
+| `Result<b, c>` | A new Result produced by the mapping function if the variant was `Err` or the unmodified `Ok` otherwise |
 
 ### Result.**map**
 
@@ -163,23 +163,23 @@ No other changes yet.
 </details>
 
 ```grain
-map : (fn: (a => b), result: Result<a, c>) => Result<b, c>
+map: (fn: (a => b), result: Result<a, c>) => Result<b, c>
 ```
 
 If the Result is `Ok(value)`, applies the given function to the `value` and wraps the new value in an `Ok` variant.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => b`|The function to call on the value of an `Ok` variant|
-|`result`|`Result<a, c>`|The result to map|
+| param    | type           | description                                          |
+| -------- | -------------- | ---------------------------------------------------- |
+| `fn`     | `a => b`       | The function to call on the value of an `Ok` variant |
+| `result` | `Result<a, c>` | The result to map                                    |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<b, c>`|A new `Ok` variant produced by the mapping function if the variant was `Ok` or the unmodified `Err` otherwise|
+| type           | description                                                                                                   |
+| -------------- | ------------------------------------------------------------------------------------------------------------- |
+| `Result<b, c>` | A new `Ok` variant produced by the mapping function if the variant was `Ok` or the unmodified `Err` otherwise |
 
 ### Result.**mapErr**
 
@@ -189,23 +189,23 @@ No other changes yet.
 </details>
 
 ```grain
-mapErr : (fn: (a => b), result: Result<c, a>) => Result<c, b>
+mapErr: (fn: (a => b), result: Result<c, a>) => Result<c, b>
 ```
 
 If the Result is `Err(value)`, applies the given function to the `value` and wraps the new value in an `Err` variant.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => b`|The function to call on the value of an `Err` variant|
-|`result`|`Result<c, a>`|The result to map|
+| param    | type           | description                                           |
+| -------- | -------------- | ----------------------------------------------------- |
+| `fn`     | `a => b`       | The function to call on the value of an `Err` variant |
+| `result` | `Result<c, a>` | The result to map                                     |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<c, b>`|A new `Err` variant produced by the mapping function if the variant was `Err` or the unmodified `Ok` otherwise|
+| type           | description                                                                                                    |
+| -------------- | -------------------------------------------------------------------------------------------------------------- |
+| `Result<c, b>` | A new `Err` variant produced by the mapping function if the variant was `Err` or the unmodified `Ok` otherwise |
 
 ### Result.**mapWithDefault**
 
@@ -215,7 +215,7 @@ No other changes yet.
 </details>
 
 ```grain
-mapWithDefault : (fn: (a => b), def: b, result: Result<a, c>) => b
+mapWithDefault: (fn: (a => b), def: b, result: Result<a, c>) => b
 ```
 
 If the Result is `Ok(value)`, applies the given function to the `value` to produce a new value, otherwise uses the default value.
@@ -223,17 +223,17 @@ Useful for unwrapping a successful Result while providing a fallback for any err
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => b`|The function to call on the value of an `Ok` variant|
-|`def`|`b`|A fallback value for an `Err` variant|
-|`result`|`Result<a, c>`|The result to map|
+| param    | type           | description                                          |
+| -------- | -------------- | ---------------------------------------------------- |
+| `fn`     | `a => b`       | The function to call on the value of an `Ok` variant |
+| `def`    | `b`            | A fallback value for an `Err` variant                |
+| `result` | `Result<a, c>` | The result to map                                    |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`b`|The value produced by the mapping function if the result is of the `Ok` variant or the default value otherwise|
+| type | description                                                                                                    |
+| ---- | -------------------------------------------------------------------------------------------------------------- |
+| `b`  | The value produced by the mapping function if the result is of the `Ok` variant or the default value otherwise |
 
 ### Result.**mapWithDefaultFn**
 
@@ -243,7 +243,7 @@ No other changes yet.
 </details>
 
 ```grain
-mapWithDefaultFn :
+mapWithDefaultFn:
   (fnOk: (a => b), fnErr: (c => b), result: Result<a, c>) => b
 ```
 
@@ -253,17 +253,17 @@ Useful for unwrapping a Result into a value, whether it is successful or unsucce
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fnOk`|`a => b`|The function to call on the value of an `Ok` variant|
-|`fnErr`|`c => b`|The function to call on the value of an `Err` variant|
-|`result`|`Result<a, c>`|The result to map|
+| param    | type           | description                                           |
+| -------- | -------------- | ----------------------------------------------------- |
+| `fnOk`   | `a => b`       | The function to call on the value of an `Ok` variant  |
+| `fnErr`  | `c => b`       | The function to call on the value of an `Err` variant |
+| `result` | `Result<a, c>` | The result to map                                     |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`b`|The value produced by one of the mapping functions|
+| type | description                                        |
+| ---- | -------------------------------------------------- |
+| `b`  | The value produced by one of the mapping functions |
 
 ### Result.**(||)**
 
@@ -280,23 +280,23 @@ Returns:
 </details>
 
 ```grain
-(||) : (result1: Result<a, b>, result2: Result<a, b>) => Result<a, b>
+(||): (result1: Result<a, b>, result2: Result<a, b>) => Result<a, b>
 ```
 
 Behaves like a logical OR (`||`) where the first Result is only returned if it is the `Ok` variant and falling back to the second Result in all other cases.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`result1`|`Result<a, b>`|The first result|
-|`result2`|`Result<a, b>`|The second result|
+| param     | type           | description       |
+| --------- | -------------- | ----------------- |
+| `result1` | `Result<a, b>` | The first result  |
+| `result2` | `Result<a, b>` | The second result |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<a, b>`|The first Result if it is the `Ok` variant or the second Result otherwise|
+| type           | description                                                               |
+| -------------- | ------------------------------------------------------------------------- |
+| `Result<a, b>` | The first Result if it is the `Ok` variant or the second Result otherwise |
 
 ### Result.**(&&)**
 
@@ -313,23 +313,23 @@ Returns:
 </details>
 
 ```grain
-(&&) : (result1: Result<a, b>, result2: Result<a, b>) => Result<a, b>
+(&&): (result1: Result<a, b>, result2: Result<a, b>) => Result<a, b>
 ```
 
 Behaves like a logical AND (`&&`) where the first Result is only returned if it is the `Err` variant and falling back to the second Result in all other cases.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`result1`|`Result<a, b>`|The first result|
-|`result2`|`Result<a, b>`|The second result|
+| param     | type           | description       |
+| --------- | -------------- | ----------------- |
+| `result1` | `Result<a, b>` | The first result  |
+| `result2` | `Result<a, b>` | The second result |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<a, b>`|The second Result if both are the `Ok` variant or the first Result otherwise|
+| type           | description                                                                  |
+| -------------- | ---------------------------------------------------------------------------- |
+| `Result<a, b>` | The second Result if both are the `Ok` variant or the first Result otherwise |
 
 ### Result.**peek**
 
@@ -339,7 +339,7 @@ No other changes yet.
 </details>
 
 ```grain
-peek : (fnOk: (a => b), fnErr: (c => d), result: Result<a, c>) => Void
+peek: (fnOk: (a => b), fnErr: (c => d), result: Result<a, c>) => Void
 ```
 
 If the Result is `Ok(value)`, applies the `fnOk` function to the `value` without producing a new value.
@@ -348,11 +348,11 @@ Useful for inspecting Results without changing anything.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fnOk`|`a => b`|The function to call on the value of an `Ok` variant|
-|`fnErr`|`c => d`|The function to call on the value of an `Err` variant|
-|`result`|`Result<a, c>`|The result to inspect|
+| param    | type           | description                                           |
+| -------- | -------------- | ----------------------------------------------------- |
+| `fnOk`   | `a => b`       | The function to call on the value of an `Ok` variant  |
+| `fnErr`  | `c => d`       | The function to call on the value of an `Err` variant |
+| `result` | `Result<a, c>` | The result to inspect                                 |
 
 ### Result.**peekOk**
 
@@ -362,17 +362,17 @@ No other changes yet.
 </details>
 
 ```grain
-peekOk : (fn: (a => b), result: Result<a, c>) => Void
+peekOk: (fn: (a => b), result: Result<a, c>) => Void
 ```
 
 If the Result is `Ok(value)`, applies the given function to the `value` without producing a new value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => b`|The function to call on the value of an `Ok` variant|
-|`result`|`Result<a, c>`|The result to inspect|
+| param    | type           | description                                          |
+| -------- | -------------- | ---------------------------------------------------- |
+| `fn`     | `a => b`       | The function to call on the value of an `Ok` variant |
+| `result` | `Result<a, c>` | The result to inspect                                |
 
 ### Result.**peekErr**
 
@@ -382,17 +382,17 @@ No other changes yet.
 </details>
 
 ```grain
-peekErr : (fn: (a => b), result: Result<c, a>) => Void
+peekErr: (fn: (a => b), result: Result<c, a>) => Void
 ```
 
 If the Result is `Err(value)`, applies the given function to the `value` without producing a new value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => b`|The function to call on the value of an `Err` variant|
-|`result`|`Result<c, a>`|The result to inspect|
+| param    | type           | description                                           |
+| -------- | -------------- | ----------------------------------------------------- |
+| `fn`     | `a => b`       | The function to call on the value of an `Err` variant |
+| `result` | `Result<c, a>` | The result to inspect                                 |
 
 ### Result.**expect**
 
@@ -402,7 +402,7 @@ No other changes yet.
 </details>
 
 ```grain
-expect : (msg: String, result: Result<a, b>) => a
+expect: (msg: String, result: Result<a, b>) => a
 ```
 
 Extracts the value inside an `Ok` result, otherwise throw an
@@ -410,16 +410,16 @@ exception containing the message and contents of the `Err`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`msg`|`String`|The message to prepend if the result contains an `Err`|
-|`result`|`Result<a, b>`|The result to extract a value from|
+| param    | type           | description                                            |
+| -------- | -------------- | ------------------------------------------------------ |
+| `msg`    | `String`       | The message to prepend if the result contains an `Err` |
+| `result` | `Result<a, b>` | The result to extract a value from                     |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`a`|The unwrapped value if the Result is the `Ok` variant|
+| type | description                                           |
+| ---- | ----------------------------------------------------- |
+| `a`  | The unwrapped value if the Result is the `Ok` variant |
 
 Throws:
 
@@ -441,7 +441,7 @@ No other changes yet.
 </details>
 
 ```grain
-unwrap : (result: Result<a, b>) => a
+unwrap: (result: Result<a, b>) => a
 ```
 
 Extracts the value inside an `Ok` result, otherwise throw an
@@ -449,15 +449,15 @@ exception containing a default message and contents of the `Err`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`result`|`Result<a, b>`|The result to extract a value from|
+| param    | type           | description                        |
+| -------- | -------------- | ---------------------------------- |
+| `result` | `Result<a, b>` | The result to extract a value from |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`a`|The unwrapped value if the result is the `Ok` variant|
+| type | description                                           |
+| ---- | ----------------------------------------------------- |
+| `a`  | The unwrapped value if the result is the `Ok` variant |
 
 Throws:
 

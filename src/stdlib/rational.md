@@ -33,22 +33,22 @@ No other changes yet.
 </details>
 
 ```grain
-fromNumber : (number: Number) => Rational
+fromNumber: (number: Number) => Rational
 ```
 
 Converts a Number to a Rational.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`number`|`Number`|The value to convert|
+| param    | type     | description          |
+| -------- | -------- | -------------------- |
+| `number` | `Number` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Rational`|The Number represented as a Rational|
+| type       | description                          |
+| ---------- | ------------------------------------ |
+| `Rational` | The Number represented as a Rational |
 
 ### Rational.**toNumber**
 
@@ -58,22 +58,22 @@ No other changes yet.
 </details>
 
 ```grain
-toNumber : (rational: Rational) => Number
+toNumber: (rational: Rational) => Number
 ```
 
 Converts a Rational to a Number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`rational`|`Rational`|The value to convert|
+| param      | type       | description          |
+| ---------- | ---------- | -------------------- |
+| `rational` | `Rational` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The Rational represented as a Number|
+| type     | description                          |
+| -------- | ------------------------------------ |
+| `Number` | The Rational represented as a Number |
 
 ### Rational.**numerator**
 
@@ -83,22 +83,22 @@ No other changes yet.
 </details>
 
 ```grain
-numerator : (x: Rational) => Number
+numerator: (x: Rational) => Number
 ```
 
 Finds the numerator of the rational number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Rational`|The rational number to inspect|
+| param | type       | description                    |
+| ----- | ---------- | ------------------------------ |
+| `x`   | `Rational` | The rational number to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The numerator of the rational number|
+| type     | description                          |
+| -------- | ------------------------------------ |
+| `Number` | The numerator of the rational number |
 
 ### Rational.**denominator**
 
@@ -108,22 +108,22 @@ No other changes yet.
 </details>
 
 ```grain
-denominator : (x: Rational) => Number
+denominator: (x: Rational) => Number
 ```
 
 Finds the denominator of the rational number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Rational`|The rational number to inspect|
+| param | type       | description                    |
+| ----- | ---------- | ------------------------------ |
+| `x`   | `Rational` | The rational number to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The denominator of the rational number|
+| type     | description                            |
+| -------- | -------------------------------------- |
+| `Number` | The denominator of the rational number |
 
 ### Rational.**toIntegerRatio**
 
@@ -133,22 +133,22 @@ No other changes yet.
 </details>
 
 ```grain
-toIntegerRatio : (x: Rational) => (Number, Number)
+toIntegerRatio: (x: Rational) => (Number, Number)
 ```
 
 Gets the numerator and denominator of the rational.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Rational`|The rational to split|
+| param | type       | description           |
+| ----- | ---------- | --------------------- |
+| `x`   | `Rational` | The rational to split |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`(Number, Number)`|The numerator and denominator of the rational|
+| type               | description                                   |
+| ------------------ | --------------------------------------------- |
+| `(Number, Number)` | The numerator and denominator of the rational |
 
 Examples:
 
@@ -168,23 +168,23 @@ No other changes yet.
 </details>
 
 ```grain
-fromIntegerRatio : (numerator: Number, denominator: Number) => Rational
+fromIntegerRatio: (numerator: Number, denominator: Number) => Rational
 ```
 
 Creates a rational from a numerator and denominator.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`numerator`|`Number`|The numerator|
-|`denominator`|`Number`|The denominator|
+| param         | type     | description     |
+| ------------- | -------- | --------------- |
+| `numerator`   | `Number` | The numerator   |
+| `denominator` | `Number` | The denominator |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Rational`|The reduced rational|
+| type       | description          |
+| ---------- | -------------------- |
+| `Rational` | The reduced rational |
 
 Throws:
 
@@ -211,23 +211,23 @@ No other changes yet.
 </details>
 
 ```grain
-(+) : (x: Rational, y: Rational) => Rational
+(+): (x: Rational, y: Rational) => Rational
 ```
 
 Computes the sum of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Rational`|The first operand|
-|`y`|`Rational`|The second operand|
+| param | type       | description        |
+| ----- | ---------- | ------------------ |
+| `x`   | `Rational` | The first operand  |
+| `y`   | `Rational` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Rational`|The sum of the two operands|
+| type       | description                 |
+| ---------- | --------------------------- |
+| `Rational` | The sum of the two operands |
 
 Examples:
 
@@ -244,23 +244,23 @@ No other changes yet.
 </details>
 
 ```grain
-(-) : (x: Rational, y: Rational) => Rational
+(-): (x: Rational, y: Rational) => Rational
 ```
 
 Computes the difference of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Rational`|The first operand|
-|`y`|`Rational`|The second operand|
+| param | type       | description        |
+| ----- | ---------- | ------------------ |
+| `x`   | `Rational` | The first operand  |
+| `y`   | `Rational` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Rational`|The difference of the two operands|
+| type       | description                        |
+| ---------- | ---------------------------------- |
+| `Rational` | The difference of the two operands |
 
 Examples:
 
@@ -277,23 +277,23 @@ No other changes yet.
 </details>
 
 ```grain
-(*) : (x: Rational, y: Rational) => Rational
+(*): (x: Rational, y: Rational) => Rational
 ```
 
 Computes the product of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Rational`|The first operand|
-|`y`|`Rational`|The second operand|
+| param | type       | description        |
+| ----- | ---------- | ------------------ |
+| `x`   | `Rational` | The first operand  |
+| `y`   | `Rational` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Rational`|The product of the two operands|
+| type       | description                     |
+| ---------- | ------------------------------- |
+| `Rational` | The product of the two operands |
 
 Examples:
 
@@ -310,23 +310,23 @@ No other changes yet.
 </details>
 
 ```grain
-(/) : (x: Rational, y: Rational) => Rational
+(/): (x: Rational, y: Rational) => Rational
 ```
 
 Computes the quotient of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Rational`|The first operand|
-|`y`|`Rational`|The second operand|
+| param | type       | description        |
+| ----- | ---------- | ------------------ |
+| `x`   | `Rational` | The first operand  |
+| `y`   | `Rational` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Rational`|The quotient of the two operands|
+| type       | description                      |
+| ---------- | -------------------------------- |
+| `Rational` | The quotient of the two operands |
 
 Examples:
 
@@ -343,23 +343,23 @@ No other changes yet.
 </details>
 
 ```grain
-(==) : (x: Rational, y: Rational) => Bool
+(==): (x: Rational, y: Rational) => Bool
 ```
 
 Checks if the first value is equal to the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Rational`|The first value|
-|`y`|`Rational`|The second value|
+| param | type       | description      |
+| ----- | ---------- | ---------------- |
+| `x`   | `Rational` | The first value  |
+| `y`   | `Rational` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is equal to the second value or `false` otherwise|
+| type   | description                                                                 |
+| ------ | --------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is equal to the second value or `false` otherwise |
 
 Examples:
 
@@ -376,23 +376,23 @@ No other changes yet.
 </details>
 
 ```grain
-(!=) : (x: Rational, y: Rational) => Bool
+(!=): (x: Rational, y: Rational) => Bool
 ```
 
 Checks if the first value is not equal to the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Rational`|The first value|
-|`y`|`Rational`|The second value|
+| param | type       | description      |
+| ----- | ---------- | ---------------- |
+| `x`   | `Rational` | The first value  |
+| `y`   | `Rational` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is not equal to the second value or `false` otherwise|
+| type   | description                                                                     |
+| ------ | ------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is not equal to the second value or `false` otherwise |
 
 Examples:
 
@@ -409,23 +409,23 @@ No other changes yet.
 </details>
 
 ```grain
-(<) : (x: Rational, y: Rational) => Bool
+(<): (x: Rational, y: Rational) => Bool
 ```
 
 Checks if the first value is less than the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Rational`|The first value|
-|`y`|`Rational`|The second value|
+| param | type       | description      |
+| ----- | ---------- | ---------------- |
+| `x`   | `Rational` | The first value  |
+| `y`   | `Rational` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is less than the second value or `false` otherwise|
+| type   | description                                                                  |
+| ------ | ---------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is less than the second value or `false` otherwise |
 
 Examples:
 
@@ -442,23 +442,23 @@ No other changes yet.
 </details>
 
 ```grain
-(>) : (x: Rational, y: Rational) => Bool
+(>): (x: Rational, y: Rational) => Bool
 ```
 
 Checks if the first value is greater than the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Rational`|The first value|
-|`y`|`Rational`|The second value|
+| param | type       | description      |
+| ----- | ---------- | ---------------- |
+| `x`   | `Rational` | The first value  |
+| `y`   | `Rational` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is greater than the second value or `false` otherwise|
+| type   | description                                                                     |
+| ------ | ------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is greater than the second value or `false` otherwise |
 
 Examples:
 
@@ -475,23 +475,23 @@ No other changes yet.
 </details>
 
 ```grain
-(<=) : (x: Rational, y: Rational) => Bool
+(<=): (x: Rational, y: Rational) => Bool
 ```
 
 Checks if the first value is less than or equal to the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Rational`|The first value|
-|`y`|`Rational`|The second value|
+| param | type       | description      |
+| ----- | ---------- | ---------------- |
+| `x`   | `Rational` | The first value  |
+| `y`   | `Rational` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is less than or equal to the second value or `false` otherwise|
+| type   | description                                                                              |
+| ------ | ---------------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is less than or equal to the second value or `false` otherwise |
 
 Examples:
 
@@ -513,23 +513,23 @@ No other changes yet.
 </details>
 
 ```grain
-(>=) : (x: Rational, y: Rational) => Bool
+(>=): (x: Rational, y: Rational) => Bool
 ```
 
 Checks if the first value is greater than or equal to the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Rational`|The first value|
-|`y`|`Rational`|The second value|
+| param | type       | description      |
+| ----- | ---------- | ---------------- |
+| `x`   | `Rational` | The first value  |
+| `y`   | `Rational` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is greater than or equal to the second value or `false` otherwise|
+| type   | description                                                                                 |
+| ------ | ------------------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is greater than or equal to the second value or `false` otherwise |
 
 Examples:
 

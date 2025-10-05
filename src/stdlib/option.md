@@ -35,22 +35,22 @@ No other changes yet.
 </details>
 
 ```grain
-isSome : (option: Option<a>) => Bool
+isSome: (option: Option<a>) => Bool
 ```
 
 Checks if the Option is the `Some` variant.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`option`|`Option<a>`|The option to check|
+| param    | type        | description         |
+| -------- | ----------- | ------------------- |
+| `option` | `Option<a>` | The option to check |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the Option is the `Some` variant or `false` otherwise|
+| type   | description                                                     |
+| ------ | --------------------------------------------------------------- |
+| `Bool` | `true` if the Option is the `Some` variant or `false` otherwise |
 
 ### Option.**isNone**
 
@@ -60,22 +60,22 @@ No other changes yet.
 </details>
 
 ```grain
-isNone : (option: Option<a>) => Bool
+isNone: (option: Option<a>) => Bool
 ```
 
 Checks if the Option is the `None` variant.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`option`|`Option<a>`|The option to check|
+| param    | type        | description         |
+| -------- | ----------- | ------------------- |
+| `option` | `Option<a>` | The option to check |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the Option is the `None` variant or `false` otherwise|
+| type   | description                                                     |
+| ------ | --------------------------------------------------------------- |
+| `Bool` | `true` if the Option is the `None` variant or `false` otherwise |
 
 ### Option.**contains**
 
@@ -85,23 +85,23 @@ No other changes yet.
 </details>
 
 ```grain
-contains : (value: a, option: Option<a>) => Bool
+contains: (value: a, option: Option<a>) => Bool
 ```
 
 Checks if the Option is the `Some` variant and contains the given value. Uses the generic `==` equality operator.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`a`|The value to search for|
-|`option`|`Option<a>`|The option to search|
+| param    | type        | description             |
+| -------- | ----------- | ----------------------- |
+| `value`  | `a`         | The value to search for |
+| `option` | `Option<a>` | The option to search    |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the Option is equivalent to `Some(value)` or `false` otherwise|
+| type   | description                                                              |
+| ------ | ------------------------------------------------------------------------ |
+| `Bool` | `true` if the Option is equivalent to `Some(value)` or `false` otherwise |
 
 ### Option.**expect**
 
@@ -111,7 +111,7 @@ No other changes yet.
 </details>
 
 ```grain
-expect : (msg: String, option: Option<a>) => a
+expect: (msg: String, option: Option<a>) => a
 ```
 
 Extracts the value inside a `Some` option, otherwise throws an
@@ -119,16 +119,16 @@ exception containing the message provided.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`msg`|`String`|The message to use upon failure|
-|`option`|`Option<a>`|The option to extract a value from|
+| param    | type        | description                        |
+| -------- | ----------- | ---------------------------------- |
+| `msg`    | `String`    | The message to use upon failure    |
+| `option` | `Option<a>` | The option to extract a value from |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`a`|The unwrapped value if the Option is the `Some` variant|
+| type | description                                             |
+| ---- | ------------------------------------------------------- |
+| `a`  | The unwrapped value if the Option is the `Some` variant |
 
 Throws:
 
@@ -144,7 +144,7 @@ No other changes yet.
 </details>
 
 ```grain
-unwrap : (option: Option<a>) => a
+unwrap: (option: Option<a>) => a
 ```
 
 Extracts the value inside a `Some` option, otherwise
@@ -152,15 +152,15 @@ throws an exception containing a default message.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`option`|`Option<a>`|The option to extract the value from|
+| param    | type        | description                          |
+| -------- | ----------- | ------------------------------------ |
+| `option` | `Option<a>` | The option to extract the value from |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`a`|The unwrapped value if the Option is the `Some` variant|
+| type | description                                             |
+| ---- | ------------------------------------------------------- |
+| `a`  | The unwrapped value if the Option is the `Some` variant |
 
 Throws:
 
@@ -176,23 +176,23 @@ No other changes yet.
 </details>
 
 ```grain
-unwrapWithDefault : (default: a, option: Option<a>) => a
+unwrapWithDefault: (default: a, option: Option<a>) => a
 ```
 
 Extracts the value inside a `Some` option or provide the default value if `None`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`default`|`a`|The default value|
-|`option`|`Option<a>`|The option to unwrap|
+| param     | type        | description          |
+| --------- | ----------- | -------------------- |
+| `default` | `a`         | The default value    |
+| `option`  | `Option<a>` | The option to unwrap |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`a`|The unwrapped value if the Option is the `Some` variant or the default value otherwise|
+| type | description                                                                            |
+| ---- | -------------------------------------------------------------------------------------- |
+| `a`  | The unwrapped value if the Option is the `Some` variant or the default value otherwise |
 
 ### Option.**map**
 
@@ -202,23 +202,23 @@ No other changes yet.
 </details>
 
 ```grain
-map : (fn: (a => b), option: Option<a>) => Option<b>
+map: (fn: (a => b), option: Option<a>) => Option<b>
 ```
 
 If the Option is `Some(value)`, applies the given function to the `value` and wraps the new value in a `Some` variant.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => b`|The function to call on the value of a `Some` variant|
-|`option`|`Option<a>`|The option to map|
+| param    | type        | description                                           |
+| -------- | ----------- | ----------------------------------------------------- |
+| `fn`     | `a => b`    | The function to call on the value of a `Some` variant |
+| `option` | `Option<a>` | The option to map                                     |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<b>`|A new `Some` variant produced by the mapping function if the variant was `Some` or the unmodified `None` otherwise|
+| type        | description                                                                                                        |
+| ----------- | ------------------------------------------------------------------------------------------------------------------ |
+| `Option<b>` | A new `Some` variant produced by the mapping function if the variant was `Some` or the unmodified `None` otherwise |
 
 ### Option.**mapWithDefault**
 
@@ -228,7 +228,7 @@ No other changes yet.
 </details>
 
 ```grain
-mapWithDefault : (fn: (a => b), default: b, option: Option<a>) => b
+mapWithDefault: (fn: (a => b), default: b, option: Option<a>) => b
 ```
 
 If the Option is `Some(value)`, applies the given function to the `value` to produce a new value, otherwise uses the default value.
@@ -236,17 +236,17 @@ Useful for unwrapping an Option while providing a fallback for any `None` varian
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => b`|The function to call on the value of a `Some` variant|
-|`default`|`b`|A fallback value for a `None` variant|
-|`option`|`Option<a>`|The option to map|
+| param     | type        | description                                           |
+| --------- | ----------- | ----------------------------------------------------- |
+| `fn`      | `a => b`    | The function to call on the value of a `Some` variant |
+| `default` | `b`         | A fallback value for a `None` variant                 |
+| `option`  | `Option<a>` | The option to map                                     |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`b`|The value produced by the mapping function if the Option is of the `Some` variant or the default value otherwise|
+| type | description                                                                                                      |
+| ---- | ---------------------------------------------------------------------------------------------------------------- |
+| `b`  | The value produced by the mapping function if the Option is of the `Some` variant or the default value otherwise |
 
 ### Option.**mapWithDefaultFn**
 
@@ -256,7 +256,7 @@ No other changes yet.
 </details>
 
 ```grain
-mapWithDefaultFn :
+mapWithDefaultFn:
   (fn: (a => b), defaultFn: (() => b), option: Option<a>) => b
 ```
 
@@ -266,17 +266,17 @@ Useful for unwrapping an Option into a value, whether it is `Some` or `None`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => b`|The function to call on the value of a `Some` variant|
-|`defaultFn`|`() => b`|The default function|
-|`option`|`Option<a>`|The option to map|
+| param       | type        | description                                           |
+| ----------- | ----------- | ----------------------------------------------------- |
+| `fn`        | `a => b`    | The function to call on the value of a `Some` variant |
+| `defaultFn` | `() => b`   | The default function                                  |
+| `option`    | `Option<a>` | The option to map                                     |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`b`|The value produced by one of the mapping functions|
+| type | description                                        |
+| ---- | -------------------------------------------------- |
+| `b`  | The value produced by one of the mapping functions |
 
 ### Option.**flatMap**
 
@@ -286,23 +286,23 @@ No other changes yet.
 </details>
 
 ```grain
-flatMap : (fn: (a => Option<b>), option: Option<a>) => Option<b>
+flatMap: (fn: (a => Option<b>), option: Option<a>) => Option<b>
 ```
 
 If the Option is `Some(value)`, applies the given function to the `value` to produce a new Option.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Option<b>`|The function to call on the value of a `Some` variant|
-|`option`|`Option<a>`|The option to map|
+| param    | type             | description                                           |
+| -------- | ---------------- | ----------------------------------------------------- |
+| `fn`     | `a => Option<b>` | The function to call on the value of a `Some` variant |
+| `option` | `Option<a>`      | The option to map                                     |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<b>`|A new Option produced by the mapping function if the variant was `Some` or the unmodified `None` otherwise|
+| type        | description                                                                                                |
+| ----------- | ---------------------------------------------------------------------------------------------------------- |
+| `Option<b>` | A new Option produced by the mapping function if the variant was `Some` or the unmodified `None` otherwise |
 
 ### Option.**filter**
 
@@ -312,7 +312,7 @@ No other changes yet.
 </details>
 
 ```grain
-filter : (fn: (a => Bool), option: Option<a>) => Option<a>
+filter: (fn: (a => Bool), option: Option<a>) => Option<a>
 ```
 
 Converts `Some(value)` variants to `None` variants where the predicate function returns `false`.
@@ -320,16 +320,16 @@ if the `fn` return `true` returns `Some(value)`, otherwise returns `None`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Bool`|The predicate function to indicate if the option should remain `Some`|
-|`option`|`Option<a>`|The option to inspect|
+| param    | type        | description                                                           |
+| -------- | ----------- | --------------------------------------------------------------------- |
+| `fn`     | `a => Bool` | The predicate function to indicate if the option should remain `Some` |
+| `option` | `Option<a>` | The option to inspect                                                 |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<a>`|`Some(value)` if the variant was `Some` and the predicate returns `true` or `None` otherwise|
+| type        | description                                                                                  |
+| ----------- | -------------------------------------------------------------------------------------------- |
+| `Option<a>` | `Some(value)` if the variant was `Some` and the predicate returns `true` or `None` otherwise |
 
 ### Option.**zip**
 
@@ -339,23 +339,23 @@ No other changes yet.
 </details>
 
 ```grain
-zip : (optionA: Option<a>, optionB: Option<b>) => Option<(a, b)>
+zip: (optionA: Option<a>, optionB: Option<b>) => Option<(a, b)>
 ```
 
 Combine two Options into a single Option containing a tuple of their values.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`optionA`|`Option<a>`|The first option to combine|
-|`optionB`|`Option<b>`|The second option to combine|
+| param     | type        | description                  |
+| --------- | ----------- | ---------------------------- |
+| `optionA` | `Option<a>` | The first option to combine  |
+| `optionB` | `Option<b>` | The second option to combine |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<(a, b)>`|`Some((valueA, valueB))` if both Options are `Some` variants or `None` otherwise|
+| type             | description                                                                      |
+| ---------------- | -------------------------------------------------------------------------------- |
+| `Option<(a, b)>` | `Some((valueA, valueB))` if both Options are `Some` variants or `None` otherwise |
 
 ### Option.**zipWith**
 
@@ -365,7 +365,7 @@ No other changes yet.
 </details>
 
 ```grain
-zipWith :
+zipWith:
   (fn: ((a, b) => c), optionA: Option<a>, optionB: Option<b>) => Option<c>
 ```
 
@@ -373,17 +373,17 @@ Combine two Options into a single Option. The new value is produced by applying 
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`(a, b) => c`|The function to generate a new value|
-|`optionA`|`Option<a>`|The first option to combine|
-|`optionB`|`Option<b>`|The second option to combine|
+| param     | type          | description                          |
+| --------- | ------------- | ------------------------------------ |
+| `fn`      | `(a, b) => c` | The function to generate a new value |
+| `optionA` | `Option<a>`   | The first option to combine          |
+| `optionB` | `Option<b>`   | The second option to combine         |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<c>`|`Some(newValue)` if both Options are `Some` variants or `None` otherwise|
+| type        | description                                                              |
+| ----------- | ------------------------------------------------------------------------ |
+| `Option<c>` | `Some(newValue)` if both Options are `Some` variants or `None` otherwise |
 
 ### Option.**flatten**
 
@@ -393,22 +393,22 @@ No other changes yet.
 </details>
 
 ```grain
-flatten : (option: Option<Option<a>>) => Option<a>
+flatten: (option: Option<Option<a>>) => Option<a>
 ```
 
 Flattens nested Options.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`option`|`Option<Option<a>>`|The option to flatten|
+| param    | type                | description           |
+| -------- | ------------------- | --------------------- |
+| `option` | `Option<Option<a>>` | The option to flatten |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<a>`|`Some(innerValue)` if all nested options were the `Some` variant or `None` otherwise|
+| type        | description                                                                          |
+| ----------- | ------------------------------------------------------------------------------------ |
+| `Option<a>` | `Some(innerValue)` if all nested options were the `Some` variant or `None` otherwise |
 
 Examples:
 
@@ -424,22 +424,22 @@ No other changes yet.
 </details>
 
 ```grain
-toList : (option: Option<a>) => List<a>
+toList: (option: Option<a>) => List<a>
 ```
 
 Converts an Option to a list with either zero or one item.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`option`|`Option<a>`|The option to convert|
+| param    | type        | description           |
+| -------- | ----------- | --------------------- |
+| `option` | `Option<a>` | The option to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|`[value]` if the Option was the `Some` variant or `[]` otherwise|
+| type      | description                                                      |
+| --------- | ---------------------------------------------------------------- |
+| `List<a>` | `[value]` if the Option was the `Some` variant or `[]` otherwise |
 
 ### Option.**toArray**
 
@@ -449,22 +449,22 @@ No other changes yet.
 </details>
 
 ```grain
-toArray : (option: Option<a>) => Array<a>
+toArray: (option: Option<a>) => Array<a>
 ```
 
 Converts an Option to an array with either zero or one item.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`option`|`Option<a>`|The option to convert|
+| param    | type        | description           |
+| -------- | ----------- | --------------------- |
+| `option` | `Option<a>` | The option to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Array<a>`|`[> value]` if the Option was the `Some` variant or `[> ]` otherwise|
+| type       | description                                                          |
+| ---------- | -------------------------------------------------------------------- |
+| `Array<a>` | `[> value]` if the Option was the `Some` variant or `[> ]` otherwise |
 
 ### Option.**toResult**
 
@@ -474,23 +474,23 @@ No other changes yet.
 </details>
 
 ```grain
-toResult : (err: a, option: Option<b>) => Result<b, a>
+toResult: (err: a, option: Option<b>) => Result<b, a>
 ```
 
 Converts the Option to a Result, using the provided error in case of the `None` variant.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`err`|`a`|The error to use if the option is `None`|
-|`option`|`Option<b>`|The option to convert|
+| param    | type        | description                              |
+| -------- | ----------- | ---------------------------------------- |
+| `err`    | `a`         | The error to use if the option is `None` |
+| `option` | `Option<b>` | The option to convert                    |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<b, a>`|`Ok(value)` if the Option is `Some(value)` or `Err(err)` if the Option is `None`|
+| type           | description                                                                      |
+| -------------- | -------------------------------------------------------------------------------- |
+| `Result<b, a>` | `Ok(value)` if the Option is `Some(value)` or `Err(err)` if the Option is `None` |
 
 ### Option.**sideEffect**
 
@@ -500,17 +500,17 @@ No other changes yet.
 </details>
 
 ```grain
-sideEffect : (fn: (a => Void), option: Option<a>) => Void
+sideEffect: (fn: (a => Void), option: Option<a>) => Void
 ```
 
 If the Option is `Some(value)`, applies the `fn` function to the `value` without producing a new value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Void`|The function to call on the value of a `Some` variant|
-|`option`|`Option<a>`|The option to inspect|
+| param    | type        | description                                           |
+| -------- | ----------- | ----------------------------------------------------- |
+| `fn`     | `a => Void` | The function to call on the value of a `Some` variant |
+| `option` | `Option<a>` | The option to inspect                                 |
 
 ### Option.**peek**
 
@@ -520,7 +520,7 @@ No other changes yet.
 </details>
 
 ```grain
-peek : (fn: (a => Void), option: Option<a>) => Option<a>
+peek: (fn: (a => Void), option: Option<a>) => Option<a>
 ```
 
 If the Option is `Some(value)`, applies the `fn` function to the `value` without producing a new value.
@@ -528,16 +528,16 @@ Useful for inspecting Options without changing anything.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`a => Void`|The function to call on the value of a `Some` variant|
-|`option`|`Option<a>`|The option to inspect|
+| param    | type        | description                                           |
+| -------- | ----------- | ----------------------------------------------------- |
+| `fn`     | `a => Void` | The function to call on the value of a `Some` variant |
+| `option` | `Option<a>` | The option to inspect                                 |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<a>`|The unmodified option|
+| type        | description           |
+| ----------- | --------------------- |
+| `Option<a>` | The unmodified option |
 
 ### Option.**(||)**
 
@@ -554,23 +554,23 @@ Returns:
 </details>
 
 ```grain
-(||) : (optionA: Option<a>, optionB: Option<a>) => Option<a>
+(||): (optionA: Option<a>, optionB: Option<a>) => Option<a>
 ```
 
 Behaves like a logical OR (`||`) where the first Option is only returned if it is the `Some` variant and falling back to the second Option in all other cases.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`optionA`|`Option<a>`|The first option|
-|`optionB`|`Option<a>`|The second option|
+| param     | type        | description       |
+| --------- | ----------- | ----------------- |
+| `optionA` | `Option<a>` | The first option  |
+| `optionB` | `Option<a>` | The second option |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<a>`|The first Option if it is the `Some` variant or the second Option otherwise|
+| type        | description                                                                 |
+| ----------- | --------------------------------------------------------------------------- |
+| `Option<a>` | The first Option if it is the `Some` variant or the second Option otherwise |
 
 ### Option.**(&&)**
 
@@ -587,21 +587,21 @@ Returns:
 </details>
 
 ```grain
-(&&) : (optionA: Option<a>, optionB: Option<a>) => Option<a>
+(&&): (optionA: Option<a>, optionB: Option<a>) => Option<a>
 ```
 
 Behaves like a logical AND (`&&`) where the first Option is only returned if it is the `None` variant and falling back to the second Option Result in all other cases.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`optionA`|`Option<a>`|The first option|
-|`optionB`|`Option<a>`|The second option|
+| param     | type        | description       |
+| --------- | ----------- | ----------------- |
+| `optionA` | `Option<a>` | The first option  |
+| `optionB` | `Option<a>` | The second option |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<a>`|The second Option if both are the `Some` variant or the first Option otherwise|
+| type        | description                                                                    |
+| ----------- | ------------------------------------------------------------------------------ |
+| `Option<a>` | The second Option if both are the `Some` variant or the first Option otherwise |
 

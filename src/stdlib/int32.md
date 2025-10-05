@@ -33,22 +33,22 @@ No other changes yet.
 </details>
 
 ```grain
-fromNumber : (number: Number) => Int32
+fromNumber: (number: Number) => Int32
 ```
 
 Converts a Number to an Int32.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`number`|`Number`|The value to convert|
+| param    | type     | description          |
+| -------- | -------- | -------------------- |
+| `number` | `Number` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The Number represented as an Int32|
+| type    | description                        |
+| ------- | ---------------------------------- |
+| `Int32` | The Number represented as an Int32 |
 
 ### Int32.**toNumber**
 
@@ -58,22 +58,22 @@ No other changes yet.
 </details>
 
 ```grain
-toNumber : (value: Int32) => Number
+toNumber: (value: Int32) => Number
 ```
 
 Converts an Int32 to a Number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int32`|The value to convert|
+| param   | type    | description          |
+| ------- | ------- | -------------------- |
+| `value` | `Int32` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The Int32 represented as a Number|
+| type     | description                       |
+| -------- | --------------------------------- |
+| `Number` | The Int32 represented as a Number |
 
 ### Int32.**fromUint32**
 
@@ -83,27 +83,62 @@ No other changes yet.
 </details>
 
 ```grain
-fromUint32 : (number: Uint32) => Int32
+fromUint32: (number: Uint32) => Int32
 ```
 
 Converts a Uint32 to an Int32.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`number`|`Uint32`|The value to convert|
+| param    | type     | description          |
+| -------- | -------- | -------------------- |
+| `number` | `Uint32` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The Uint32 represented as an Int32|
+| type    | description                        |
+| ------- | ---------------------------------- |
+| `Int32` | The Uint32 represented as an Int32 |
 
 Examples:
 
 ```grain
 Int32.fromUint32(1ul) == 1l
+```
+
+### Int32.**reinterpretFloat32**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+reinterpretFloat32: (value: Float32) => Int32
+```
+
+Interprets a Float32 as an Int32.
+
+Parameters:
+
+| param   | type      | description          |
+| ------- | --------- | -------------------- |
+| `value` | `Float32` | The value to convert |
+
+Returns:
+
+| type    | description                         |
+| ------- | ----------------------------------- |
+| `Int32` | The Float32 interpreted as an Int32 |
+
+Examples:
+
+```grain
+Int32.reinterpretFloat32(1.0f) == 1065353216l
+```
+
+```grain
+Int32.reinterpretFloat32(-1.0f) == -1065353216l
 ```
 
 ### Int32.**incr**
@@ -114,22 +149,22 @@ No other changes yet.
 </details>
 
 ```grain
-incr : (value: Int32) => Int32
+incr: (value: Int32) => Int32
 ```
 
 Increments the value by one.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int32`|The value to increment|
+| param   | type    | description            |
+| ------- | ------- | ---------------------- |
+| `value` | `Int32` | The value to increment |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The incremented value|
+| type    | description           |
+| ------- | --------------------- |
+| `Int32` | The incremented value |
 
 Examples:
 
@@ -149,22 +184,22 @@ No other changes yet.
 </details>
 
 ```grain
-decr : (value: Int32) => Int32
+decr: (value: Int32) => Int32
 ```
 
 Decrements the value by one.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int32`|The value to decrement|
+| param   | type    | description            |
+| ------- | ------- | ---------------------- |
+| `value` | `Int32` | The value to decrement |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The decremented value|
+| type    | description           |
+| ------- | --------------------- |
+| `Int32` | The decremented value |
 
 Examples:
 
@@ -191,23 +226,23 @@ Int32.decr(0l) == -1l
 </details>
 
 ```grain
-(+) : (x: Int32, y: Int32) => Int32
+(+): (x: Int32, y: Int32) => Int32
 ```
 
 Computes the sum of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first operand|
-|`y`|`Int32`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int32` | The first operand  |
+| `y`   | `Int32` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The sum of the two operands|
+| type    | description                 |
+| ------- | --------------------------- |
+| `Int32` | The sum of the two operands |
 
 Examples:
 
@@ -231,23 +266,23 @@ assert 1l + 1l == 2l
 </details>
 
 ```grain
-(-) : (x: Int32, y: Int32) => Int32
+(-): (x: Int32, y: Int32) => Int32
 ```
 
 Computes the difference of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first operand|
-|`y`|`Int32`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int32` | The first operand  |
+| `y`   | `Int32` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The difference of the two operands|
+| type    | description                        |
+| ------- | ---------------------------------- |
+| `Int32` | The difference of the two operands |
 
 Examples:
 
@@ -271,23 +306,23 @@ assert 2l - 1l == 1l
 </details>
 
 ```grain
-(*) : (x: Int32, y: Int32) => Int32
+(*): (x: Int32, y: Int32) => Int32
 ```
 
 Computes the product of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first operand|
-|`y`|`Int32`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int32` | The first operand  |
+| `y`   | `Int32` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The product of the two operands|
+| type    | description                     |
+| ------- | ------------------------------- |
+| `Int32` | The product of the two operands |
 
 Examples:
 
@@ -311,23 +346,23 @@ assert 2l * 2l == 4l
 </details>
 
 ```grain
-(/) : (x: Int32, y: Int32) => Int32
+(/): (x: Int32, y: Int32) => Int32
 ```
 
 Computes the quotient of its operands using signed division.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first operand|
-|`y`|`Int32`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int32` | The first operand  |
+| `y`   | `Int32` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The quotient of its operands|
+| type    | description                  |
+| ------- | ---------------------------- |
+| `Int32` | The quotient of its operands |
 
 Examples:
 
@@ -344,23 +379,23 @@ No other changes yet.
 </details>
 
 ```grain
-rem : (x: Int32, y: Int32) => Int32
+rem: (x: Int32, y: Int32) => Int32
 ```
 
 Computes the remainder of the division of its operands using signed division.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first operand|
-|`y`|`Int32`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int32` | The first operand  |
+| `y`   | `Int32` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The remainder of its operands|
+| type    | description                   |
+| ------- | ----------------------------- |
+| `Int32` | The remainder of its operands |
 
 Examples:
 
@@ -383,7 +418,7 @@ Int32.rem(8l, 3l) == 2l
 </details>
 
 ```grain
-(%) : (x: Int32, y: Int32) => Int32
+(%): (x: Int32, y: Int32) => Int32
 ```
 
 Computes the remainder of the division of the first operand by the second.
@@ -391,16 +426,16 @@ The result will have the sign of the second operand.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first operand|
-|`y`|`Int32`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int32` | The first operand  |
+| `y`   | `Int32` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The modulus of its operands|
+| type    | description                 |
+| ------- | --------------------------- |
+| `Int32` | The modulus of its operands |
 
 Throws:
 
@@ -423,23 +458,23 @@ No other changes yet.
 </details>
 
 ```grain
-rotl : (value: Int32, amount: Int32) => Int32
+rotl: (value: Int32, amount: Int32) => Int32
 ```
 
 Rotates the bits of the value left by the given number of bits.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int32`|The value to rotate|
-|`amount`|`Int32`|The number of bits to rotate by|
+| param    | type    | description                     |
+| -------- | ------- | ------------------------------- |
+| `value`  | `Int32` | The value to rotate             |
+| `amount` | `Int32` | The number of bits to rotate by |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The rotated value|
+| type    | description       |
+| ------- | ----------------- |
+| `Int32` | The rotated value |
 
 Examples:
 
@@ -459,23 +494,23 @@ No other changes yet.
 </details>
 
 ```grain
-rotr : (value: Int32, amount: Int32) => Int32
+rotr: (value: Int32, amount: Int32) => Int32
 ```
 
 Rotates the bits of the value right by the given number of bits.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int32`|The value to rotate|
-|`amount`|`Int32`|The number of bits to rotate by|
+| param    | type    | description                     |
+| -------- | ------- | ------------------------------- |
+| `value`  | `Int32` | The value to rotate             |
+| `amount` | `Int32` | The number of bits to rotate by |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The rotated value|
+| type    | description       |
+| ------- | ----------------- |
+| `Int32` | The rotated value |
 
 Examples:
 
@@ -502,23 +537,23 @@ Int32.rotr(4l, 2l) == 1l
 </details>
 
 ```grain
-(<<) : (value: Int32, amount: Int32) => Int32
+(<<): (value: Int32, amount: Int32) => Int32
 ```
 
 Shifts the bits of the value left by the given number of bits.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int32`|The value to shift|
-|`amount`|`Int32`|The number of bits to shift by|
+| param    | type    | description                    |
+| -------- | ------- | ------------------------------ |
+| `value`  | `Int32` | The value to shift             |
+| `amount` | `Int32` | The number of bits to shift by |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The shifted value|
+| type    | description       |
+| ------- | ----------------- |
+| `Int32` | The shifted value |
 
 Examples:
 
@@ -542,23 +577,23 @@ assert (5l << 1l) == 10l
 </details>
 
 ```grain
-(>>) : (value: Int32, amount: Int32) => Int32
+(>>): (value: Int32, amount: Int32) => Int32
 ```
 
 Shifts the bits of the value right by the given number of bits, preserving the sign bit.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int32`|The value to shift|
-|`amount`|`Int32`|The amount to shift by|
+| param    | type    | description            |
+| -------- | ------- | ---------------------- |
+| `value`  | `Int32` | The value to shift     |
+| `amount` | `Int32` | The amount to shift by |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The shifted value|
+| type    | description       |
+| ------- | ----------------- |
+| `Int32` | The shifted value |
 
 Examples:
 
@@ -582,23 +617,23 @@ assert (5l >> 1l) == 2l
 </details>
 
 ```grain
-(==) : (x: Int32, y: Int32) => Bool
+(==): (x: Int32, y: Int32) => Bool
 ```
 
 Checks if the first value is equal to the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first value|
-|`y`|`Int32`|The second value|
+| param | type    | description      |
+| ----- | ------- | ---------------- |
+| `x`   | `Int32` | The first value  |
+| `y`   | `Int32` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is equal to the second value or `false` otherwise|
+| type   | description                                                                 |
+| ------ | --------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is equal to the second value or `false` otherwise |
 
 Examples:
 
@@ -622,23 +657,23 @@ assert 1l == 1l
 </details>
 
 ```grain
-(!=) : (x: Int32, y: Int32) => Bool
+(!=): (x: Int32, y: Int32) => Bool
 ```
 
 Checks if the first value is not equal to the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first value|
-|`y`|`Int32`|The second value|
+| param | type    | description      |
+| ----- | ------- | ---------------- |
+| `x`   | `Int32` | The first value  |
+| `y`   | `Int32` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is not equal to the second value or `false` otherwise|
+| type   | description                                                                     |
+| ------ | ------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is not equal to the second value or `false` otherwise |
 
 Examples:
 
@@ -655,22 +690,22 @@ No other changes yet.
 </details>
 
 ```grain
-eqz : (value: Int32) => Bool
+eqz: (value: Int32) => Bool
 ```
 
 Checks if the given value is equal to zero.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int32`|The value to inspect|
+| param   | type    | description          |
+| ------- | ------- | -------------------- |
+| `value` | `Int32` | The value to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is equal to zero or `false` otherwise|
+| type   | description                                                     |
+| ------ | --------------------------------------------------------------- |
+| `Bool` | `true` if the first value is equal to zero or `false` otherwise |
 
 Examples:
 
@@ -697,23 +732,23 @@ Int32.eqz(1l) == false
 </details>
 
 ```grain
-(<) : (x: Int32, y: Int32) => Bool
+(<): (x: Int32, y: Int32) => Bool
 ```
 
 Checks if the first value is less than the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first value|
-|`y`|`Int32`|The second value|
+| param | type    | description      |
+| ----- | ------- | ---------------- |
+| `x`   | `Int32` | The first value  |
+| `y`   | `Int32` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is less than the second value or `false` otherwise|
+| type   | description                                                                  |
+| ------ | ---------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is less than the second value or `false` otherwise |
 
 Examples:
 
@@ -737,23 +772,23 @@ assert 1l < 2l
 </details>
 
 ```grain
-(>) : (x: Int32, y: Int32) => Bool
+(>): (x: Int32, y: Int32) => Bool
 ```
 
 Checks if the first value is greater than the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first value|
-|`y`|`Int32`|The second value|
+| param | type    | description      |
+| ----- | ------- | ---------------- |
+| `x`   | `Int32` | The first value  |
+| `y`   | `Int32` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is greater than the second value or `false` otherwise|
+| type   | description                                                                     |
+| ------ | ------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is greater than the second value or `false` otherwise |
 
 Examples:
 
@@ -777,23 +812,23 @@ assert 2l > 1l
 </details>
 
 ```grain
-(<=) : (x: Int32, y: Int32) => Bool
+(<=): (x: Int32, y: Int32) => Bool
 ```
 
 Checks if the first value is less than or equal to the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first value|
-|`y`|`Int32`|The second value|
+| param | type    | description      |
+| ----- | ------- | ---------------- |
+| `x`   | `Int32` | The first value  |
+| `y`   | `Int32` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is less than or equal to the second value or `false` otherwise|
+| type   | description                                                                              |
+| ------ | ---------------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is less than or equal to the second value or `false` otherwise |
 
 Examples:
 
@@ -822,23 +857,23 @@ assert 1l <= 1l
 </details>
 
 ```grain
-(>=) : (x: Int32, y: Int32) => Bool
+(>=): (x: Int32, y: Int32) => Bool
 ```
 
 Checks if the first value is greater than or equal to the second value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first value|
-|`y`|`Int32`|The second value|
+| param | type    | description      |
+| ----- | ------- | ---------------- |
+| `x`   | `Int32` | The first value  |
+| `y`   | `Int32` | The second value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is greater than or equal to the second value or `false` otherwise|
+| type   | description                                                                                 |
+| ------ | ------------------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is greater than or equal to the second value or `false` otherwise |
 
 Examples:
 
@@ -860,22 +895,22 @@ No other changes yet.
 </details>
 
 ```grain
-lnot : (value: Int32) => Int32
+lnot: (value: Int32) => Int32
 ```
 
 Computes the bitwise NOT of the given value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int32`|The given value|
+| param   | type    | description     |
+| ------- | ------- | --------------- |
+| `value` | `Int32` | The given value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|Containing the inverted bits of the given value|
+| type    | description                                     |
+| ------- | ----------------------------------------------- |
+| `Int32` | Containing the inverted bits of the given value |
 
 Examples:
 
@@ -898,23 +933,23 @@ Int32.lnot(-5l) == 4l
 </details>
 
 ```grain
-(&) : (x: Int32, y: Int32) => Int32
+(&): (x: Int32, y: Int32) => Int32
 ```
 
 Computes the bitwise AND (`&`) on the given operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first operand|
-|`y`|`Int32`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int32` | The first operand  |
+| `y`   | `Int32` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|Containing a `1` in each bit position for which the corresponding bits of both operands are `1`|
+| type    | description                                                                                     |
+| ------- | ----------------------------------------------------------------------------------------------- |
+| `Int32` | Containing a `1` in each bit position for which the corresponding bits of both operands are `1` |
 
 Examples:
 
@@ -938,23 +973,23 @@ assert (3l & 4l) == 0l
 </details>
 
 ```grain
-(|) : (x: Int32, y: Int32) => Int32
+(|): (x: Int32, y: Int32) => Int32
 ```
 
 Computes the bitwise OR (`|`) on the given operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first operand|
-|`y`|`Int32`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int32` | The first operand  |
+| `y`   | `Int32` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|Containing a `1` in each bit position for which the corresponding bits of either or both operands are `1`|
+| type    | description                                                                                               |
+| ------- | --------------------------------------------------------------------------------------------------------- |
+| `Int32` | Containing a `1` in each bit position for which the corresponding bits of either or both operands are `1` |
 
 Examples:
 
@@ -978,23 +1013,23 @@ assert (3l | 4l) == 7l
 </details>
 
 ```grain
-(^) : (x: Int32, y: Int32) => Int32
+(^): (x: Int32, y: Int32) => Int32
 ```
 
 Computes the bitwise XOR (`^`) on the given operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first operand|
-|`y`|`Int32`|The second operand|
+| param | type    | description        |
+| ----- | ------- | ------------------ |
+| `x`   | `Int32` | The first operand  |
+| `y`   | `Int32` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|Containing a `1` in each bit position for which the corresponding bits of either but not both operands are `1`|
+| type    | description                                                                                                    |
+| ------- | -------------------------------------------------------------------------------------------------------------- |
+| `Int32` | Containing a `1` in each bit position for which the corresponding bits of either but not both operands are `1` |
 
 Examples:
 
@@ -1011,22 +1046,22 @@ No other changes yet.
 </details>
 
 ```grain
-clz : (value: Int32) => Int32
+clz: (value: Int32) => Int32
 ```
 
 Counts the number of leading zero bits in the value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int32`|The value to inspect|
+| param   | type    | description          |
+| ------- | ------- | -------------------- |
+| `value` | `Int32` | The value to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The amount of leading zeros|
+| type    | description                 |
+| ------- | --------------------------- |
+| `Int32` | The amount of leading zeros |
 
 Examples:
 
@@ -1046,22 +1081,22 @@ No other changes yet.
 </details>
 
 ```grain
-ctz : (value: Int32) => Int32
+ctz: (value: Int32) => Int32
 ```
 
 Counts the number of trailing zero bits in the value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int32`|The value to inspect|
+| param   | type    | description          |
+| ------- | ------- | -------------------- |
+| `value` | `Int32` | The value to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The amount of trailing zeros|
+| type    | description                  |
+| ------- | ---------------------------- |
+| `Int32` | The amount of trailing zeros |
 
 Examples:
 
@@ -1081,22 +1116,22 @@ No other changes yet.
 </details>
 
 ```grain
-popcnt : (value: Int32) => Int32
+popcnt: (value: Int32) => Int32
 ```
 
 Counts the number of bits set to `1` in the value, also known as a population count.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int32`|The value to inspect|
+| param   | type    | description          |
+| ------- | ------- | -------------------- |
+| `value` | `Int32` | The value to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The amount of 1-bits in its operand|
+| type    | description                         |
+| ------- | ----------------------------------- |
+| `Int32` | The amount of 1-bits in its operand |
 
 Examples:
 
@@ -1116,28 +1151,28 @@ No other changes yet.
 </details>
 
 ```grain
-(**) : (base: Int32, power: Int32) => Int32
+(**): (base: Int32, power: Int32) => Int32
 ```
 
 Computes the exponentiation of the given base and power.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`base`|`Int32`|The base number|
-|`power`|`Int32`|The exponent number|
+| param   | type    | description         |
+| ------- | ------- | ------------------- |
+| `base`  | `Int32` | The base number     |
+| `power` | `Int32` | The exponent number |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The base raised to the given power|
+| type    | description                        |
+| ------- | ---------------------------------- |
+| `Int32` | The base raised to the given power |
 
 Examples:
 
 ```grain
-from Int32 use { (**) }
+use Int32.{ (**) }
 assert 2l ** 3l == 8l
 ```
 

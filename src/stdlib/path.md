@@ -184,7 +184,7 @@ Functions and constants included in the Path module.
 </details>
 
 ```grain
-fromString : (pathStr: String, ?platform: Platform) => Path
+fromString: (pathStr: String, ?platform: Platform) => Path
 ```
 
 Parses a path string into a `Path` using the path separators appropriate to
@@ -194,16 +194,16 @@ ambiguity.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`pathStr`|`String`|The string to parse as a path|
-|`?platform`|`Platform`|The platform whose path separators should be used for parsing|
+| param       | type       | description                                                   |
+| ----------- | ---------- | ------------------------------------------------------------- |
+| `pathStr`   | `String`   | The string to parse as a path                                 |
+| `?platform` | `Platform` | The platform whose path separators should be used for parsing |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Path`|The path wrapped with details encoded within the type|
+| type   | description                                           |
+| ------ | ----------------------------------------------------- |
+| `Path` | The path wrapped with details encoded within the type |
 
 Examples:
 
@@ -238,7 +238,7 @@ fromString("C:\\file.txt", Windows) // a relative Path referencing the file C:\f
 </details>
 
 ```grain
-toString : (path: Path, ?platform: Platform) => String
+toString: (path: Path, ?platform: Platform) => String
 ```
 
 Converts the given `Path` into a string, using the canonical path separator
@@ -247,16 +247,16 @@ A trailing slash is added to directory paths.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`path`|`Path`|The path to convert to a string|
-|`?platform`|`Platform`|The `Platform` to use to represent the path as a string|
+| param       | type       | description                                             |
+| ----------- | ---------- | ------------------------------------------------------- |
+| `path`      | `Path`     | The path to convert to a string                         |
+| `?platform` | `Platform` | The `Platform` to use to represent the path as a string |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`String`|A string representing the given path|
+| type     | description                          |
+| -------- | ------------------------------------ |
+| `String` | A string representing the given path |
 
 Examples:
 
@@ -280,22 +280,22 @@ No other changes yet.
 </details>
 
 ```grain
-isDirectory : (path: Path) => Bool
+isDirectory: (path: Path) => Bool
 ```
 
 Determines whether the path is a directory path.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`path`|`Path`|The path to inspect|
+| param  | type   | description         |
+| ------ | ------ | ------------------- |
+| `path` | `Path` | The path to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the path is a directory path or `false` otherwise|
+| type   | description                                                 |
+| ------ | ----------------------------------------------------------- |
+| `Bool` | `true` if the path is a directory path or `false` otherwise |
 
 Examples:
 
@@ -310,22 +310,22 @@ isDirectory(fromString("/bin/")) == true
 ### Path.**isAbsolute**
 
 ```grain
-isAbsolute : (path: Path) => Bool
+isAbsolute: (path: Path) => Bool
 ```
 
 Determines whether the path is an absolute path.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`path`|`Path`|The path to inspect|
+| param  | type   | description         |
+| ------ | ------ | ------------------- |
+| `path` | `Path` | The path to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the path is absolute or `false` otherwise|
+| type   | description                                         |
+| ------ | --------------------------------------------------- |
+| `Bool` | `true` if the path is absolute or `false` otherwise |
 
 Examples:
 
@@ -345,23 +345,23 @@ No other changes yet.
 </details>
 
 ```grain
-append : (path: Path, toAppend: Path) => Result<Path, AppendError>
+append: (path: Path, toAppend: Path) => Result<Path, AppendError>
 ```
 
 Creates a new path by appending a relative path segment to a directory path.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`path`|`Path`|The base path|
-|`toAppend`|`Path`|The relative path to append|
+| param      | type   | description                 |
+| ---------- | ------ | --------------------------- |
+| `path`     | `Path` | The base path               |
+| `toAppend` | `Path` | The relative path to append |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<Path, AppendError>`|`Ok(path)` combining the base and appended paths or `Err(err)` if the paths are incompatible|
+| type                        | description                                                                                  |
+| --------------------------- | -------------------------------------------------------------------------------------------- |
+| `Result<Path, AppendError>` | `Ok(path)` combining the base and appended paths or `Err(err)` if the paths are incompatible |
 
 Examples:
 
@@ -385,7 +385,7 @@ No other changes yet.
 </details>
 
 ```grain
-relativeTo : (source: Path, dest: Path) => Result<Path, RelativizationError>
+relativeTo: (source: Path, dest: Path) => Result<Path, RelativizationError>
 ```
 
 Attempts to construct a new relative path which will lead to the destination
@@ -399,16 +399,16 @@ source, the result will be `Err(ImpossibleRelativization)`.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`source`|`Path`|The source path|
-|`dest`|`Path`|The destination path to resolve|
+| param    | type   | description                     |
+| -------- | ------ | ------------------------------- |
+| `source` | `Path` | The source path                 |
+| `dest`   | `Path` | The destination path to resolve |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<Path, RelativizationError>`|`Ok(path)` containing the relative path if successfully resolved or `Err(err)` otherwise|
+| type                                | description                                                                              |
+| ----------------------------------- | ---------------------------------------------------------------------------------------- |
+| `Result<Path, RelativizationError>` | `Ok(path)` containing the relative path if successfully resolved or `Err(err)` otherwise |
 
 Examples:
 
@@ -444,7 +444,7 @@ No other changes yet.
 </details>
 
 ```grain
-ancestry :
+ancestry:
   (base: Path, path: Path) => Result<AncestryStatus, IncompatibilityError>
 ```
 
@@ -452,16 +452,16 @@ Determines the relative ancestry betwen two paths.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`base`|`Path`|The first path to consider|
-|`path`|`Path`|The second path to consider|
+| param  | type   | description                 |
+| ------ | ------ | --------------------------- |
+| `base` | `Path` | The first path to consider  |
+| `path` | `Path` | The second path to consider |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<AncestryStatus, IncompatibilityError>`|`Ok(ancestryStatus)` with the relative ancestry between the paths if they are compatible or `Err(err)` if they are incompatible|
+| type                                           | description                                                                                                                     |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `Result<AncestryStatus, IncompatibilityError>` | `Ok(ancestryStatus)` with the relative ancestry between the paths if they are compatible or `Err(err)` if they are incompatible |
 
 Examples:
 
@@ -489,22 +489,22 @@ No other changes yet.
 </details>
 
 ```grain
-parent : (path: Path) => Path
+parent: (path: Path) => Path
 ```
 
 Retrieves the path corresponding to the parent directory of the given path.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`path`|`Path`|The path to inspect|
+| param  | type   | description         |
+| ------ | ------ | ------------------- |
+| `path` | `Path` | The path to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Path`|A path corresponding to the parent directory of the given path|
+| type   | description                                                    |
+| ------ | -------------------------------------------------------------- |
+| `Path` | A path corresponding to the parent directory of the given path |
 
 Examples:
 
@@ -524,22 +524,22 @@ No other changes yet.
 </details>
 
 ```grain
-basename : (path: Path) => Option<String>
+basename: (path: Path) => Option<String>
 ```
 
 Retrieves the basename (named final segment) of a path.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`path`|`Path`|The path to inspect|
+| param  | type   | description         |
+| ------ | ------ | ------------------- |
+| `path` | `Path` | The path to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Option<String>`|`Some(path)` containing the basename of the path or `None` if the path does not have one|
+| type             | description                                                                              |
+| ---------------- | ---------------------------------------------------------------------------------------- |
+| `Option<String>` | `Some(path)` containing the basename of the path or `None` if the path does not have one |
 
 Examples:
 
@@ -559,22 +559,22 @@ No other changes yet.
 </details>
 
 ```grain
-stem : (path: Path) => Result<String, PathOperationError>
+stem: (path: Path) => Result<String, PathOperationError>
 ```
 
 Retrieves the basename of a file path without the extension.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`path`|`Path`|The path to inspect|
+| param  | type   | description         |
+| ------ | ------ | ------------------- |
+| `path` | `Path` | The path to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<String, PathOperationError>`|`Ok(path)` containing the stem of the file path or `Err(err)` if the path is a directory path|
+| type                                 | description                                                                                   |
+| ------------------------------------ | --------------------------------------------------------------------------------------------- |
+| `Result<String, PathOperationError>` | `Ok(path)` containing the stem of the file path or `Err(err)` if the path is a directory path |
 
 Examples:
 
@@ -602,22 +602,22 @@ No other changes yet.
 </details>
 
 ```grain
-extension : (path: Path) => Result<String, PathOperationError>
+extension: (path: Path) => Result<String, PathOperationError>
 ```
 
 Retrieves the extension on the basename of a file path.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`path`|`Path`|The path to inspect|
+| param  | type   | description         |
+| ------ | ------ | ------------------- |
+| `path` | `Path` | The path to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<String, PathOperationError>`|`Ok(path)` containing the extension of the file path or `Err(err)` if the path is a directory path|
+| type                                 | description                                                                                        |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| `Result<String, PathOperationError>` | `Ok(path)` containing the extension of the file path or `Err(err)` if the path is a directory path |
 
 Examples:
 
@@ -637,6 +637,97 @@ extension(fromString(".a.tar.gz")) == Ok(".tar.gz")
 extension(fromString("/dir/")) == Err(IncompatiblePathType) // can only take extension of a file path
 ```
 
+### Path.**removeExtension**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>next</code></summary>
+No other changes yet.
+</details>
+
+```grain
+removeExtension: (path: Path) => Path
+```
+
+Removes the extension from a path, if there is no extension, returns the path as is.
+
+Parameters:
+
+| param  | type   | description        |
+| ------ | ------ | ------------------ |
+| `path` | `Path` | The path to modify |
+
+Returns:
+
+| type   | description                         |
+| ------ | ----------------------------------- |
+| `Path` | The path with the extension removed |
+
+Examples:
+
+```grain
+removeExtension(fromString("file.txt")) == fromString("file")
+```
+
+```grain
+removeExtension(fromString(".gitignore")) == fromString(".gitignore")
+```
+
+```grain
+removeExtension(fromString("./dir/file")) == fromString("dir/file")
+```
+
+```grain
+removeExtension(fromString("./dir/")) == fromString("dir/")
+```
+
+### Path.**updateExtension**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>next</code></summary>
+No other changes yet.
+</details>
+
+```grain
+updateExtension: (path: Path, extension: String) => Path
+```
+
+Updates the file extension of the given path.
+
+Parameters:
+
+| param       | type     | description        |
+| ----------- | -------- | ------------------ |
+| `path`      | `Path`   | The path to modify |
+| `extension` | `String` | The new extension  |
+
+Returns:
+
+| type   | description       |
+| ------ | ----------------- |
+| `Path` | The modified path |
+
+Examples:
+
+```grain
+updateExtension(fromString("file.txt"), "ext") == fromString("file.ext")
+```
+
+```grain
+updateExtension(fromString("file.txt"), "") == fromString("file.")
+```
+
+```grain
+updateExtension(fromString(".gitignore"), "ext") == fromString(".gitignore.ext")
+```
+
+```grain
+updateExtension(fromString("./dir/file"), "ext") == fromString("dir/file.ext")
+```
+
+```grain
+updateExtension(fromString("./dir/"), "ext") == fromString("dir/")
+```
+
 ### Path.**root**
 
 <details disabled>
@@ -645,22 +736,22 @@ No other changes yet.
 </details>
 
 ```grain
-root : (path: Path) => Result<AbsoluteRoot, PathOperationError>
+root: (path: Path) => Result<AbsoluteRoot, PathOperationError>
 ```
 
 Retrieves the root of the absolute path.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`path`|`Path`|The path to inspect|
+| param  | type   | description         |
+| ------ | ------ | ------------------- |
+| `path` | `Path` | The path to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<AbsoluteRoot, PathOperationError>`|`Ok(root)` containing the root of the path or `Err(err)` if the path is a relative path|
+| type                                       | description                                                                             |
+| ------------------------------------------ | --------------------------------------------------------------------------------------- |
+| `Result<AbsoluteRoot, PathOperationError>` | `Ok(root)` containing the root of the path or `Err(err)` if the path is a relative path |
 
 Examples:
 

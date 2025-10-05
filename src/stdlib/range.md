@@ -44,23 +44,23 @@ Functions and constants included in the Range module.
 </details>
 
 ```grain
-inRange : (value: Number, range: Range<Number>) => Bool
+inRange: (value: Number, range: Range<Number>) => Bool
 ```
 
 Checks if the given number is within the range.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Number`|The number being checked|
-|`range`|`Range<Number>`|The range to check within|
+| param   | type            | description               |
+| ------- | --------------- | ------------------------- |
+| `value` | `Number`        | The number being checked  |
+| `range` | `Range<Number>` | The range to check within |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|Whether or not the value is within range|
+| type   | description                              |
+| ------ | ---------------------------------------- |
+| `Bool` | Whether or not the value is within range |
 
 Examples:
 
@@ -87,7 +87,7 @@ Range.inRange(10, { rangeStart: 0, rangeEnd: 2 }) == false
 </details>
 
 ```grain
-forEach : (fn: (Number => Void), range: Range<Number>) => Void
+forEach: (fn: (Number => Void), range: Range<Number>) => Void
 ```
 
 Calls the given function with each number in the range.
@@ -98,10 +98,10 @@ always changed by `1`, even if non-integer values were provided in the range.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`Number => Void`|The function to be executed on each number in the range|
-|`range`|`Range<Number>`|The range to iterate|
+| param   | type             | description                                             |
+| ------- | ---------------- | ------------------------------------------------------- |
+| `fn`    | `Number => Void` | The function to be executed on each number in the range |
+| `range` | `Range<Number>`  | The range to iterate                                    |
 
 Examples:
 
@@ -124,7 +124,7 @@ Range.forEach(val => print(val), { rangeStart: 0, rangeEnd: 2 })
 </details>
 
 ```grain
-map : (fn: (Number => a), range: Range<Number>) => List<a>
+map: (fn: (Number => a), range: Range<Number>) => List<a>
 ```
 
 Produces a list by calling the given function on each number included in the range.
@@ -135,16 +135,16 @@ always changed by `1`, even if non-integer values were provided in the range.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`Number => a`|The function called on each number in the range that returns the value for the output list|
-|`range`|`Range<Number>`|The range to iterate|
+| param   | type            | description                                                                                |
+| ------- | --------------- | ------------------------------------------------------------------------------------------ |
+| `fn`    | `Number => a`   | The function called on each number in the range that returns the value for the output list |
+| `range` | `Range<Number>` | The range to iterate                                                                       |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|A list containing all values returned from the `fn`|
+| type      | description                                         |
+| --------- | --------------------------------------------------- |
+| `List<a>` | A list containing all values returned from the `fn` |
 
 Examples:
 
@@ -173,23 +173,23 @@ Functions and constants included in the Range.Inclusive module.
 </details>
 
 ```grain
-inRange : (value: Number, range: Range<Number>) => Bool
+inRange: (value: Number, range: Range<Number>) => Bool
 ```
 
 Checks if the given number is within the range.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Number`|The number being checked|
-|`range`|`Range<Number>`|The range to check within|
+| param   | type            | description               |
+| ------- | --------------- | ------------------------- |
+| `value` | `Number`        | The number being checked  |
+| `range` | `Range<Number>` | The range to check within |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|Whether or not the value is within range|
+| type   | description                              |
+| ------ | ---------------------------------------- |
+| `Bool` | Whether or not the value is within range |
 
 Examples:
 
@@ -216,7 +216,7 @@ Range.Inclusive.inRange(10, { rangeStart: 0, rangeEnd: 2 }) == false
 </details>
 
 ```grain
-forEach : (fn: (Number => Void), range: Range<Number>) => Void
+forEach: (fn: (Number => Void), range: Range<Number>) => Void
 ```
 
 Calls the given function with each number in the range.
@@ -227,10 +227,10 @@ always changed by `1`, even if non-integer values were provided in the range.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`Number => Void`|The function to be executed on each number in the range|
-|`range`|`Range<Number>`|The range to iterate|
+| param   | type             | description                                             |
+| ------- | ---------------- | ------------------------------------------------------- |
+| `fn`    | `Number => Void` | The function to be executed on each number in the range |
+| `range` | `Range<Number>`  | The range to iterate                                    |
 
 Examples:
 
@@ -253,7 +253,7 @@ Range.Inclusive.forEach(val => print(val), { rangeStart: 0, rangeEnd: 2 })
 </details>
 
 ```grain
-map : (fn: (Number => a), range: Range<Number>) => List<a>
+map: (fn: (Number => a), range: Range<Number>) => List<a>
 ```
 
 Produces a list by calling the given function on each number included in the range.
@@ -264,16 +264,16 @@ always changed by `1`, even if non-integer values were provided in the range.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`fn`|`Number => a`|The function called on each number in the range that returns the value for the output list|
-|`range`|`Range<Number>`|The range to iterate|
+| param   | type            | description                                                                                |
+| ------- | --------------- | ------------------------------------------------------------------------------------------ |
+| `fn`    | `Number => a`   | The function called on each number in the range that returns the value for the output list |
+| `range` | `Range<Number>` | The range to iterate                                                                       |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`List<a>`|A list containing all values returned from the `fn`|
+| type      | description                                         |
+| --------- | --------------------------------------------------- |
+| `List<a>` | A list containing all values returned from the `fn` |
 
 Examples:
 

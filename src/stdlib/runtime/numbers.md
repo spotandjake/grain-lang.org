@@ -9,153 +9,153 @@ Functions and constants included in the Numbers module.
 ### Numbers.**tagSimple**
 
 ```grain
-tagSimple : (x: WasmI32) => WasmI32
+tagSimple: (x: WasmI32) => WasmI32
 ```
 
 ### Numbers.**isBoxedNumber**
 
 ```grain
-isBoxedNumber : (x: WasmI32) => Bool
+isBoxedNumber: (x: WasmI32) => Bool
 ```
 
 ### Numbers.**isFloat**
 
 ```grain
-isFloat : (x: WasmI32) => Bool
+isFloat: (x: WasmI32) => Bool
 ```
 
 ### Numbers.**isInteger**
 
 ```grain
-isInteger : (x: WasmI32) => Bool
+isInteger: (x: WasmI32) => Bool
 ```
 
 ### Numbers.**isRational**
 
 ```grain
-isRational : (x: WasmI32) => Bool
+isRational: (x: WasmI32) => Bool
 ```
 
 ### Numbers.**isNaN**
 
 ```grain
-isNaN : (x: WasmI32) => Bool
+isNaN: (x: WasmI32) => Bool
 ```
 
 ### Numbers.**isNumber**
 
 ```grain
-isNumber : (x: WasmI32) => Bool
+isNumber: (x: WasmI32) => Bool
 ```
 
 ### Numbers.**reducedInteger**
 
 ```grain
-reducedInteger : (x: WasmI64) => WasmI32
+reducedInteger: (x: WasmI64) => WasmI32
 ```
 
 ### Numbers.**reducedUnsignedInteger**
 
 ```grain
-reducedUnsignedInteger : (x: WasmI64) => WasmI32
+reducedUnsignedInteger: (x: WasmI64) => WasmI32
 ```
 
 ### Numbers.**boxedNumberTag**
 
 ```grain
-boxedNumberTag : (xptr: WasmI32) => WasmI32
+boxedNumberTag: (xptr: WasmI32) => WasmI32
 ```
 
 ### Numbers.**boxedInt64Number**
 
 ```grain
-boxedInt64Number : (xptr: WasmI32) => WasmI64
+boxedInt64Number: (xptr: WasmI32) => WasmI64
 ```
 
 ### Numbers.**boxedFloat64Number**
 
 ```grain
-boxedFloat64Number : (xptr: WasmI32) => WasmF64
+boxedFloat64Number: (xptr: WasmI32) => WasmF64
 ```
 
 ### Numbers.**boxedRationalNumerator**
 
 ```grain
-boxedRationalNumerator : (xptr: WasmI32) => WasmI32
+boxedRationalNumerator: (xptr: WasmI32) => WasmI32
 ```
 
 ### Numbers.**boxedRationalDenominator**
 
 ```grain
-boxedRationalDenominator : (xptr: WasmI32) => WasmI32
+boxedRationalDenominator: (xptr: WasmI32) => WasmI32
 ```
 
 ### Numbers.**coerceNumberToWasmF32**
 
 ```grain
-coerceNumberToWasmF32 : (x: Number) => WasmF32
+coerceNumberToWasmF32: (x: Number) => WasmF32
 ```
 
 ### Numbers.**coerceNumberToWasmF64**
 
 ```grain
-coerceNumberToWasmF64 : (x: Number) => WasmF64
+coerceNumberToWasmF64: (x: Number) => WasmF64
 ```
 
 ### Numbers.**coerceNumberToWasmI64**
 
 ```grain
-coerceNumberToWasmI64 : (x: Number) => WasmI64
+coerceNumberToWasmI64: (x: Number) => WasmI64
 ```
 
 ### Numbers.**coerceNumberToWasmI32**
 
 ```grain
-coerceNumberToWasmI32 : (x: Number) => WasmI32
+coerceNumberToWasmI32: (x: Number) => WasmI32
 ```
 
 ### Numbers.**coerceNumberToUnsignedWasmI64**
 
 ```grain
-coerceNumberToUnsignedWasmI64 : (x: Number) => WasmI64
+coerceNumberToUnsignedWasmI64: (x: Number) => WasmI64
 ```
 
 ### Numbers.**coerceNumberToUnsignedWasmI32**
 
 ```grain
-coerceNumberToUnsignedWasmI32 : (x: Number) => WasmI32
+coerceNumberToUnsignedWasmI32: (x: Number) => WasmI32
 ```
 
 ### Numbers.**numberEqual**
 
 ```grain
-numberEqual : (x: WasmI32, y: WasmI32) => Bool
+numberEqual: (x: WasmI32, y: WasmI32) => Bool
 ```
 
 ### Numbers.**addSubRational**
 
 ```grain
-addSubRational :
+addSubRational:
   (x: WasmI32, y: WasmI32, isSub: Bool, keepRational: Bool) => WasmI32
 ```
 
 ### Numbers.**timesDivideRational**
 
 ```grain
-timesDivideRational :
+timesDivideRational:
   (x: WasmI32, y: WasmI32, isDivide: Bool, keepRational: Bool) => WasmI32
 ```
 
 ### Numbers.**rationalsEqual**
 
 ```grain
-rationalsEqual : (x: WasmI32, y: WasmI32) => Bool
+rationalsEqual: (x: WasmI32, y: WasmI32) => Bool
 ```
 
 ### Numbers.**cmpRationals**
 
 ```grain
-cmpRationals : (x: WasmI32, y: WasmI32) => WasmI32
+cmpRationals: (x: WasmI32, y: WasmI32) => WasmI32
 ```
 
 ### Numbers.**rationalNumerator**
@@ -166,22 +166,22 @@ No other changes yet.
 </details>
 
 ```grain
-rationalNumerator : (x: Rational) => Number
+rationalNumerator: (x: Rational) => Number
 ```
 
 Finds the numerator of the rational number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Rational`|The rational number to inspect|
+| param | type       | description                    |
+| ----- | ---------- | ------------------------------ |
+| `x`   | `Rational` | The rational number to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The numerator of the rational number|
+| type     | description                          |
+| -------- | ------------------------------------ |
+| `Number` | The numerator of the rational number |
 
 ### Numbers.**rationalDenominator**
 
@@ -191,27 +191,27 @@ No other changes yet.
 </details>
 
 ```grain
-rationalDenominator : (x: Rational) => Number
+rationalDenominator: (x: Rational) => Number
 ```
 
 Finds the denominator of the rational number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Rational`|The rational number to inspect|
+| param | type       | description                    |
+| ----- | ---------- | ------------------------------ |
+| `x`   | `Rational` | The rational number to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The denominator of the rational number|
+| type     | description                            |
+| -------- | -------------------------------------- |
+| `Number` | The denominator of the rational number |
 
 ### Numbers.**cmp**
 
 ```grain
-cmp : (x: WasmI32, y: WasmI32) => WasmI32
+cmp: (x: WasmI32, y: WasmI32) => WasmI32
 ```
 
 ### Numbers.**(<)**
@@ -222,23 +222,23 @@ No other changes yet.
 </details>
 
 ```grain
-(<) : (num1: Number, num2: Number) => Bool
+(<): (num1: Number, num2: Number) => Bool
 ```
 
 Checks if the first operand is less than the second operand.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`num1`|`Number`|The first operand|
-|`num2`|`Number`|The second operand|
+| param  | type     | description        |
+| ------ | -------- | ------------------ |
+| `num1` | `Number` | The first operand  |
+| `num2` | `Number` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first operand is less than the second operand or `false` otherwise|
+| type   | description                                                                      |
+| ------ | -------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first operand is less than the second operand or `false` otherwise |
 
 ### Numbers.**(>)**
 
@@ -248,23 +248,23 @@ No other changes yet.
 </details>
 
 ```grain
-(>) : (num1: Number, num2: Number) => Bool
+(>): (num1: Number, num2: Number) => Bool
 ```
 
 Checks if the first operand is greater than the second operand.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`num1`|`Number`|The first operand|
-|`num2`|`Number`|The second operand|
+| param  | type     | description        |
+| ------ | -------- | ------------------ |
+| `num1` | `Number` | The first operand  |
+| `num2` | `Number` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first operand is greater than the second operand or `false` otherwise|
+| type   | description                                                                         |
+| ------ | ----------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first operand is greater than the second operand or `false` otherwise |
 
 ### Numbers.**(<=)**
 
@@ -274,23 +274,23 @@ No other changes yet.
 </details>
 
 ```grain
-(<=) : (num1: Number, num2: Number) => Bool
+(<=): (num1: Number, num2: Number) => Bool
 ```
 
 Checks if the first operand is less than or equal to the second operand.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`num1`|`Number`|The first operand|
-|`num2`|`Number`|The second operand|
+| param  | type     | description        |
+| ------ | -------- | ------------------ |
+| `num1` | `Number` | The first operand  |
+| `num2` | `Number` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first operand is less than or equal to the second operand or `false` otherwise|
+| type   | description                                                                                  |
+| ------ | -------------------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first operand is less than or equal to the second operand or `false` otherwise |
 
 ### Numbers.**(>=)**
 
@@ -300,34 +300,34 @@ No other changes yet.
 </details>
 
 ```grain
-(>=) : (num1: Number, num2: Number) => Bool
+(>=): (num1: Number, num2: Number) => Bool
 ```
 
 Checks if the first operand is greater than or equal to the second operand.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`num1`|`Number`|The first operand|
-|`num2`|`Number`|The second operand|
+| param  | type     | description        |
+| ------ | -------- | ------------------ |
+| `num1` | `Number` | The first operand  |
+| `num2` | `Number` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first operand is greater than or equal to the second operand or `false` otherwise|
+| type   | description                                                                                     |
+| ------ | ----------------------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first operand is greater than or equal to the second operand or `false` otherwise |
 
 ### Numbers.**compare**
 
 ```grain
-compare : (x: Number, y: Number) => Number
+compare: (x: Number, y: Number) => Number
 ```
 
 ### Numbers.**numberEq**
 
 ```grain
-numberEq : (x: Number, y: Number) => Bool
+numberEq: (x: Number, y: Number) => Bool
 ```
 
 ### Numbers.**lnot**
@@ -338,22 +338,22 @@ No other changes yet.
 </details>
 
 ```grain
-lnot : (value: Number) => Number
+lnot: (value: Number) => Number
 ```
 
 Computes the bitwise NOT of the operand.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Number`|The operand|
+| param   | type     | description |
+| ------- | -------- | ----------- |
+| `value` | `Number` | The operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|Containing the inverted bits of the operand|
+| type     | description                                 |
+| -------- | ------------------------------------------- |
+| `Number` | Containing the inverted bits of the operand |
 
 ### Numbers.**(<<)**
 
@@ -371,23 +371,23 @@ Returns:
 </details>
 
 ```grain
-(<<) : (value: Number, amount: Number) => Number
+(<<): (value: Number, amount: Number) => Number
 ```
 
 Shifts the bits of the value left by the given number of bits.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Number`|The value to shift|
-|`amount`|`Number`|The number of bits to shift by|
+| param    | type     | description                    |
+| -------- | -------- | ------------------------------ |
+| `value`  | `Number` | The value to shift             |
+| `amount` | `Number` | The number of bits to shift by |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The shifted value|
+| type     | description       |
+| -------- | ----------------- |
+| `Number` | The shifted value |
 
 ### Numbers.**(>>>)**
 
@@ -405,23 +405,23 @@ Returns:
 </details>
 
 ```grain
-(>>>) : (value: Number, amount: Number) => Number
+(>>>): (value: Number, amount: Number) => Number
 ```
 
 Shifts the bits of the value right by the given number of bits, preserving the sign bit.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Number`|The value to shift|
-|`amount`|`Number`|The amount to shift by|
+| param    | type     | description            |
+| -------- | -------- | ---------------------- |
+| `value`  | `Number` | The value to shift     |
+| `amount` | `Number` | The amount to shift by |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The shifted value|
+| type     | description       |
+| -------- | ----------------- |
+| `Number` | The shifted value |
 
 ### Numbers.**(&)**
 
@@ -439,23 +439,23 @@ Returns:
 </details>
 
 ```grain
-(&) : (value1: Number, value2: Number) => Number
+(&): (value1: Number, value2: Number) => Number
 ```
 
 Computes the bitwise AND (`&`) on the given operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value1`|`Number`|The first operand|
-|`value2`|`Number`|The second operand|
+| param    | type     | description        |
+| -------- | -------- | ------------------ |
+| `value1` | `Number` | The first operand  |
+| `value2` | `Number` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|Containing a `1` in each bit position for which the corresponding bits of both operands are `1`|
+| type     | description                                                                                     |
+| -------- | ----------------------------------------------------------------------------------------------- |
+| `Number` | Containing a `1` in each bit position for which the corresponding bits of both operands are `1` |
 
 ### Numbers.**(|)**
 
@@ -473,23 +473,23 @@ Returns:
 </details>
 
 ```grain
-(|) : (value1: Number, value2: Number) => Number
+(|): (value1: Number, value2: Number) => Number
 ```
 
 Computes the bitwise OR (`|`) on the given operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value1`|`Number`|The first operand|
-|`value2`|`Number`|The second operand|
+| param    | type     | description        |
+| -------- | -------- | ------------------ |
+| `value1` | `Number` | The first operand  |
+| `value2` | `Number` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|Containing a `1` in each bit position for which the corresponding bits of either or both operands are `1`|
+| type     | description                                                                                               |
+| -------- | --------------------------------------------------------------------------------------------------------- |
+| `Number` | Containing a `1` in each bit position for which the corresponding bits of either or both operands are `1` |
 
 ### Numbers.**(^)**
 
@@ -508,23 +508,23 @@ Returns:
 </details>
 
 ```grain
-(^) : (value1: Number, value2: Number) => Number
+(^): (value1: Number, value2: Number) => Number
 ```
 
 Computes the bitwise XOR (`^`) on the given operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value1`|`Number`|The first operand|
-|`value2`|`Number`|The second operand|
+| param    | type     | description        |
+| -------- | -------- | ------------------ |
+| `value1` | `Number` | The first operand  |
+| `value2` | `Number` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|Containing a `1` in each bit position for which the corresponding bits of either but not both operands are `1`|
+| type     | description                                                                                                    |
+| -------- | -------------------------------------------------------------------------------------------------------------- |
+| `Number` | Containing a `1` in each bit position for which the corresponding bits of either but not both operands are `1` |
 
 ### Numbers.**(>>)**
 
@@ -542,23 +542,23 @@ Returns:
 </details>
 
 ```grain
-(>>) : (value: Number, amount: Number) => Number
+(>>): (value: Number, amount: Number) => Number
 ```
 
 Shifts the bits of the value right by the given number of bits.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Number`|The value to shift|
-|`amount`|`Number`|The amount to shift by|
+| param    | type     | description            |
+| -------- | -------- | ---------------------- |
+| `value`  | `Number` | The value to shift     |
+| `amount` | `Number` | The amount to shift by |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The shifted value|
+| type     | description       |
+| -------- | ----------------- |
+| `Number` | The shifted value |
 
 ### Numbers.**coerceNumberToInt8**
 
@@ -568,22 +568,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceNumberToInt8 : (number: Number) => Int8
+coerceNumberToInt8: (number: Number) => Int8
 ```
 
 Converts a Number to an Int8.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`number`|`Number`|The value to convert|
+| param    | type     | description          |
+| -------- | -------- | -------------------- |
+| `number` | `Number` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int8`|The Number represented as an Int8|
+| type   | description                       |
+| ------ | --------------------------------- |
+| `Int8` | The Number represented as an Int8 |
 
 ### Numbers.**coerceNumberToInt16**
 
@@ -593,22 +593,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceNumberToInt16 : (number: Number) => Int16
+coerceNumberToInt16: (number: Number) => Int16
 ```
 
 Converts a Number to an Int16.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`number`|`Number`|The value to convert|
+| param    | type     | description          |
+| -------- | -------- | -------------------- |
+| `number` | `Number` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int16`|The Number represented as an Int16|
+| type    | description                        |
+| ------- | ---------------------------------- |
+| `Int16` | The Number represented as an Int16 |
 
 ### Numbers.**coerceNumberToUint8**
 
@@ -618,22 +618,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceNumberToUint8 : (number: Number) => Uint8
+coerceNumberToUint8: (number: Number) => Uint8
 ```
 
 Converts a Number to a Uint8.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`number`|`Number`|The value to convert|
+| param    | type     | description          |
+| -------- | -------- | -------------------- |
+| `number` | `Number` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Uint8`|The Number represented as a Uint8|
+| type    | description                       |
+| ------- | --------------------------------- |
+| `Uint8` | The Number represented as a Uint8 |
 
 ### Numbers.**coerceNumberToUint16**
 
@@ -643,22 +643,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceNumberToUint16 : (number: Number) => Uint16
+coerceNumberToUint16: (number: Number) => Uint16
 ```
 
 Converts a Number to a Uint16.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`number`|`Number`|The value to convert|
+| param    | type     | description          |
+| -------- | -------- | -------------------- |
+| `number` | `Number` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Uint16`|The Number represented as a Uint16|
+| type     | description                        |
+| -------- | ---------------------------------- |
+| `Uint16` | The Number represented as a Uint16 |
 
 ### Numbers.**coerceNumberToInt32**
 
@@ -668,22 +668,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceNumberToInt32 : (number: Number) => Int32
+coerceNumberToInt32: (number: Number) => Int32
 ```
 
 Converts a Number to an Int32.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`number`|`Number`|The value to convert|
+| param    | type     | description          |
+| -------- | -------- | -------------------- |
+| `number` | `Number` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int32`|The Number represented as an Int32|
+| type    | description                        |
+| ------- | ---------------------------------- |
+| `Int32` | The Number represented as an Int32 |
 
 ### Numbers.**coerceNumberToInt64**
 
@@ -693,22 +693,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceNumberToInt64 : (number: Number) => Int64
+coerceNumberToInt64: (number: Number) => Int64
 ```
 
 Converts a Number to an Int64.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`number`|`Number`|The value to convert|
+| param    | type     | description          |
+| -------- | -------- | -------------------- |
+| `number` | `Number` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Int64`|The Number represented as an Int64|
+| type    | description                        |
+| ------- | ---------------------------------- |
+| `Int64` | The Number represented as an Int64 |
 
 ### Numbers.**coerceNumberToBigInt**
 
@@ -718,22 +718,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceNumberToBigInt : (number: Number) => BigInt
+coerceNumberToBigInt: (number: Number) => BigInt
 ```
 
 Converts a Number to a BigInt.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`number`|`Number`|The value to convert|
+| param    | type     | description          |
+| -------- | -------- | -------------------- |
+| `number` | `Number` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`BigInt`|The Number represented as a BigInt|
+| type     | description                        |
+| -------- | ---------------------------------- |
+| `BigInt` | The Number represented as a BigInt |
 
 ### Numbers.**coerceNumberToRational**
 
@@ -743,22 +743,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceNumberToRational : (number: Number) => Rational
+coerceNumberToRational: (number: Number) => Rational
 ```
 
 Converts a Number to a Rational.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`number`|`Number`|The value to convert|
+| param    | type     | description          |
+| -------- | -------- | -------------------- |
+| `number` | `Number` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Rational`|The Number represented as a Rational|
+| type       | description                          |
+| ---------- | ------------------------------------ |
+| `Rational` | The Number represented as a Rational |
 
 ### Numbers.**coerceNumberToFloat32**
 
@@ -768,22 +768,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceNumberToFloat32 : (number: Number) => Float32
+coerceNumberToFloat32: (number: Number) => Float32
 ```
 
 Converts a Number to a Float32.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`number`|`Number`|The value to convert|
+| param    | type     | description          |
+| -------- | -------- | -------------------- |
+| `number` | `Number` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Float32`|The Number represented as a Float32|
+| type      | description                         |
+| --------- | ----------------------------------- |
+| `Float32` | The Number represented as a Float32 |
 
 ### Numbers.**coerceNumberToFloat64**
 
@@ -793,22 +793,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceNumberToFloat64 : (number: Number) => Float64
+coerceNumberToFloat64: (number: Number) => Float64
 ```
 
 Converts a Number to a Float64.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`number`|`Number`|The value to convert|
+| param    | type     | description          |
+| -------- | -------- | -------------------- |
+| `number` | `Number` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Float64`|The Number represented as a Float64|
+| type      | description                         |
+| --------- | ----------------------------------- |
+| `Float64` | The Number represented as a Float64 |
 
 ### Numbers.**coerceInt8ToNumber**
 
@@ -818,22 +818,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceInt8ToNumber : (value: Int8) => Number
+coerceInt8ToNumber: (value: Int8) => Number
 ```
 
 Converts an Int8 to a Number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int8`|The value to convert|
+| param   | type   | description          |
+| ------- | ------ | -------------------- |
+| `value` | `Int8` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The Int8 represented as a Number|
+| type     | description                      |
+| -------- | -------------------------------- |
+| `Number` | The Int8 represented as a Number |
 
 ### Numbers.**coerceInt16ToNumber**
 
@@ -843,22 +843,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceInt16ToNumber : (value: Int16) => Number
+coerceInt16ToNumber: (value: Int16) => Number
 ```
 
 Converts an Int16 to a Number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int16`|The value to convert|
+| param   | type    | description          |
+| ------- | ------- | -------------------- |
+| `value` | `Int16` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The Int16 represented as a Number|
+| type     | description                       |
+| -------- | --------------------------------- |
+| `Number` | The Int16 represented as a Number |
 
 ### Numbers.**coerceUint8ToNumber**
 
@@ -868,22 +868,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceUint8ToNumber : (value: Uint8) => Number
+coerceUint8ToNumber: (value: Uint8) => Number
 ```
 
 Converts a Uint8 to a Number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Uint8`|The value to convert|
+| param   | type    | description          |
+| ------- | ------- | -------------------- |
+| `value` | `Uint8` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The Uint8 represented as a Number|
+| type     | description                       |
+| -------- | --------------------------------- |
+| `Number` | The Uint8 represented as a Number |
 
 ### Numbers.**coerceUint16ToNumber**
 
@@ -893,22 +893,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceUint16ToNumber : (value: Uint16) => Number
+coerceUint16ToNumber: (value: Uint16) => Number
 ```
 
 Converts a Uint16 to a Number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Uint16`|The value to convert|
+| param   | type     | description          |
+| ------- | -------- | -------------------- |
+| `value` | `Uint16` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The Uint16 represented as a Number|
+| type     | description                        |
+| -------- | ---------------------------------- |
+| `Number` | The Uint16 represented as a Number |
 
 ### Numbers.**coerceInt32ToNumber**
 
@@ -918,22 +918,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceInt32ToNumber : (value: Int32) => Number
+coerceInt32ToNumber: (value: Int32) => Number
 ```
 
 Converts an Int32 to a Number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int32`|The value to convert|
+| param   | type    | description          |
+| ------- | ------- | -------------------- |
+| `value` | `Int32` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The Int32 represented as a Number|
+| type     | description                       |
+| -------- | --------------------------------- |
+| `Number` | The Int32 represented as a Number |
 
 ### Numbers.**coerceInt64ToNumber**
 
@@ -943,22 +943,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceInt64ToNumber : (value: Int64) => Number
+coerceInt64ToNumber: (value: Int64) => Number
 ```
 
 Converts an Int64 to a Number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int64`|The value to convert|
+| param   | type    | description          |
+| ------- | ------- | -------------------- |
+| `value` | `Int64` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The Int64 represented as a Number|
+| type     | description                       |
+| -------- | --------------------------------- |
+| `Number` | The Int64 represented as a Number |
 
 ### Numbers.**coerceBigIntToNumber**
 
@@ -968,22 +968,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceBigIntToNumber : (num: BigInt) => Number
+coerceBigIntToNumber: (num: BigInt) => Number
 ```
 
 Converts a BigInt to a Number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`num`|`BigInt`|The value to convert|
+| param | type     | description          |
+| ----- | -------- | -------------------- |
+| `num` | `BigInt` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The BigInt represented as a Number|
+| type     | description                        |
+| -------- | ---------------------------------- |
+| `Number` | The BigInt represented as a Number |
 
 ### Numbers.**coerceRationalToNumber**
 
@@ -993,22 +993,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceRationalToNumber : (rational: Rational) => Number
+coerceRationalToNumber: (rational: Rational) => Number
 ```
 
 Converts a Rational to a Number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`rational`|`Rational`|The value to convert|
+| param      | type       | description          |
+| ---------- | ---------- | -------------------- |
+| `rational` | `Rational` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The Rational represented as a Number|
+| type     | description                          |
+| -------- | ------------------------------------ |
+| `Number` | The Rational represented as a Number |
 
 ### Numbers.**coerceFloat32ToNumber**
 
@@ -1018,22 +1018,22 @@ No other changes yet.
 </details>
 
 ```grain
-coerceFloat32ToNumber : (float: Float32) => Number
+coerceFloat32ToNumber: (float: Float32) => Number
 ```
 
 Converts a Float32 to a Number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`float`|`Float32`|The value to convert|
+| param   | type      | description          |
+| ------- | --------- | -------------------- |
+| `float` | `Float32` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The Float32 represented as a Number|
+| type     | description                         |
+| -------- | ----------------------------------- |
+| `Number` | The Float32 represented as a Number |
 
 ### Numbers.**coerceFloat64ToNumber**
 
@@ -1043,33 +1043,33 @@ No other changes yet.
 </details>
 
 ```grain
-coerceFloat64ToNumber : (float: Float64) => Number
+coerceFloat64ToNumber: (float: Float64) => Number
 ```
 
 Converts a Float64 to a Number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`float`|`Float64`|The value to convert|
+| param   | type      | description          |
+| ------- | --------- | -------------------- |
+| `float` | `Float64` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The Float64 represented as a Number|
+| type     | description                         |
+| -------- | ----------------------------------- |
+| `Number` | The Float64 represented as a Number |
 
 ### Numbers.**convertExactToInexact**
 
 ```grain
-convertExactToInexact : (x: Number) => Number
+convertExactToInexact: (x: Number) => Number
 ```
 
 ### Numbers.**convertInexactToExact**
 
 ```grain
-convertInexactToExact : (x: Number) => Number
+convertInexactToExact: (x: Number) => Number
 ```
 
 ### Numbers.**(+)**
@@ -1080,23 +1080,23 @@ No other changes yet.
 </details>
 
 ```grain
-(+) : (num1: Number, num2: Number) => Number
+(+): (num1: Number, num2: Number) => Number
 ```
 
 Computes the sum of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`num1`|`Number`|The first operand|
-|`num2`|`Number`|The second operand|
+| param  | type     | description        |
+| ------ | -------- | ------------------ |
+| `num1` | `Number` | The first operand  |
+| `num2` | `Number` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The sum of the two operands|
+| type     | description                 |
+| -------- | --------------------------- |
+| `Number` | The sum of the two operands |
 
 ### Numbers.**(-)**
 
@@ -1106,23 +1106,23 @@ No other changes yet.
 </details>
 
 ```grain
-(-) : (num1: Number, num2: Number) => Number
+(-): (num1: Number, num2: Number) => Number
 ```
 
 Computes the difference of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`num1`|`Number`|The first operand|
-|`num2`|`Number`|The second operand|
+| param  | type     | description        |
+| ------ | -------- | ------------------ |
+| `num1` | `Number` | The first operand  |
+| `num2` | `Number` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The difference of the two operands|
+| type     | description                        |
+| -------- | ---------------------------------- |
+| `Number` | The difference of the two operands |
 
 ### Numbers.**(*)**
 
@@ -1132,23 +1132,23 @@ No other changes yet.
 </details>
 
 ```grain
-(*) : (num1: Number, num2: Number) => Number
+(*): (num1: Number, num2: Number) => Number
 ```
 
 Computes the product of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`num1`|`Number`|The first operand|
-|`num2`|`Number`|The second operand|
+| param  | type     | description        |
+| ------ | -------- | ------------------ |
+| `num1` | `Number` | The first operand  |
+| `num2` | `Number` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The product of the two operands|
+| type     | description                     |
+| -------- | ------------------------------- |
+| `Number` | The product of the two operands |
 
 ### Numbers.**(/)**
 
@@ -1158,23 +1158,23 @@ No other changes yet.
 </details>
 
 ```grain
-(/) : (num1: Number, num2: Number) => Number
+(/): (num1: Number, num2: Number) => Number
 ```
 
 Computes the quotient of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`num1`|`Number`|The first operand|
-|`num2`|`Number`|The second operand|
+| param  | type     | description        |
+| ------ | -------- | ------------------ |
+| `num1` | `Number` | The first operand  |
+| `num2` | `Number` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The quotient of the two operands|
+| type     | description                      |
+| -------- | -------------------------------- |
+| `Number` | The quotient of the two operands |
 
 ### Numbers.**(%)**
 
@@ -1184,7 +1184,7 @@ No other changes yet.
 </details>
 
 ```grain
-(%) : (num1: Number, num2: Number) => Number
+(%): (num1: Number, num2: Number) => Number
 ```
 
 Computes the remainder of the division of the first operand by the second.
@@ -1192,16 +1192,16 @@ The result will have the sign of the second operand.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`num1`|`Number`|The first operand|
-|`num2`|`Number`|The second operand|
+| param  | type     | description        |
+| ------ | -------- | ------------------ |
+| `num1` | `Number` | The first operand  |
+| `num2` | `Number` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The modulus of its operands|
+| type     | description                 |
+| -------- | --------------------------- |
+| `Number` | The modulus of its operands |
 
 ### Numbers.**incr**
 
@@ -1211,22 +1211,22 @@ No other changes yet.
 </details>
 
 ```grain
-incr : (value: Number) => Number
+incr: (value: Number) => Number
 ```
 
 Increments the value by one.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Number`|The value to increment|
+| param   | type     | description            |
+| ------- | -------- | ---------------------- |
+| `value` | `Number` | The value to increment |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The incremented value|
+| type     | description           |
+| -------- | --------------------- |
+| `Number` | The incremented value |
 
 ### Numbers.**decr**
 
@@ -1236,27 +1236,27 @@ No other changes yet.
 </details>
 
 ```grain
-decr : (value: Number) => Number
+decr: (value: Number) => Number
 ```
 
 Decrements the value by one.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Number`|The value to decrement|
+| param   | type     | description            |
+| ------- | -------- | ---------------------- |
+| `value` | `Number` | The value to decrement |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The decremented value|
+| type     | description           |
+| -------- | --------------------- |
+| `Number` | The decremented value |
 
 ### Numbers.**isBigInt**
 
 ```grain
-isBigInt : (x: a) => Bool
+isBigInt: (x: a) => Bool
 ```
 
 ### Numbers.**scalbn**
@@ -1267,23 +1267,29 @@ No other changes yet.
 </details>
 
 ```grain
-scalbn : (x: WasmF64, n: WasmI32) => WasmF64
+scalbn: (x: WasmF64, n: WasmI32) => WasmF64
 ```
 
 Multiplies a floating-point number by an integral power of 2.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`WasmF64`|The floating-point value|
-|`n`|`WasmI32`|The Integer exponent|
+| param | type      | description              |
+| ----- | --------- | ------------------------ |
+| `x`   | `WasmF64` | The floating-point value |
+| `n`   | `WasmI32` | The Integer exponent     |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`WasmF64`|The result of x * 2^n|
+| type      | description           |
+| --------- | --------------------- |
+| `WasmF64` | The result of x * 2^n |
+
+### Numbers.**powf**
+
+```grain
+powf: (x: WasmF64, y: WasmF64) => WasmF64
+```
 
 ### Numbers.**(\*\*)**
 
@@ -1300,21 +1306,21 @@ Returns:
 </details>
 
 ```grain
-(**) : (base: Number, power: Number) => Number
+(**): (base: Number, power: Number) => Number
 ```
 
 Computes the exponentiation of the given base and power.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`base`|`Number`|The base number|
-|`power`|`Number`|The exponent number|
+| param   | type     | description         |
+| ------- | -------- | ------------------- |
+| `base`  | `Number` | The base number     |
+| `power` | `Number` | The exponent number |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The base raised to the given power|
+| type     | description                        |
+| -------- | ---------------------------------- |
+| `Number` | The base raised to the given power |
 

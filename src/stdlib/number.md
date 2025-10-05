@@ -90,7 +90,7 @@ No other changes yet.
 </details>
 
 ```grain
-pi : Number
+pi: Number
 ```
 
 Pi represented as a Number value.
@@ -103,7 +103,7 @@ No other changes yet.
 </details>
 
 ```grain
-tau : Number
+tau: Number
 ```
 
 Tau represented as a Number value.
@@ -116,7 +116,7 @@ No other changes yet.
 </details>
 
 ```grain
-e : Number
+e: Number
 ```
 
 Euler's number represented as a Number value.
@@ -136,28 +136,28 @@ Euler's number represented as a Number value.
 </details>
 
 ```grain
-(+) : (num1: Number, num2: Number) => Number
+(+): (num1: Number, num2: Number) => Number
 ```
 
 Computes the sum of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`num1`|`Number`|The first operand|
-|`num2`|`Number`|The second operand|
+| param  | type     | description        |
+| ------ | -------- | ------------------ |
+| `num1` | `Number` | The first operand  |
+| `num2` | `Number` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The sum of the two operands|
+| type     | description                 |
+| -------- | --------------------------- |
+| `Number` | The sum of the two operands |
 
 Examples:
 
 ```grain
-from Number use { (+) }
+use Number.{ (+) }
 assert 1 + 2 == 3
 ```
 
@@ -176,28 +176,28 @@ assert 1 + 2 == 3
 </details>
 
 ```grain
-(-) : (num1: Number, num2: Number) => Number
+(-): (num1: Number, num2: Number) => Number
 ```
 
 Computes the difference of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`num1`|`Number`|The first operand|
-|`num2`|`Number`|The second operand|
+| param  | type     | description        |
+| ------ | -------- | ------------------ |
+| `num1` | `Number` | The first operand  |
+| `num2` | `Number` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The difference of the two operands|
+| type     | description                        |
+| -------- | ---------------------------------- |
+| `Number` | The difference of the two operands |
 
 Examples:
 
 ```grain
-from Number use { (-) }
+use Number.{ (-) }
 assert 5 - 2 == 3
 ```
 
@@ -216,28 +216,28 @@ assert 5 - 2 == 3
 </details>
 
 ```grain
-(*) : (num1: Number, num2: Number) => Number
+(*): (num1: Number, num2: Number) => Number
 ```
 
 Computes the product of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`num1`|`Number`|The first operand|
-|`num2`|`Number`|The second operand|
+| param  | type     | description        |
+| ------ | -------- | ------------------ |
+| `num1` | `Number` | The first operand  |
+| `num2` | `Number` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The product of the two operands|
+| type     | description                     |
+| -------- | ------------------------------- |
+| `Number` | The product of the two operands |
 
 Examples:
 
 ```grain
-from Number use { (*) }
+use Number.{ (*) }
 assert 5 * 4 == 20
 ```
 
@@ -256,29 +256,63 @@ assert 5 * 4 == 20
 </details>
 
 ```grain
-(/) : (num1: Number, num2: Number) => Number
+(/): (num1: Number, num2: Number) => Number
 ```
 
 Computes the quotient of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`num1`|`Number`|The dividend|
-|`num2`|`Number`|The divisor|
+| param  | type     | description  |
+| ------ | -------- | ------------ |
+| `num1` | `Number` | The dividend |
+| `num2` | `Number` | The divisor  |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The quotient of the two operands|
+| type     | description                      |
+| -------- | -------------------------------- |
+| `Number` | The quotient of the two operands |
 
 Examples:
 
 ```grain
-from Number use { (/) }
+use Number.{ (/) }
 assert 10 / 2.5 == 4
+```
+
+### Number.**(%)**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.1</code></summary>
+No other changes yet.
+</details>
+
+```grain
+(%): (num1: Number, num2: Number) => Number
+```
+
+Computes the remainder of the division of the first operand by the second.
+The result will have the sign of the second operand.
+
+Parameters:
+
+| param  | type     | description        |
+| ------ | -------- | ------------------ |
+| `num1` | `Number` | The first operand  |
+| `num2` | `Number` | The second operand |
+
+Returns:
+
+| type     | description                 |
+| -------- | --------------------------- |
+| `Number` | The modulus of its operands |
+
+Examples:
+
+```grain
+use Number.{ (%) }
+assert 10 % 3 == 1
 ```
 
 ### Number.**(\*\*)**
@@ -296,29 +330,237 @@ assert 10 / 2.5 == 4
 </details>
 
 ```grain
-(**) : (base: Number, power: Number) => Number
+(**): (base: Number, power: Number) => Number
 ```
 
 Computes the exponentiation of the given base and power.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`base`|`Number`|The base number|
-|`power`|`Number`|The exponent number|
+| param   | type     | description         |
+| ------- | -------- | ------------------- |
+| `base`  | `Number` | The base number     |
+| `power` | `Number` | The exponent number |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The base raised to the given power|
+| type     | description                        |
+| -------- | ---------------------------------- |
+| `Number` | The base raised to the given power |
 
 Examples:
 
 ```grain
-from Number use { (**) }
+use Number.{ (**) }
 assert 10 ** 2 == 100
+```
+
+### Number.**(==)**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.1</code></summary>
+No other changes yet.
+</details>
+
+```grain
+(==): (x: Number, y: Number) => Bool
+```
+
+Checks if the first value is equal to the second value.
+
+Parameters:
+
+| param | type     | description      |
+| ----- | -------- | ---------------- |
+| `x`   | `Number` | The first value  |
+| `y`   | `Number` | The second value |
+
+Returns:
+
+| type   | description                                                                 |
+| ------ | --------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is equal to the second value or `false` otherwise |
+
+Examples:
+
+```grain
+use Number.{ (==) }
+assert 1 == 1
+```
+
+### Number.**(!=)**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.1</code></summary>
+No other changes yet.
+</details>
+
+```grain
+(!=): (x: Number, y: Number) => Bool
+```
+
+Checks if the first value is equal to the second value.
+
+Parameters:
+
+| param | type     | description      |
+| ----- | -------- | ---------------- |
+| `x`   | `Number` | The first value  |
+| `y`   | `Number` | The second value |
+
+Returns:
+
+| type   | description                                                                 |
+| ------ | --------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is equal to the second value or `false` otherwise |
+
+Examples:
+
+```grain
+use Number.{ (==) }
+assert 1 == 1
+```
+
+### Number.**(<)**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.1</code></summary>
+No other changes yet.
+</details>
+
+```grain
+(<): (num1: Number, num2: Number) => Bool
+```
+
+Checks if the first value is less than the second value.
+
+Parameters:
+
+| param  | type     | description      |
+| ------ | -------- | ---------------- |
+| `num1` | `Number` | The first value  |
+| `num2` | `Number` | The second value |
+
+Returns:
+
+| type   | description                                                                  |
+| ------ | ---------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is less than the second value or `false` otherwise |
+
+Examples:
+
+```grain
+use Number.{ (<) }
+assert 1 < 5
+```
+
+### Number.**(>)**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.1</code></summary>
+No other changes yet.
+</details>
+
+```grain
+(>): (num1: Number, num2: Number) => Bool
+```
+
+Checks if the first value is greater than the second value.
+
+Parameters:
+
+| param  | type     | description      |
+| ------ | -------- | ---------------- |
+| `num1` | `Number` | The first value  |
+| `num2` | `Number` | The second value |
+
+Returns:
+
+| type   | description                                                                     |
+| ------ | ------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is greater than the second value or `false` otherwise |
+
+Examples:
+
+```grain
+use Number.{ (>) }
+assert 5 > 1
+```
+
+### Number.**(<=)**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.1</code></summary>
+No other changes yet.
+</details>
+
+```grain
+(<=): (num1: Number, num2: Number) => Bool
+```
+
+Checks if the first value is less than or equal to the second value.
+
+Parameters:
+
+| param  | type     | description      |
+| ------ | -------- | ---------------- |
+| `num1` | `Number` | The first value  |
+| `num2` | `Number` | The second value |
+
+Returns:
+
+| type   | description                                                                              |
+| ------ | ---------------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is less than or equal to the second value or `false` otherwise |
+
+Examples:
+
+```grain
+use Number.{ (<=) }
+assert 1 <= 2
+```
+
+```grain
+use Number.{ (<=) }
+assert 1 <= 1
+```
+
+### Number.**(>=)**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.1</code></summary>
+No other changes yet.
+</details>
+
+```grain
+(>=): (num1: Number, num2: Number) => Bool
+```
+
+Checks if the first value is greater than or equal to the second value.
+
+Parameters:
+
+| param  | type     | description      |
+| ------ | -------- | ---------------- |
+| `num1` | `Number` | The first value  |
+| `num2` | `Number` | The second value |
+
+Returns:
+
+| type   | description                                                                                 |
+| ------ | ------------------------------------------------------------------------------------------- |
+| `Bool` | `true` if the first value is greater than or equal to the second value or `false` otherwise |
+
+Examples:
+
+```grain
+use Number.{ (>=) }
+assert 3 >= 2
+```
+
+```grain
+use Number.{ (>=) }
+assert 1 >= 1
 ```
 
 ### Number.**exp**
@@ -329,22 +571,22 @@ No other changes yet.
 </details>
 
 ```grain
-exp : (power: Number) => Number
+exp: (power: Number) => Number
 ```
 
 Computes the exponentiation of Euler's number to the given power.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`power`|`Number`|The exponent number|
+| param   | type     | description         |
+| ------- | -------- | ------------------- |
+| `power` | `Number` | The exponent number |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The `Number.e` value raised to the given power|
+| type     | description                                    |
+| -------- | ---------------------------------------------- |
+| `Number` | The `Number.e` value raised to the given power |
 
 Examples:
 
@@ -364,22 +606,22 @@ No other changes yet.
 </details>
 
 ```grain
-sqrt : (x: Number) => Number
+sqrt: (x: Number) => Number
 ```
 
 Computes the square root of its operand.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Number`|The number to square root|
+| param | type     | description               |
+| ----- | -------- | ------------------------- |
+| `x`   | `Number` | The number to square root |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The square root of the operand|
+| type     | description                    |
+| -------- | ------------------------------ |
+| `Number` | The square root of the operand |
 
 Examples:
 
@@ -395,22 +637,22 @@ No other changes yet.
 </details>
 
 ```grain
-sign : (x: Number) => Number
+sign: (x: Number) => Number
 ```
 
 Determine the positivity or negativity of a Number.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Number`|The number to inspect|
+| param | type     | description           |
+| ----- | -------- | --------------------- |
+| `x`   | `Number` | The number to inspect |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|`-1` if the number is negative, `1` if positive, or `0` otherwise; signedness of `-0.0` is preserved|
+| type     | description                                                                                          |
+| -------- | ---------------------------------------------------------------------------------------------------- |
+| `Number` | `-1` if the number is negative, `1` if positive, or `0` otherwise; signedness of `-0.0` is preserved |
 
 Examples:
 
@@ -441,23 +683,23 @@ Number.sign(0) == 0
 </details>
 
 ```grain
-min : (x: Number, y: Number) => Number
+min: (x: Number, y: Number) => Number
 ```
 
 Returns the smaller of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Number`|The first operand|
-|`y`|`Number`|The second operand|
+| param | type     | description        |
+| ----- | -------- | ------------------ |
+| `x`   | `Number` | The first operand  |
+| `y`   | `Number` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The smaller of the two operands|
+| type     | description                     |
+| -------- | ------------------------------- |
+| `Number` | The smaller of the two operands |
 
 Examples:
 
@@ -480,23 +722,23 @@ Number.min(5, 2) == 2
 </details>
 
 ```grain
-max : (x: Number, y: Number) => Number
+max: (x: Number, y: Number) => Number
 ```
 
 Returns the larger of its operands.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Number`|The first operand|
-|`y`|`Number`|The second operand|
+| param | type     | description        |
+| ----- | -------- | ------------------ |
+| `x`   | `Number` | The first operand  |
+| `y`   | `Number` | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The larger of the two operands|
+| type     | description                    |
+| -------- | ------------------------------ |
+| `Number` | The larger of the two operands |
 
 Examples:
 
@@ -519,22 +761,22 @@ Number.max(5, 2) == 5
 </details>
 
 ```grain
-ceil : (x: Number) => Number
+ceil: (x: Number) => Number
 ```
 
 Rounds its operand up to the next largest integer.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Number`|The number to round|
+| param | type     | description         |
+| ----- | -------- | ------------------- |
+| `x`   | `Number` | The number to round |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The next largest integer of the operand|
+| type     | description                             |
+| -------- | --------------------------------------- |
+| `Number` | The next largest integer of the operand |
 
 Examples:
 
@@ -561,22 +803,22 @@ Number.ceil(-5.5) == -5
 </details>
 
 ```grain
-floor : (x: Number) => Number
+floor: (x: Number) => Number
 ```
 
 Rounds its operand down to the largest integer less than the operand.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Number`|The number to round|
+| param | type     | description         |
+| ----- | -------- | ------------------- |
+| `x`   | `Number` | The number to round |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The previous integer of the operand|
+| type     | description                         |
+| -------- | ----------------------------------- |
+| `Number` | The previous integer of the operand |
 
 Examples:
 
@@ -603,22 +845,22 @@ Number.floor(-5.5) == -6
 </details>
 
 ```grain
-trunc : (x: Number) => Number
+trunc: (x: Number) => Number
 ```
 
 Returns the integer part of its operand, removing any fractional value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Number`|The number to truncate|
+| param | type     | description            |
+| ----- | -------- | ---------------------- |
+| `x`   | `Number` | The number to truncate |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The integer part of the operand|
+| type     | description                     |
+| -------- | ------------------------------- |
+| `Number` | The integer part of the operand |
 
 Examples:
 
@@ -641,22 +883,22 @@ Number.trunc(5.5) == 5
 </details>
 
 ```grain
-round : (x: Number) => Number
+round: (x: Number) => Number
 ```
 
 Returns its operand rounded to its nearest integer.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Number`|The number to round|
+| param | type     | description         |
+| ----- | -------- | ------------------- |
+| `x`   | `Number` | The number to round |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The nearest integer to the operand|
+| type     | description                        |
+| -------- | ---------------------------------- |
+| `Number` | The nearest integer to the operand |
 
 Examples:
 
@@ -684,22 +926,22 @@ No other changes yet.
 </details>
 
 ```grain
-abs : (x: Number) => Number
+abs: (x: Number) => Number
 ```
 
 Returns the absolute value of a number. That is, it returns `x` if `x` is positive or zero and the negation of `x` if `x` is negative.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Number`|The operand|
+| param | type     | description |
+| ----- | -------- | ----------- |
+| `x`   | `Number` | The operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The absolute value of the operand|
+| type     | description                       |
+| -------- | --------------------------------- |
+| `Number` | The absolute value of the operand |
 
 Examples:
 
@@ -719,22 +961,22 @@ No other changes yet.
 </details>
 
 ```grain
-neg : (x: Number) => Number
+neg: (x: Number) => Number
 ```
 
 Returns the negation of its operand.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Number`|The number to negate|
+| param | type     | description          |
+| ----- | -------- | -------------------- |
+| `x`   | `Number` | The number to negate |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The negated operand|
+| type     | description         |
+| -------- | ------------------- |
+| `Number` | The negated operand |
 
 Examples:
 
@@ -754,22 +996,22 @@ No other changes yet.
 </details>
 
 ```grain
-isFloat : (x: Number) => Bool
+isFloat: (x: Number) => Bool
 ```
 
 Checks if a number is a floating point value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Number`|The number to check|
+| param | type     | description         |
+| ----- | -------- | ------------------- |
+| `x`   | `Number` | The number to check |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the value is a floating point number or `false` otherwise|
+| type   | description                                                         |
+| ------ | ------------------------------------------------------------------- |
+| `Bool` | `true` if the value is a floating point number or `false` otherwise |
 
 Examples:
 
@@ -805,22 +1047,22 @@ No other changes yet.
 </details>
 
 ```grain
-isInteger : (x: Number) => Bool
+isInteger: (x: Number) => Bool
 ```
 
 Checks if a number is an integer.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Number`|The number to check|
+| param | type     | description         |
+| ----- | -------- | ------------------- |
+| `x`   | `Number` | The number to check |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the value is an integer or `false` otherwise|
+| type   | description                                            |
+| ------ | ------------------------------------------------------ |
+| `Bool` | `true` if the value is an integer or `false` otherwise |
 
 Examples:
 
@@ -856,22 +1098,22 @@ No other changes yet.
 </details>
 
 ```grain
-isRational : (x: Number) => Bool
+isRational: (x: Number) => Bool
 ```
 
 Checks if a number is a non-integer rational value.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Number`|The number to check|
+| param | type     | description         |
+| ----- | -------- | ------------------- |
+| `x`   | `Number` | The number to check |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the value is a non-integer rational number or `false` otherwise|
+| type   | description                                                               |
+| ------ | ------------------------------------------------------------------------- |
+| `Bool` | `true` if the value is a non-integer rational number or `false` otherwise |
 
 Examples:
 
@@ -907,7 +1149,7 @@ No other changes yet.
 </details>
 
 ```grain
-isFinite : (x: Number) => Bool
+isFinite: (x: Number) => Bool
 ```
 
 Checks if a number is finite.
@@ -915,15 +1157,15 @@ All values are finite exept for floating point NaN, infinity or negative infinit
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Number`|The number to check|
+| param | type     | description         |
+| ----- | -------- | ------------------- |
+| `x`   | `Number` | The number to check |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the value is finite or `false` otherwise|
+| type   | description                                        |
+| ------ | -------------------------------------------------- |
+| `Bool` | `true` if the value is finite or `false` otherwise |
 
 Examples:
 
@@ -963,22 +1205,22 @@ No other changes yet.
 </details>
 
 ```grain
-isNaN : (x: Number) => Bool
+isNaN: (x: Number) => Bool
 ```
 
 Checks if a number is the float NaN value (Not A Number).
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Number`|The number to check|
+| param | type     | description         |
+| ----- | -------- | ------------------- |
+| `x`   | `Number` | The number to check |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the value is NaN, otherwise `false`|
+| type   | description                                   |
+| ------ | --------------------------------------------- |
+| `Bool` | `true` if the value is NaN, otherwise `false` |
 
 Examples:
 
@@ -1018,7 +1260,7 @@ No other changes yet.
 </details>
 
 ```grain
-isInfinite : (x: Number) => Bool
+isInfinite: (x: Number) => Bool
 ```
 
 Checks if a number is infinite, that is either of floating point positive or negative infinity.
@@ -1026,15 +1268,15 @@ Note that this function is not the exact opposite of isFinite(Number) in that it
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Number`|The number to check|
+| param | type     | description         |
+| ----- | -------- | ------------------- |
+| `x`   | `Number` | The number to check |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the value is infinite or `false` otherwise|
+| type   | description                                          |
+| ------ | ---------------------------------------------------- |
+| `Bool` | `true` if the value is infinite or `false` otherwise |
 
 Examples:
 
@@ -1074,7 +1316,7 @@ No other changes yet.
 </details>
 
 ```grain
-isClose :
+isClose:
   (a: Number, b: Number, ?relativeTolerance: Number,
    ?absoluteTolerance: Number) => Bool
 ```
@@ -1083,18 +1325,18 @@ Determines whether two values are considered close to each other using a relativ
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`a`|`Number`|The first value|
-|`b`|`Number`|The second value|
-|`?relativeTolerance`|`Number`|The maximum tolerance to use relative to the larger absolute value `a` or `b`|
-|`?absoluteTolerance`|`Number`|The absolute tolerance to use, regardless of the values of `a` or `b`|
+| param                | type     | description                                                                   |
+| -------------------- | -------- | ----------------------------------------------------------------------------- |
+| `a`                  | `Number` | The first value                                                               |
+| `b`                  | `Number` | The second value                                                              |
+| `?relativeTolerance` | `Number` | The maximum tolerance to use relative to the larger absolute value `a` or `b` |
+| `?absoluteTolerance` | `Number` | The absolute tolerance to use, regardless of the values of `a` or `b`         |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the values are considered close to each other or `false` otherwise|
+| type   | description                                                                  |
+| ------ | ---------------------------------------------------------------------------- |
+| `Bool` | `true` if the values are considered close to each other or `false` otherwise |
 
 Examples:
 
@@ -1145,7 +1387,7 @@ Number.isClose(4, 4.1, relativeTolerance=0.024) == false
 </details>
 
 ```grain
-parseInt :
+parseInt:
   (string: String, radix: Number) => Result<Number, Atoi.ParseIntError>
 ```
 
@@ -1159,16 +1401,16 @@ input are ignored.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`string`|`String`|The string to parse|
-|`radix`|`Number`|The number system base to use when parsing the input string|
+| param    | type     | description                                                 |
+| -------- | -------- | ----------------------------------------------------------- |
+| `string` | `String` | The string to parse                                         |
+| `radix`  | `Number` | The number system base to use when parsing the input string |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<Number, Atoi.ParseIntError>`|`Ok(value)` containing the parsed number on a successful parse or `Err(err)` containing a variant of `ParseIntError`|
+| type                                 | description                                                                                                          |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| `Result<Number, Atoi.ParseIntError>` | `Ok(value)` containing the parsed number on a successful parse or `Err(err)` containing a variant of `ParseIntError` |
 
 Examples:
 
@@ -1192,7 +1434,7 @@ No other changes yet.
 </details>
 
 ```grain
-parseFloat : (string: String) => Result<Number, String>
+parseFloat: (string: String) => Result<Number, String>
 ```
 
 Parses a string representation of a float into a `Number`. Underscores that appear
@@ -1200,15 +1442,15 @@ in numeric portions of the input are ignored.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`string`|`String`|The string to parse|
+| param    | type     | description         |
+| -------- | -------- | ------------------- |
+| `string` | `String` | The string to parse |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<Number, String>`|`Ok(value)` containing the parsed number on a successful parse or `Err(msg)` containing an error message string otherwise|
+| type                     | description                                                                                                               |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| `Result<Number, String>` | `Ok(value)` containing the parsed number on a successful parse or `Err(msg)` containing an error message string otherwise |
 
 Examples:
 
@@ -1232,7 +1474,7 @@ No other changes yet.
 </details>
 
 ```grain
-parse : (input: String) => Result<Number, Atoi.ParseIntError>
+parse: (input: String) => Result<Number, Atoi.ParseIntError>
 ```
 
 Parses a string representation of an integer, float, or rational into a `Number`.
@@ -1240,15 +1482,15 @@ Underscores that appear in the numeric portion of the input are ignored.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`input`|`String`|The string to parse|
+| param   | type     | description         |
+| ------- | -------- | ------------------- |
+| `input` | `String` | The string to parse |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Result<Number, Atoi.ParseIntError>`|`Ok(value)` containing the parsed number on a successful parse or `Err(msg)` containing an error message string otherwise|
+| type                                 | description                                                                                                               |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| `Result<Number, Atoi.ParseIntError>` | `Ok(value)` containing the parsed number on a successful parse or `Err(msg)` containing an error message string otherwise |
 
 Examples:
 
@@ -1276,22 +1518,22 @@ No other changes yet.
 </details>
 
 ```grain
-asin : (angle: Number) => Number
+asin: (angle: Number) => Number
 ```
 
 Computes the inverse sine of the given angle.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`angle`|`Number`|A number between -1 and 1, representing the angle's sine value|
+| param   | type     | description                                                    |
+| ------- | -------- | -------------------------------------------------------------- |
+| `angle` | `Number` | A number between -1 and 1, representing the angle's sine value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The inverse sine (angle in radians between `-pi/2` and `pi/2`) of the given `angle` or `NaN` if the given `angle` is not between`-1` and `1`|
+| type     | description                                                                                                                                  |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Number` | The inverse sine (angle in radians between `-pi/2` and `pi/2`) of the given `angle` or `NaN` if the given `angle` is not between`-1` and `1` |
 
 Examples:
 
@@ -1311,22 +1553,22 @@ No other changes yet.
 </details>
 
 ```grain
-acos : (angle: Number) => Number
+acos: (angle: Number) => Number
 ```
 
 Computes the inverse cosine of the given angle.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`angle`|`Number`|A number between -1 and 1, representing the angle's cosine value|
+| param   | type     | description                                                      |
+| ------- | -------- | ---------------------------------------------------------------- |
+| `angle` | `Number` | A number between -1 and 1, representing the angle's cosine value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The inverse cosine (angle in radians between `-pi/2` and `pi/2`) of the given `angle` or `NaN` if the given `angle` is not between`-1` and `1`|
+| type     | description                                                                                                                                    |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Number` | The inverse cosine (angle in radians between `-pi/2` and `pi/2`) of the given `angle` or `NaN` if the given `angle` is not between`-1` and `1` |
 
 Examples:
 
@@ -1346,22 +1588,22 @@ No other changes yet.
 </details>
 
 ```grain
-atan : (angle: Number) => Number
+atan: (angle: Number) => Number
 ```
 
 Computes the inverse tangent of the given angle.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`angle`|`Number`|A number between -1 and 1, representing the angle's tangent value|
+| param   | type     | description                                                       |
+| ------- | -------- | ----------------------------------------------------------------- |
+| `angle` | `Number` | A number between -1 and 1, representing the angle's tangent value |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The inverse tangent (angle in radians between `-pi/2` and `pi/2`) of the given `angle` or `NaN` if the given `angle` is not between`-1` and `1`|
+| type     | description                                                                                                                                     |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Number` | The inverse tangent (angle in radians between `-pi/2` and `pi/2`) of the given `angle` or `NaN` if the given `angle` is not between`-1` and `1` |
 
 Examples:
 
@@ -1381,23 +1623,23 @@ No other changes yet.
 </details>
 
 ```grain
-atan2 : (y: Number, x: Number) => Number
+atan2: (y: Number, x: Number) => Number
 ```
 
 Computes the angle between the positive x-axis and the ray from the origin to the point (x, y).
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`y`|`Number`|The given y coordinate|
-|`x`|`Number`|The given x coordinate|
+| param | type     | description            |
+| ----- | -------- | ---------------------- |
+| `y`   | `Number` | The given y coordinate |
+| `x`   | `Number` | The given x coordinate |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The angle in radians between the positive x-axis and the point (x, y)|
+| type     | description                                                           |
+| -------- | --------------------------------------------------------------------- |
+| `Number` | The angle in radians between the positive x-axis and the point (x, y) |
 
 Examples:
 
@@ -1413,22 +1655,22 @@ No other changes yet.
 </details>
 
 ```grain
-toRadians : (degrees: Number) => Number
+toRadians: (degrees: Number) => Number
 ```
 
 Converts degrees to radians.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`degrees`|`Number`|The value to convert|
+| param     | type     | description          |
+| --------- | -------- | -------------------- |
+| `degrees` | `Number` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The value in radians|
+| type     | description          |
+| -------- | -------------------- |
+| `Number` | The value in radians |
 
 Examples:
 
@@ -1444,22 +1686,22 @@ No other changes yet.
 </details>
 
 ```grain
-toDegrees : (radians: Number) => Number
+toDegrees: (radians: Number) => Number
 ```
 
 Converts radians to degrees.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`radians`|`Number`|The value to convert|
+| param     | type     | description          |
+| --------- | -------- | -------------------- |
+| `radians` | `Number` | The value to convert |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The value in degrees|
+| type     | description          |
+| -------- | -------------------- |
+| `Number` | The value in degrees |
 
 Examples:
 
@@ -1475,23 +1717,23 @@ No other changes yet.
 </details>
 
 ```grain
-clamp : (range: Range<Number>, input: Number) => Number
+clamp: (range: Range<Number>, input: Number) => Number
 ```
 
 Constrains a number within the given inclusive range.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`range`|`Range<Number>`|The inclusive range to clamp within|
-|`input`|`Number`|The number to clamp|
+| param   | type            | description                         |
+| ------- | --------------- | ----------------------------------- |
+| `range` | `Range<Number>` | The inclusive range to clamp within |
+| `input` | `Number`        | The number to clamp                 |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The constrained number|
+| type     | description            |
+| -------- | ---------------------- |
+| `Number` | The constrained number |
 
 ### Number.**linearInterpolate**
 
@@ -1501,23 +1743,23 @@ No other changes yet.
 </details>
 
 ```grain
-linearInterpolate : (range: Range<Number>, weight: Number) => Number
+linearInterpolate: (range: Range<Number>, weight: Number) => Number
 ```
 
 Maps a weight between 0 and 1 within the given inclusive range.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`range`|`Range<Number>`|The inclusive range to interpolate within|
-|`weight`|`Number`|The weight to interpolate|
+| param    | type            | description                               |
+| -------- | --------------- | ----------------------------------------- |
+| `range`  | `Range<Number>` | The inclusive range to interpolate within |
+| `weight` | `Number`        | The weight to interpolate                 |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The blended value|
+| type     | description       |
+| -------- | ----------------- |
+| `Number` | The blended value |
 
 Throws:
 
@@ -1535,7 +1777,7 @@ No other changes yet.
 </details>
 
 ```grain
-linearMap :
+linearMap:
   (inputRange: Range<Number>, outputRange: Range<Number>, current: Number) =>
    Number
 ```
@@ -1545,17 +1787,17 @@ If the number is outside the input range, it will be clamped.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`inputRange`|`Range<Number>`|The inclusive range you are mapping from|
-|`outputRange`|`Range<Number>`|The inclusive range you are mapping to|
-|`current`|`Number`|The number to map|
+| param         | type            | description                              |
+| ------------- | --------------- | ---------------------------------------- |
+| `inputRange`  | `Range<Number>` | The inclusive range you are mapping from |
+| `outputRange` | `Range<Number>` | The inclusive range you are mapping to   |
+| `current`     | `Number`        | The number to map                        |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Number`|The mapped number|
+| type     | description       |
+| -------- | ----------------- |
+| `Number` | The mapped number |
 
 Throws:
 
@@ -1565,4 +1807,181 @@ Throws:
 * When `inputRange` includes NaN
 * When `outputRange` is not finite
 * When `outputRange` includes NaN
+
+### Number.**sin**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+sin: (radians: Number) => Number
+```
+
+Computes the sine of a number (in radians).
+
+Parameters:
+
+| param     | type     | description          |
+| --------- | -------- | -------------------- |
+| `radians` | `Number` | The input in radians |
+
+Returns:
+
+| type     | description       |
+| -------- | ----------------- |
+| `Number` | The computed sine |
+
+Examples:
+
+```grain
+Number.sin(0) == 0
+```
+
+### Number.**cos**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+cos: (radians: Number) => Number
+```
+
+Computes the cosine of a number (in radians).
+
+Parameters:
+
+| param     | type     | description          |
+| --------- | -------- | -------------------- |
+| `radians` | `Number` | The input in radians |
+
+Returns:
+
+| type     | description         |
+| -------- | ------------------- |
+| `Number` | The computed cosine |
+
+Examples:
+
+```grain
+Number.cos(0) == 1
+```
+
+### Number.**tan**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+tan: (radians: Number) => Number
+```
+
+Computes the tangent of a number (in radians).
+
+Parameters:
+
+| param     | type     | description          |
+| --------- | -------- | -------------------- |
+| `radians` | `Number` | The input in radians |
+
+Returns:
+
+| type     | description          |
+| -------- | -------------------- |
+| `Number` | The computed tangent |
+
+Examples:
+
+```grain
+Number.tan(0) == 0
+```
+
+### Number.**gamma**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+gamma: (z: Number) => Number
+```
+
+Computes the gamma function of a value using the Lanczos approximation.
+
+Parameters:
+
+| param | type     | description              |
+| ----- | -------- | ------------------------ |
+| `z`   | `Number` | The value to interpolate |
+
+Returns:
+
+| type     | description                  |
+| -------- | ---------------------------- |
+| `Number` | The gamma of the given value |
+
+Examples:
+
+```grain
+Number.gamma(1) == 1
+```
+
+```grain
+Number.gamma(3) == 2
+```
+
+```grain
+Number.isClose(Number.gamma(0.5), Number.sqrt(Number.pi))
+```
+
+### Number.**factorial**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.7.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+factorial: (n: Number) => Number
+```
+
+Computes the factorial of an integer input or the gamma function of a non-integer input.
+
+Parameters:
+
+| param | type     | description               |
+| ----- | -------- | ------------------------- |
+| `n`   | `Number` | The value to factorialize |
+
+Returns:
+
+| type     | description                      |
+| -------- | -------------------------------- |
+| `Number` | The factorial of the given value |
+
+Throws:
+
+`InvalidArgument(String)`
+
+* When `n` is a negative integer
+
+Examples:
+
+```grain
+Number.factorial(0) == 1
+```
+
+```grain
+Number.factorial(3) == 6
+```
+
+```grain
+Number.isClose(Number.factorial(0.5), (1/2) * Number.sqrt(Number.pi))
+```
 

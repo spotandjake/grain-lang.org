@@ -14,7 +14,7 @@ No other changes yet.
 </details>
 
 ```grain
-equal : (value1: a, value2: a) => Bool
+equal: (value1: a, value2: a) => Bool
 ```
 
 Check that two values are equal. This checks for structural equality,
@@ -22,14 +22,14 @@ so it also works for comparing things like tuples and lists.
 
 Parameters:
 
-|param|type|description|
-|-----|----|-----------|
-|`value1`|`a`|The first operand|
-|`value2`|`a`|The second operand|
+| param    | type | description        |
+| -------- | ---- | ------------------ |
+| `value1` | `a`  | The first operand  |
+| `value2` | `a`  | The second operand |
 
 Returns:
 
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the values are structurally equal or `false` otherwise|
+| type   | description                                                      |
+| ------ | ---------------------------------------------------------------- |
+| `Bool` | `true` if the values are structurally equal or `false` otherwise |
 
